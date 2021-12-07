@@ -1,4 +1,4 @@
-package com.bid.bidalot.Controllers;
+package com.bid.bidalot.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
