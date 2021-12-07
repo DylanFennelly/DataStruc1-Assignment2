@@ -1,7 +1,5 @@
 package com.bid.bidalot.objects;
 
-import com.bid.bidalot.AuctionApp;
-
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -11,15 +9,15 @@ public class Lot {
     private String title, description, type, imageLink;
     private LocalDate originDate, startDate, finalSaleDate;
     private LocalTime startTime, finalSaleTime;
-    private float askingPrice, finalSalePrice;
+    private double askingPrice, finalSalePrice;
     private boolean sold;   //marks whether lot has been sold or not
     //linkedList of bids
 
     //limiting price floats to 2 decimal places   |   https://stackoverflow.com/questions/8911356/whats-the-best-practice-to-round-a-float-to-2-decimals
-    public static final DecimalFormat DF = new DecimalFormat("0.00");
+    public static final DecimalFormat DF = new DecimalFormat("#.00");
 
     //constructor
-    public Lot (String title, String description, String type, String imageLink, LocalDate originDate, float askingPrice){
+    public Lot (String title, String description, String type, String imageLink, LocalDate originDate, double askingPrice){
         //todo: validation
         this.title = title;
         this.description = description;
@@ -31,7 +29,7 @@ public class Lot {
         this.originDate = originDate;
         this.startDate = LocalDate.now();
         this.startTime = LocalTime.now();
-        this.askingPrice = Float.parseFloat(DF.format(askingPrice));
+        this.askingPrice = Double.parseDouble(DF.format(askingPrice));
         this.sold = false;
     }
 
@@ -43,7 +41,8 @@ public class Lot {
                 " | Image Link: " + imageLink + " | Origin Date: " + originDate +
                 " | Start Date: " + startDate + " | Start Time: " + startTime +
                 " | Sold Date: " + finalSaleDate +  " | Sold Time: " + finalSaleDate +
-                " | Current Asking Price: " + askingPrice + " | Sold Price: " + finalSalePrice + " | Sold Status: " + sold;
+                " | Current Asking Price: " + String.format("%.2f", askingPrice) + " | Sold Price: " + String.format("%.2f", finalSalePrice) + " | Sold Status: " + sold;
+                                            // ^ fixing an issue with both decimals places not displaying | https://java2blog.com/format-double-to-2-decimal-places-java/
     }
 
     //getters
@@ -83,11 +82,11 @@ public class Lot {
         return finalSaleTime;
     }
 
-    public float getAskingPrice() {
+    public double getAskingPrice() {
         return askingPrice;
     }
 
-    public float getFinalSalePrice() {
+    public double getFinalSalePrice() {
         return finalSalePrice;
     }
 
