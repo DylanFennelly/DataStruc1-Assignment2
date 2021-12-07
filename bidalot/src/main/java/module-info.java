@@ -5,4 +5,6 @@ module com.bid.bidalot {
 
     opens com.bid.bidalot to javafx.fxml;
     exports com.bid.bidalot;
+    exports com.bid.bidalot.Controllers;
+    opens com.bid.bidalot.Controllers to javafx.fxml;
 }
