@@ -1,5 +1,7 @@
 package com.bid.bidalot.objects;
 
+import com.bid.bidalot.AuctionApp;
+
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -13,8 +15,7 @@ public class Lot {
     private boolean sold;   //marks whether lot has been sold or not
     //linkedList of bids
 
-    //limiting price floats to 2 decimal places   |   https://stackoverflow.com/questions/8911356/whats-the-best-practice-to-round-a-float-to-2-decimals
-    public static final DecimalFormat DF = new DecimalFormat("#.00");
+
 
     //constructor
     public Lot (String title, String description, String type, String imageLink, LocalDate originDate, double askingPrice){
@@ -29,7 +30,7 @@ public class Lot {
         this.originDate = originDate;
         this.startDate = LocalDate.now();
         this.startTime = LocalTime.now();
-        this.askingPrice = Double.parseDouble(DF.format(askingPrice));
+        this.askingPrice = Double.parseDouble(AuctionApp.DF.format(askingPrice));
         this.sold = false;
     }
 
@@ -133,7 +134,7 @@ public class Lot {
     }
 
     public void setAskingPrice(float askingPrice) {
-        this.askingPrice = Float.parseFloat(DF.format(askingPrice));
+        this.askingPrice = Float.parseFloat(AuctionApp.DF.format(askingPrice));
     }
 
     public void setFinalSalePrice(float finalSalePrice) {

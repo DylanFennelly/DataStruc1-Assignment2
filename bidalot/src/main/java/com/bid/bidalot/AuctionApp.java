@@ -6,9 +6,13 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 
 
 public class AuctionApp extends Application {
+
+    //limiting price floats to 2 decimal places   |   https://stackoverflow.com/questions/8911356/whats-the-best-practice-to-round-a-float-to-2-decimals
+    public static final DecimalFormat DF = new DecimalFormat("#.00");
 
     @Override
     public void start(Stage stage) throws IOException {
