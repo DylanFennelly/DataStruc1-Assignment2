@@ -15,8 +15,6 @@ public class Lot {
     private boolean sold;   //marks whether lot has been sold or not
     //linkedList of bids
 
-
-
     //constructor
     public Lot (String title, String description, String type, String imageLink, LocalDate originDate, double askingPrice){
         //todo: validation
