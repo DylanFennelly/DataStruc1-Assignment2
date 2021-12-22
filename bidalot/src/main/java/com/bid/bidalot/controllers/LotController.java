@@ -12,16 +12,13 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
-public class StartController {
-    public static Scene lotScene;
+public class LotController {
 
     @FXML
-    protected void changeToLotMenu(ActionEvent actionEvent) throws IOException {
-        Parent lotView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("lot-view.fxml")));
-        lotScene = new Scene(lotView);
+    protected void changeToStartMenu(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        stage.setScene(lotScene);
-        stage.setTitle("Bid-A-Lot: Lots");
+        stage.setScene(AuctionApp.startScene);
+        stage.setTitle("Bid-A-Lot");
         stage.show();
     }
 }
