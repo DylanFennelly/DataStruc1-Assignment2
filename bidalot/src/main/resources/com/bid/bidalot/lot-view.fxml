@@ -2,18 +2,56 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/15" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bid.bidalot.controllers.LotController">
     <children>
-        <Label layoutX="42.0" layoutY="14.0" text="Lot View" textAlignment="CENTER">
+        <Label layoutX="22.0" layoutY="14.0" text="Lot View" textAlignment="CENTER">
             <font>
                 <Font name="System Bold" size="20.0" />
             </font>
         </Label>
-        <Button onAction="#changeToStartMenu" layoutX="22.0" layoutY="104.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Return" />
-        <Button onAction="#changeToAddMenu" layoutX="152.0" layoutY="104.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Add Lot" />
+        <Button layoutX="22.0" layoutY="55.0" mnemonicParsing="false" onAction="#changeToStartMenu" prefHeight="25.0" prefWidth="82.0" text="Return" />
+        <Button layoutX="127.0" layoutY="55.0" mnemonicParsing="false" onAction="#changeToAddMenu" prefHeight="25.0" prefWidth="82.0" text="Add Lot" />
+      <TableView fx:id="activeLotsTV" layoutX="22.0" layoutY="125.0" prefHeight="453.0" prefWidth="856.0">
+        <columns>
+          <TableColumn prefWidth="129.0" text="Title">
+              <cellValueFactory>
+                  <PropertyValueFactory property="title"/>
+              </cellValueFactory>
+          </TableColumn>
+          <TableColumn minWidth="7.0" prefWidth="92.0" text="Type">
+              <cellValueFactory>
+                  <PropertyValueFactory property="type"/>
+              </cellValueFactory>
+          </TableColumn>
+            <TableColumn prefWidth="411.0" text="Description">
+                <cellValueFactory>
+                    <PropertyValueFactory property="description"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn minWidth="0.0" prefWidth="94.0" text="Start Date">
+                <cellValueFactory>
+                    <PropertyValueFactory property="startDate"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="129.0" text="Current Bid (€)" >
+                <cellValueFactory>
+                    <PropertyValueFactory property="askingPrice"/>
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+      </TableView>
+      <Button onAction="#addDummyValues" layoutX="700.0" layoutY="55.0" mnemonicParsing="false" text="Sold Lots" />
+      <Button layoutX="798.0" layoutY="55.0" mnemonicParsing="false" text="Search" />
+      <Label layoutX="413.0" layoutY="105.0" prefHeight="20.0" prefWidth="76.0" text="Active Lots">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>
