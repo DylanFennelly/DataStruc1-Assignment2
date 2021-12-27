@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -19,6 +20,18 @@ public class LotController {
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         stage.setScene(AuctionApp.startScene);
         stage.setTitle("Bid-A-Lot");
+        stage.show();
+    }
+
+    @FXML
+    protected void changeToAddMenu(ActionEvent actionEvent) throws IOException {    //pops up in new window
+        Parent addView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("add-view.fxml")));
+        Scene addScene = new Scene(addView);
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);     //locks main window until popup window is closed  |  https://stackoverflow.com/questions/15625987/block-owner-window-java-fx
+        stage.initOwner(addView.getScene().getWindow());
+        stage.setScene(addScene);
+        stage.setTitle("Add Lot");
         stage.show();
     }
 }

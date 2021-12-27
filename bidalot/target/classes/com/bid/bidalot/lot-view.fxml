@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/15" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bid.bidalot.controllers.LotController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/15" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bid.bidalot.controllers.LotController">
     <children>
         <Label layoutX="42.0" layoutY="14.0" text="Lot View" textAlignment="CENTER">
             <font>
@@ -14,5 +14,6 @@
             </font>
         </Label>
         <Button onAction="#changeToStartMenu" layoutX="22.0" layoutY="104.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Return" />
+        <Button onAction="#changeToAddMenu" layoutX="152.0" layoutY="104.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="Add Lot" />
     </children>
 </AnchorPane>
