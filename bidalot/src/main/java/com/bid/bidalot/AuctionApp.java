@@ -1,6 +1,7 @@
 package com.bid.bidalot;
 
 import com.bid.bidalot.lists.MyLinkedList;
+import com.bid.bidalot.objects.Bidder;
 import com.bid.bidalot.objects.Lot;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -21,6 +22,7 @@ public class AuctionApp extends Application {
 
     public static class Driver {
         public MyLinkedList<Lot> lotList = new MyLinkedList<>();
+        public MyLinkedList<Bidder> bidderList = new MyLinkedList<>();
     }
 
     @Override
