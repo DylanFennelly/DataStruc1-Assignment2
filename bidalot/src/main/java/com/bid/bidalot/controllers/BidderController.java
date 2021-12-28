@@ -13,12 +13,9 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.Objects;
 
-public class LotController {
-    @FXML
-    private TableView<Lot> activeLotsTV;
+public class BidderController {
 
     @FXML
     protected void changeToStartMenu(ActionEvent actionEvent) throws IOException {
@@ -29,21 +26,14 @@ public class LotController {
     }
 
     @FXML
-    protected void changeToAddMenu(ActionEvent actionEvent) throws IOException {    //pops up in new window     todo: check for signed in
-        Parent addView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("add-lot-view.fxml")));
+    protected void changeToAddMenu(ActionEvent actionEvent) throws IOException {    //pops up in new window
+        Parent addView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("add-bidder-view.fxml")));
         Scene addScene = new Scene(addView);
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);     //locks main window until popup window is closed  |  https://stackoverflow.com/questions/15625987/block-owner-window-java-fx
         stage.initOwner(addView.getScene().getWindow());
         stage.setScene(addScene);
-        stage.setTitle("Add Lot");
+        stage.setTitle("Add Bidder");
         stage.show();
-    }
-
-    @FXML
-    protected void addDummyValues(ActionEvent actionEvent){
-        LocalDate origin = LocalDate.now().minusYears(20);
-        Lot testLot = new Lot("Old chair for sale","Dark oak chair from roughly 20 years ago. Ships from Kilkenny, Ireland.","Furniture","",origin,50.00);
-        activeLotsTV.getItems().add(testLot);
     }
 }

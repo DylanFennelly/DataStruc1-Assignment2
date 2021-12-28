@@ -24,4 +24,14 @@ public class StartController {
         stage.setTitle("Bid-A-Lot: Lots");
         stage.show();
     }
+
+    @FXML
+    protected void changeToBidderMenu(ActionEvent actionEvent) throws IOException {
+        Parent lotView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("bidder-view.fxml")));
+        lotScene = new Scene(lotView);
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.setScene(lotScene);
+        stage.setTitle("Bid-A-Lot: Bidders");
+        stage.show();
+    }
 }
