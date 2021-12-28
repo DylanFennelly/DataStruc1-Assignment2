@@ -14,6 +14,7 @@ import java.util.Objects;
 
 public class StartController {
     public static Scene lotScene;
+    public static Scene bidScene;
 
     @FXML
     protected void changeToLotMenu(ActionEvent actionEvent) throws IOException {
@@ -27,10 +28,10 @@ public class StartController {
 
     @FXML
     protected void changeToBidderMenu(ActionEvent actionEvent) throws IOException {
-        Parent lotView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("bidder-view.fxml")));
-        lotScene = new Scene(lotView);
+        Parent bidView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("bidder-view.fxml")));
+        bidScene = new Scene(bidView);
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        stage.setScene(lotScene);
+        stage.setScene(bidScene);
         stage.setTitle("Bid-A-Lot: Bidders");
         stage.show();
     }

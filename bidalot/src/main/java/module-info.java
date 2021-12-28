@@ -1,6 +1,7 @@
 module com.bid.bidalot {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.desktop;
 
 
     opens com.bid.bidalot to javafx.fxml;

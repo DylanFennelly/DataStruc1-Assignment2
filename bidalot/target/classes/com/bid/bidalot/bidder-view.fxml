@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.bid.bidalot.controllers.BidderController" prefHeight="600.0" prefWidth="900.0">
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/15" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bid.bidalot.controllers.BidderController">
     <children>
-        <Label layoutX="22.0" layoutY="14.0" text="Lot View" textAlignment="CENTER">
+        <Label layoutX="22.0" layoutY="14.0" text="Bidders" textAlignment="CENTER">
             <font>
                 <Font name="System Bold" size="20.0" />
             </font>
         </Label>
         <Button layoutX="22.0" layoutY="55.0" mnemonicParsing="false" onAction="#changeToStartMenu" prefHeight="25.0" prefWidth="82.0" text="Return" />
-        <Button layoutX="127.0" layoutY="55.0" mnemonicParsing="false" onAction="#changeToAddMenu" prefHeight="25.0" prefWidth="82.0" text="Add Bidder" />
+        <Button layoutX="127.0" layoutY="55.0" mnemonicParsing="false" onAction="#changeToAddMenu" prefHeight="25.0" prefWidth="106.0" text="Register Bidder" />
         <TableView fx:id="biddersTV" layoutX="22.0" layoutY="125.0" prefHeight="453.0" prefWidth="856.0">
             <columns>
-                <TableColumn prefWidth="129.0" text="Name">
+                <TableColumn prefWidth="162.0" text="Name">
                     <cellValueFactory>
-                        <PropertyValueFactory property="name"/>
+                        <PropertyValueFactory property="name" />
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn prefWidth="411.0" text="Address">
+                <TableColumn prefWidth="358.0" text="Address">
                     <cellValueFactory>
-                        <PropertyValueFactory property="address"/>
+                        <PropertyValueFactory property="address" />
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn minWidth="0.0" prefWidth="94.0" text="Phone">
+                <TableColumn minWidth="0.0" prefWidth="163.0" text="Phone">
                     <cellValueFactory>
-                        <PropertyValueFactory property="phone"/>
+                        <PropertyValueFactory property="phone" />
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn prefWidth="129.0" text="Email" >
+                <TableColumn prefWidth="172.0" text="Email">
                     <cellValueFactory>
-                        <PropertyValueFactory property="email"/>
+                        <PropertyValueFactory property="email" />
                     </cellValueFactory>
                 </TableColumn>
             </columns>
         </TableView>
         <Button layoutX="798.0" layoutY="55.0" mnemonicParsing="false" text="Search" />
-        <Label layoutX="413.0" layoutY="105.0" prefHeight="20.0" prefWidth="76.0" text="Active Lots">
+        <Label layoutX="425.0" layoutY="105.0" prefHeight="20.0" prefWidth="52.0" text="Bidders">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
