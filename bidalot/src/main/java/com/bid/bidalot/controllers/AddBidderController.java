@@ -41,11 +41,10 @@ public class AddBidderController {
     }
 
     protected Bidder addBidder(String name, String address, String phone, String email, String password, String passwordConfirm){
-        //todo: proper validation
         if (!name.equals("")){
             if(!address.equals("")){
-                if(!phone.equals("")){
-                    if(!email.equals("")){  //todo: check for duplicate
+                if(phone.matches("^[\\d]{3}[\\s]?[\\d]{3}[\\s]?[\\d]{4}$")){
+                    if(email.matches("^[\\w-.]+@([\\w-]+.)+[\\w-]{2,4}$")){  //todo: check for duplicate
                         if(!password.equals("")){
                             if(password.equals(passwordConfirm)){
                                 return new Bidder(name, address, phone, email, password);
@@ -56,10 +55,10 @@ public class AddBidderController {
                             JOptionPane.showMessageDialog(frame, "Please enter a password.", "Register Error!", JOptionPane.ERROR_MESSAGE);
                         }
                     }else {
-                        JOptionPane.showMessageDialog(frame, "Please enter an email address.", "Register Error!", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(frame, "Please enter a valid email address.\n\nFormat: Any amount of alphanumeric characters, followed by an @,\nany amount of alphanumeric characters, a dot (.), and a 2-4 character code\nE.g. someone@email.com\n        person.being@place.co.uk", "Register Error!", JOptionPane.ERROR_MESSAGE);
                     }
                 }else {
-                    JOptionPane.showMessageDialog(frame, "Please enter a phone number.", "Register Error!", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(frame, "Please enter a valid phone number.\n\nFormat: 10 numbers with optional spaces\nE.g. 123 456 7890\n        8647125647", "Register Error!", JOptionPane.ERROR_MESSAGE);
                 }
             }else {
                 JOptionPane.showMessageDialog(frame, "Please enter an address.", "Register Error!", JOptionPane.ERROR_MESSAGE);
