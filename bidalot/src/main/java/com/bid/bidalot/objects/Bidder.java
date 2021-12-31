@@ -6,9 +6,15 @@ public class Bidder {
 
     //constructor
     public Bidder (String name, String address, String phone, String email, String password){
-        //todo: validation
-        this.name = name;
-        this.address = address;
+        if (name.length() <= 40)
+            this.name = name;
+        else
+            this.name = name.substring(0,40);
+
+        if (address.length() <= 100)
+            this.address = address;
+        else
+            this.address = address.substring(0,100);
 
         if (phone.matches("^[\\d]{3}[\\s]?[\\d]{3}[\\s]?[\\d]{4}$"))    //allows for any 3 digits, an optional space, 3 digits, optional space, and any 4 digits
             if (phone.length() != 12) {                                        //adding in spaces between digits if not included
@@ -20,8 +26,17 @@ public class Bidder {
         else
             this.phone = "0000000000";
 
-        this.email = email;     //email must be unique, used for login
-        this.password = password;   //used for login
+        //email must be unique, used for login
+        if (email.matches("^[\\w-.]+@([\\w-]+.)+[\\w-]{2,4}$")) //allows for any number of alphanumeric characters, dashes (-) and dots (.), followed by an @ symbol,
+            this.email = email;                                       //any number of alphanumeric characters, dashes and dots, a dot and ending with a two to four alphanumeric string.
+        else                                                          //from: https://regexr.com/3e48o
+            this.email = "INVALID@EMAIL.COM";
+
+        //used for login
+        if (password.length() >= 8)     //validated in controller
+            this.password = password;
+        else
+            this.password = "INVALID";
     }
 
     //methods
@@ -53,11 +68,13 @@ public class Bidder {
 
     //setters
     public void setName(String name) {
-        this.name = name;
+        if (name.length() <= 40)
+            this.name = name;
     }
 
     public void setAddress(String address) {
-        this.address = address;
+        if (address.length() <= 100)
+            this.address = address;
     }
 
     public void setPhone(String phone) {
@@ -70,10 +87,12 @@ public class Bidder {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        if (email.matches("^[\\w-.]+@([\\w-]+.)+[\\w-]{2,4}$"))
+            this.email = email;
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        if (password.length() >= 8)
+            this.password = password;
     }
 }
