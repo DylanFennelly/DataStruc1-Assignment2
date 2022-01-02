@@ -3,13 +3,16 @@ package com.bid.bidalot;
 import com.bid.bidalot.lists.MyLinkedList;
 import com.bid.bidalot.objects.Bidder;
 import com.bid.bidalot.objects.Lot;
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
+import com.thoughtworks.xstream.security.AnyTypePermission;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+import java.io.*;
 import java.text.DecimalFormat;
 import java.util.Objects;
 
@@ -37,7 +40,22 @@ public class AuctionApp extends Application {
         stage.show();
     }
 
+    public static void save() throws Exception{
+        XStream xStream = new XStream((new DomDriver()));
+        ObjectOutputStream out = xStream.createObjectOutputStream(new FileWriter("auctionApp.xml"));
+        out.writeObject(AuctionApp.DRIVER);
+        out.close();
+        System.out.println("Saved to auctionApp.xml");
+    }
 
+    public static void load() throws Exception {
+        XStream xStream = new XStream((new DomDriver()));
+        xStream.addPermission(AnyTypePermission.ANY);       //granting permissions to set read object to the driver  | from: https://stackoverflow.com/questions/30812293/com-thoughtworks-xstream-security-forbiddenclassexception
+        ObjectInputStream in = xStream.createObjectInputStream(new FileReader("auctionApp.xml"));
+        AuctionApp.DRIVER = (AuctionApp.Driver) in.readObject();    //casting readObject to type Driver
+        in.close();
+        System.out.println("Loaded from auctionApp.xml");
+    }
 
     public static void main(String[] args) {
         launch();

@@ -9,10 +9,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.util.Objects;
 
 public class StartController {
+    private JFrame frame; //used for popup windows
     public static Scene lotScene;
     public static Scene bidScene;
 
@@ -34,5 +36,18 @@ public class StartController {
         stage.setScene(bidScene);
         stage.setTitle("Bid-A-Lot: Bidders");
         stage.show();
+    }
+
+    //temporary save and load buttons for testing
+    @FXML
+    protected void saveButton(ActionEvent actionEvent) throws Exception{
+        AuctionApp.save();
+        JOptionPane.showMessageDialog(frame, "Save complete!", "Save Status", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    @FXML
+    protected void loadButton(ActionEvent actionEvent)  throws Exception{
+        AuctionApp.load();
+        JOptionPane.showMessageDialog(frame, "Load complete!", "Load Status", JOptionPane.INFORMATION_MESSAGE);
     }
 }

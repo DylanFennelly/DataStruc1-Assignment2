@@ -1,0 +1,16 @@
+<object-stream>
+  <com.bid.bidalot.AuctionApp_-Driver>
+    <lotList/>
+    <bidderList>
+      <head>
+        <contents class="com.bid.bidalot.objects.Bidder">
+          <name>Gary White</name>
+          <address>19 Winterwicke Lane</address>
+          <phone>123 456 7890</phone>
+          <email>gwhite@gmail.com</email>
+          <password>passw0rd</password>
+        </contents>
+      </head>
+    </bidderList>
+  </com.bid.bidalot.AuctionApp_-Driver>
+</object-stream>
