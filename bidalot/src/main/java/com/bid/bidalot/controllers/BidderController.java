@@ -38,16 +38,4 @@ public class BidderController {
         stage.show();
     }
 
-    @FXML
-    protected void changeToAddMenu(ActionEvent actionEvent) throws IOException {    //pops up in new window
-//        Parent addView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("register-login-view.fxml")));
-//        Scene addScene = new Scene(addView);
-//        Stage stage = new Stage();
-//        stage.initModality(Modality.APPLICATION_MODAL);     //locks main window until popup window is closed  |  https://stackoverflow.com/questions/15625987/block-owner-window-java-fx
-//        stage.initOwner(addView.getScene().getWindow());
-//        stage.setScene(addScene);
-//        stage.setTitle("Add Bidder");
-//        stage.show();
-    }
-
 }

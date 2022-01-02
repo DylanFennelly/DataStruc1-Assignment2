@@ -8,6 +8,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -19,6 +21,20 @@ import java.util.Objects;
 public class LotController {
     @FXML
     private TableView<Lot> activeLotsTV;
+
+    @FXML
+    private Button addLotButton;
+
+    @FXML
+    private Label loginLabel;
+
+    @FXML
+    protected void initialize() {
+        if(AuctionApp.loggedInBidder != null){
+            addLotButton.setDisable(false);
+            loginLabel.setText("Logged in as: " + AuctionApp.loggedInBidder.getName());
+        }
+    }
 
     @FXML
     protected void changeToStartMenu(ActionEvent actionEvent) throws IOException {

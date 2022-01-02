@@ -31,7 +31,8 @@ public class StartController {
         if (AuctionApp.loggedInBidder != null){
             registerButton.setVisible(false);
             logoutButton.setVisible(true);
-            usernameLabel.setText("Welcome,\n" + AuctionApp.loggedInBidder.getName());
+            usernameLabel.setVisible(true);
+            usernameLabel.setText("Welcome, " + AuctionApp.loggedInBidder.getName());
             if (AuctionApp.loggedInBidder.getEmail().equals("ADMIN@ADMIN.COM"))
                 adminButton.setVisible(true);
         }
@@ -77,7 +78,7 @@ public class StartController {
             AuctionApp.loggedInBidder = null;
             registerButton.setVisible(true);
             logoutButton.setVisible(false);
-            usernameLabel.setText("");
+            usernameLabel.setVisible(false);
             adminButton.setVisible(false);
             //updating startScene for when other views transition back to start
             AuctionApp.startScene = ((Node) actionEvent.getSource()).getScene();
