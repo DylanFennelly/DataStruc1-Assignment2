@@ -20,10 +20,22 @@ public class StartController {
     private JFrame frame; //used for popup windows
     public static Scene lotScene;
     public static Scene bidScene;
+
     @FXML
     private Button registerButton, logoutButton, adminButton;
     @FXML
     private Label usernameLabel;
+
+    @FXML
+    protected void initialize(){
+        if (AuctionApp.loggedInBidder != null){
+            registerButton.setVisible(false);
+            logoutButton.setVisible(true);
+            usernameLabel.setText("Welcome,\n" + AuctionApp.loggedInBidder.getName());
+            if (AuctionApp.loggedInBidder.getEmail().equals("ADMIN@ADMIN.COM"))
+                adminButton.setVisible(true);
+        }
+    }
 
     @FXML
     protected void changeToLotMenu(ActionEvent actionEvent) throws IOException {
@@ -46,7 +58,7 @@ public class StartController {
     }
 
     @FXML
-    protected void changeToRegisterLoginMenu(ActionEvent actionEvent) throws IOException{ //pops up in new window
+    protected void changeToRegisterLoginMenu(ActionEvent actionEvent) throws IOException, InterruptedException { //pops up in new window
         Parent addView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("register-login-view.fxml")));
         Scene addScene = new Scene(addView);
         Stage stage = new Stage();
@@ -55,6 +67,11 @@ public class StartController {
         stage.setScene(addScene);
         stage.setTitle("Register/Login");
         stage.show();
+    }
+
+    @FXML
+    protected void logoutButton(ActionEvent actionEvent){
+        System.out.println(AuctionApp.loggedInBidder);
     }
 
     //temporary save and load buttons for testing

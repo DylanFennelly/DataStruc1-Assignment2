@@ -20,14 +20,15 @@ import java.util.Locale;
 import java.util.Objects;
 
 import static com.bid.bidalot.AuctionApp.DRIVER;
+import static com.bid.bidalot.AuctionApp.startScene;
 import static com.bid.bidalot.controllers.StartController.bidScene;
 
 public class RegisterLoginController {
     private JFrame frame;
     @FXML
-    private TextField BName, BAddress, BPhone, BEmail;
+    private TextField BName, BAddress, BPhone, BEmail, LoginEmail;
     @FXML
-    private PasswordField BPass, BPassConfirm;
+    private PasswordField BPass, BPassConfirm, LoginPassword;
     @FXML
     private Button closeButton;
 
@@ -55,14 +56,14 @@ public class RegisterLoginController {
                             }
                         }
                         if (!matchingEmail) {
-                            if (!password.equals("")) {
+                            if (password.length() >= 8) {
                                 if (password.equals(passwordConfirm)) {
                                     return new Bidder(name, address, phone, email, password);
                                 } else {
                                     JOptionPane.showMessageDialog(frame, "Passwords do not match.", "Register Error!", JOptionPane.ERROR_MESSAGE);
                                 }
                             } else {
-                                JOptionPane.showMessageDialog(frame, "Please enter a password.", "Register Error!", JOptionPane.ERROR_MESSAGE);
+                                JOptionPane.showMessageDialog(frame, "Password must be at least 8 characters.", "Register Error!", JOptionPane.ERROR_MESSAGE);
                             }
                         }else {
                             JOptionPane.showMessageDialog(frame, "This email address already has a bidder associated with it.", "Register Error!", JOptionPane.ERROR_MESSAGE);
@@ -88,16 +89,48 @@ public class RegisterLoginController {
         if (newBidder != null){
             DRIVER.bidderList.addElementToEnd(newBidder);
             JOptionPane.showMessageDialog(frame, "Bidder successfully registered!", "Register Success!", JOptionPane.INFORMATION_MESSAGE);
-            closeWindow();
 
-//            //todo: find better way to update table view
-//            //reloads the bidScene to update TableView
-//            Parent bidView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("bidder-view.fxml")));
-//            Stage stage = (Stage) bidScene.getWindow();
-//            bidScene = new Scene(bidView);
-//            stage.setScene(bidScene);
-//            stage.setTitle("Bid-A-Lot: Bidders");
-//            stage.show();
+            //setting login fields for quicker login after bidder creation
+            LoginEmail.setText(BEmail.getText());
+            LoginPassword.setText(BPass.getText());
+
+            //clearing register fields
+            BName.clear();
+            BAddress.clear();
+            BPhone.clear();
+            BEmail.clear();
+            BPass.clear();
+            BPassConfirm.clear();
+
         }
     }
+
+   protected Bidder loginBidder(String email, String password){
+        //todo: replace linear search
+       for (Bidder temp : DRIVER.bidderList){
+           if (email.equalsIgnoreCase(temp.getEmail()) && password.equalsIgnoreCase(temp.getPassword()) )
+               return temp;
+       }
+       return null;
+   }
+
+   @FXML
+    private void loginBidderButton(ActionEvent actionEvent) throws IOException {
+        Bidder login = loginBidder(LoginEmail.getText(), LoginPassword.getText());
+        if (login != null){
+            AuctionApp.loggedInBidder = login;
+            System.out.println(AuctionApp.loggedInBidder);
+            closeWindow();
+
+            //todo: find better way to refresh window
+            //reloads the bidScene to update TableView
+            Parent startView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("start-view.fxml")));
+            Stage stage = (Stage) startScene.getWindow();
+            bidScene = new Scene(startView);
+            stage.setScene(bidScene);
+            stage.setTitle("Bid-A-Lot");
+            stage.show();
+        }else
+            JOptionPane.showMessageDialog(frame, "Incorrect email address or password entered.", "Login Error!", JOptionPane.ERROR_MESSAGE);
+   }
 }

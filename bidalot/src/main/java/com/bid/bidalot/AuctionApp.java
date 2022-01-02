@@ -20,6 +20,7 @@ import java.util.Objects;
 public class AuctionApp extends Application {
     //limiting price floats to 2 decimal places   |   https://stackoverflow.com/questions/8911356/whats-the-best-practice-to-round-a-float-to-2-decimals
     public static final DecimalFormat DF = new DecimalFormat("#.00");
+    public static Bidder loggedInBidder = null;
     public static AuctionApp.Driver DRIVER;
     public static Scene startScene;
 
