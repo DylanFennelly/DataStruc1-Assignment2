@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import javax.swing.*;
 
 import java.io.IOException;
+import java.util.Locale;
 import java.util.Objects;
 
 import static com.bid.bidalot.AuctionApp.DRIVER;
@@ -44,15 +45,25 @@ public class AddBidderController {
         if (!name.equals("")){
             if(!address.equals("")){
                 if(phone.matches("^[\\d]{3}[\\s]?[\\d]{3}[\\s]?[\\d]{4}$")){
-                    if(email.matches("^[\\w-.]+@([\\w-]+.)+[\\w-]{2,4}$")){  //todo: check for duplicate
-                        if(!password.equals("")){
-                            if(password.equals(passwordConfirm)){
-                                return new Bidder(name, address, phone, email, password);
-                            }else {
-                                JOptionPane.showMessageDialog(frame, "Passwords do not match.", "Register Error!", JOptionPane.ERROR_MESSAGE);
+                    if(email.matches("^[\\w-.]+@([\\w-]+.)+[\\w-]{2,4}$")){
+                        //preventing duplicate email addresses
+                        boolean matchingEmail = false;
+                        for (Bidder temp : DRIVER.bidderList){  //todo: replace linear search
+                            if (temp.getEmail().equalsIgnoreCase(email))
+                                matchingEmail = true;
+                        }
+                        if (!matchingEmail) {
+                            if (!password.equals("")) {
+                                if (password.equals(passwordConfirm)) {
+                                    return new Bidder(name, address, phone, email, password);
+                                } else {
+                                    JOptionPane.showMessageDialog(frame, "Passwords do not match.", "Register Error!", JOptionPane.ERROR_MESSAGE);
+                                }
+                            } else {
+                                JOptionPane.showMessageDialog(frame, "Please enter a password.", "Register Error!", JOptionPane.ERROR_MESSAGE);
                             }
                         }else {
-                            JOptionPane.showMessageDialog(frame, "Please enter a password.", "Register Error!", JOptionPane.ERROR_MESSAGE);
+                            JOptionPane.showMessageDialog(frame, "This email address already has a bidder associated with it.", "Register Error!", JOptionPane.ERROR_MESSAGE);
                         }
                     }else {
                         JOptionPane.showMessageDialog(frame, "Please enter a valid email address.\n\nFormat: Any amount of alphanumeric characters, followed by an @,\nany amount of alphanumeric characters, a dot (.), and a 2-4 character code\nE.g. someone@email.com\n        person.being@place.co.uk", "Register Error!", JOptionPane.ERROR_MESSAGE);
