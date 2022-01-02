@@ -7,6 +7,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import javax.swing.*;
@@ -17,6 +19,10 @@ public class StartController {
     private JFrame frame; //used for popup windows
     public static Scene lotScene;
     public static Scene bidScene;
+    @FXML
+    private Button registerButton, logoutButton, adminButton;
+    @FXML
+    private Label usernameLabel;
 
     @FXML
     protected void changeToLotMenu(ActionEvent actionEvent) throws IOException {
