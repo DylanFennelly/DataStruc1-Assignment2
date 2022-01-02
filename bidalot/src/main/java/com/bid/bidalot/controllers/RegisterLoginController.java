@@ -90,14 +90,14 @@ public class RegisterLoginController {
             JOptionPane.showMessageDialog(frame, "Bidder successfully registered!", "Register Success!", JOptionPane.INFORMATION_MESSAGE);
             closeWindow();
 
-            //todo: find better way to update table view
-            //reloads the bidScene to update TableView
-            Parent bidView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("bidder-view.fxml")));
-            Stage stage = (Stage) bidScene.getWindow();
-            bidScene = new Scene(bidView);
-            stage.setScene(bidScene);
-            stage.setTitle("Bid-A-Lot: Bidders");
-            stage.show();
+//            //todo: find better way to update table view
+//            //reloads the bidScene to update TableView
+//            Parent bidView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("bidder-view.fxml")));
+//            Stage stage = (Stage) bidScene.getWindow();
+//            bidScene = new Scene(bidView);
+//            stage.setScene(bidScene);
+//            stage.setTitle("Bid-A-Lot: Bidders");
+//            stage.show();
         }
     }
 }
