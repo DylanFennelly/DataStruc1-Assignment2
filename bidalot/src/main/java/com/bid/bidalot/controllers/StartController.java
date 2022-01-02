@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import javax.swing.*;
@@ -41,6 +42,18 @@ public class StartController {
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         stage.setScene(bidScene);
         stage.setTitle("Bid-A-Lot: Bidders");
+        stage.show();
+    }
+
+    @FXML
+    protected void changeToRegisterLoginMenu(ActionEvent actionEvent) throws IOException{ //pops up in new window
+        Parent addView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("register-login-view.fxml")));
+        Scene addScene = new Scene(addView);
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);     //locks main window until popup window is closed  |  https://stackoverflow.com/questions/15625987/block-owner-window-java-fx
+        stage.initOwner(addView.getScene().getWindow());
+        stage.setScene(addScene);
+        stage.setTitle("Add Bidder");
         stage.show();
     }
 

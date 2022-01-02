@@ -22,7 +22,7 @@ import java.util.Objects;
 import static com.bid.bidalot.AuctionApp.DRIVER;
 import static com.bid.bidalot.controllers.StartController.bidScene;
 
-public class AddBidderController {
+public class RegisterLoginController {
     private JFrame frame;
     @FXML
     private TextField BName, BAddress, BPhone, BEmail;
