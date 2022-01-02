@@ -58,7 +58,7 @@ public class StartController {
     }
 
     @FXML
-    protected void changeToRegisterLoginMenu(ActionEvent actionEvent) throws IOException, InterruptedException { //pops up in new window
+    protected void changeToRegisterLoginMenu(ActionEvent actionEvent) throws IOException { //pops up in new window
         Parent addView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("register-login-view.fxml")));
         Scene addScene = new Scene(addView);
         Stage stage = new Stage();
@@ -71,7 +71,17 @@ public class StartController {
 
     @FXML
     protected void logoutButton(ActionEvent actionEvent){
-        System.out.println(AuctionApp.loggedInBidder);
+        int option = JOptionPane.showConfirmDialog(frame, "Are you sure you want to logout?", "Logout Confirmation", JOptionPane.YES_NO_OPTION);
+        if (option == JOptionPane.YES_OPTION){
+            //reset back to default
+            AuctionApp.loggedInBidder = null;
+            registerButton.setVisible(true);
+            logoutButton.setVisible(false);
+            usernameLabel.setText("");
+            adminButton.setVisible(false);
+            //updating startScene for when other views transition back to start
+            AuctionApp.startScene = ((Node) actionEvent.getSource()).getScene();
+        }
     }
 
     //temporary save and load buttons for testing

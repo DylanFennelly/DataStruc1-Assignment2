@@ -21,7 +21,6 @@ import java.util.Objects;
 
 import static com.bid.bidalot.AuctionApp.DRIVER;
 import static com.bid.bidalot.AuctionApp.startScene;
-import static com.bid.bidalot.controllers.StartController.bidScene;
 
 public class RegisterLoginController {
     private JFrame frame;
@@ -123,11 +122,11 @@ public class RegisterLoginController {
             closeWindow();
 
             //todo: find better way to refresh window
-            //reloads the bidScene to update TableView
+            //reloads the startScene to update buttons/label
             Parent startView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("start-view.fxml")));
             Stage stage = (Stage) startScene.getWindow();
-            bidScene = new Scene(startView);
-            stage.setScene(bidScene);
+            startScene = new Scene(startView);
+            stage.setScene(startScene);
             stage.setTitle("Bid-A-Lot");
             stage.show();
         }else
