@@ -49,8 +49,10 @@ public class AddBidderController {
                         //preventing duplicate email addresses
                         boolean matchingEmail = false;
                         for (Bidder temp : DRIVER.bidderList){  //todo: replace linear search
-                            if (temp.getEmail().equalsIgnoreCase(email))
+                            if (temp.getEmail().equalsIgnoreCase(email)) {
                                 matchingEmail = true;
+                                break;
+                            }
                         }
                         if (!matchingEmail) {
                             if (!password.equals("")) {
