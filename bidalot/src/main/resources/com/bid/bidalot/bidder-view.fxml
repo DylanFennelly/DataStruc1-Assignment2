@@ -18,22 +18,22 @@
         <Button layoutX="22.0" layoutY="55.0" mnemonicParsing="false" onAction="#changeToStartMenu" prefHeight="25.0" prefWidth="82.0" text="Return" />
         <TableView fx:id="biddersTV" layoutX="22.0" layoutY="125.0" prefHeight="453.0" prefWidth="856.0">
             <columns>
-                <TableColumn prefWidth="162.0" text="Name">
+                <TableColumn prefWidth="162.0" text="Name" sortable="false" reorderable="false">
                     <cellValueFactory>
                         <PropertyValueFactory property="name" />
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn prefWidth="358.0" text="Address">
+                <TableColumn prefWidth="358.0" text="Address" sortable="false" reorderable="false">
                     <cellValueFactory>
                         <PropertyValueFactory property="address" />
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn minWidth="0.0" prefWidth="163.0" text="Phone">
+                <TableColumn minWidth="0.0" prefWidth="163.0" text="Phone" sortable="false" reorderable="false">
                     <cellValueFactory>
                         <PropertyValueFactory property="phone" />
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn prefWidth="172.0" text="Email">
+                <TableColumn prefWidth="172.0" text="Email" sortable="false" reorderable="false">
                     <cellValueFactory>
                         <PropertyValueFactory property="email" />
                     </cellValueFactory>

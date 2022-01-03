@@ -20,27 +20,27 @@
         <Button fx:id="addLotButton" disable="true" layoutX="127.0" layoutY="55.0" mnemonicParsing="false" onAction="#changeToAddMenu" prefHeight="25.0" prefWidth="82.0" text="Add Lot"/>
       <TableView fx:id="activeLotsTV" layoutX="22.0" layoutY="125.0" prefHeight="453.0" prefWidth="856.0">
         <columns>
-          <TableColumn prefWidth="129.0" text="Title">
+          <TableColumn prefWidth="129.0" text="Title" sortable="false" reorderable="false">
               <cellValueFactory>
                   <PropertyValueFactory property="title" />
               </cellValueFactory>
           </TableColumn>
-          <TableColumn minWidth="7.0" prefWidth="92.0" text="Type">
+          <TableColumn minWidth="7.0" prefWidth="92.0" text="Type" sortable="false" reorderable="false">
               <cellValueFactory>
                   <PropertyValueFactory property="type" />
               </cellValueFactory>
           </TableColumn>
-            <TableColumn prefWidth="411.0" text="Description">
+            <TableColumn prefWidth="411.0" text="Description"  sortable="false" reorderable="false">
                 <cellValueFactory>
                     <PropertyValueFactory property="description" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn minWidth="0.0" prefWidth="94.0" text="Start Date">
+            <TableColumn minWidth="0.0" prefWidth="94.0" text="Start Date" sortable="false" reorderable="false">
                 <cellValueFactory>
                     <PropertyValueFactory property="startDate" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn prefWidth="129.0" text="Current Bid (€)">
+            <TableColumn prefWidth="129.0" text="Current Bid (€)" sortable="false" reorderable="false">
                 <cellValueFactory>
                     <PropertyValueFactory property="askingPrice" />
                 </cellValueFactory>
