@@ -70,7 +70,25 @@
             <ChoiceBox fx:id="lotType" prefWidth="150.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                 <items>
                     <FXCollections fx:factory="observableArrayList">
-                        <String fx:value="Test"/>
+                        <String fx:value="Antiques"/>
+                        <String fx:value="Audio Devices"/>
+                        <String fx:value="Books, Comics and Magazines"/>
+                        <String fx:value="Cameras and Photography"/>
+                        <String fx:value="Cars, Parts and Car Accessories"/>
+                        <String fx:value="Computers and Tablets"/>
+                        <String fx:value="DVDs, Films and TV"/>
+                        <String fx:value="Furniture"/>
+                        <String fx:value="Health and Beauty"/>
+                        <String fx:value="Home Decor"/>
+                        <String fx:value="Jewellery"/>
+                        <String fx:value="Men's Clothing"/>
+                        <String fx:value="Music"/>
+                        <String fx:value="Musical Instruments"/>
+                        <String fx:value="Mobile Phones"/>
+                        <String fx:value="Sporting Goods"/>
+                        <String fx:value="Toys and Games"/>
+                        <String fx:value="Video Games and Consoles"/>
+                        <String fx:value="Women's Clothing"/>
                     </FXCollections>
                 </items>
             </ChoiceBox>
