@@ -63,9 +63,9 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <TextField fx:id="BName" promptText="Enter name..." GridPane.columnIndex="1" />
-            <TextField fx:id="BAddress" promptText="Enter address..." GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="BPhone" promptText="Enter phone number..." GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <TextField fx:id="BName" promptText="Enter name" GridPane.columnIndex="1" />
+            <TextField fx:id="BAddress" promptText="Enter address" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="BPhone" promptText="Enter phone number" GridPane.columnIndex="1" GridPane.rowIndex="2">
                 <tooltip>
                     <Tooltip text="Format: 10 numbers with optional spaces&#13;E.g. 123 456 7890&#13;        8647125647">
                         <font>
@@ -74,9 +74,9 @@
                     </Tooltip>
                 </tooltip>
             </TextField>
-            <TextField fx:id="BEmail" promptText="Enter email address..." GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <PasswordField fx:id="BPass" promptText="Enter password..." GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <PasswordField fx:id="BPassConfirm" promptText="Confirm password..." GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="BEmail" promptText="Enter email address" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <PasswordField fx:id="BPass" promptText="Enter password" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <PasswordField fx:id="BPassConfirm" promptText="Confirm password" GridPane.columnIndex="1" GridPane.rowIndex="5" />
          </children>
       </GridPane>
       <Button fx:id="closeButton" layoutX="14.0" layoutY="325.0" mnemonicParsing="false" onAction="#closeWindowButton" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Cancel" />
@@ -87,7 +87,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="LoginEmail" layoutX="398.0" layoutY="107.0" prefHeight="25.0" prefWidth="287.0" promptText="Enter email address..." />
+      <TextField fx:id="LoginEmail" layoutX="398.0" layoutY="107.0" prefHeight="25.0" prefWidth="287.0" promptText="Enter email address" />
       <Label layoutX="398.0" layoutY="70.0" text="Email Address" textFill="WHITE">
          <font>
             <Font size="15.0" />
@@ -98,7 +98,7 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <PasswordField fx:id="LoginPassword" layoutX="398.0" layoutY="228.0" prefHeight="25.0" prefWidth="287.0" promptText="Enter password..." />
+      <PasswordField fx:id="LoginPassword" layoutX="398.0" layoutY="228.0" prefHeight="25.0" prefWidth="287.0" promptText="Enter password" />
       <Button layoutX="634.0" layoutY="325.0" mnemonicParsing="false" onAction="#loginBidderButton" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Login" />
    </children>
 </AnchorPane>
