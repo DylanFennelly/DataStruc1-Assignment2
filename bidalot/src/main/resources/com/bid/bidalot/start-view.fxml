@@ -55,7 +55,7 @@
                   <Insets left="10.0" right="10.0" />
                </GridPane.margin>
             </Button>
-            <Button fx:id="adminButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="177.0" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #855252); -fx-border-color: black; -fx-background-insets: 0; -fx-border-width: 0.5;" text="Admin Settings" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Button fx:id="adminButton" mnemonicParsing="false" onAction="#changeToAdminMenu" prefHeight="25.0" prefWidth="177.0" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #855252); -fx-border-color: black; -fx-background-insets: 0; -fx-border-width: 0.5;" text="Admin Settings" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets left="10.0" right="10.0" />
                </GridPane.margin>

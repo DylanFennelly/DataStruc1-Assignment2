@@ -97,5 +97,18 @@ public class StartController {
         }
     }
 
+    //temporary save and load buttons for testing
+    @FXML
+    protected void saveButton(ActionEvent actionEvent) throws Exception {
+        AuctionApp.save();
+        JOptionPane.showMessageDialog(frame, "Save complete!", "Save Status", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    @FXML
+    protected void loadButton(ActionEvent actionEvent) throws Exception {
+        AuctionApp.load();
+        JOptionPane.showMessageDialog(frame, "Load complete!", "Load Status", JOptionPane.INFORMATION_MESSAGE);
+    }
+
 
 }
