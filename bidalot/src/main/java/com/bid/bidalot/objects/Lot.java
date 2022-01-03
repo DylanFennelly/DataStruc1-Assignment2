@@ -1,6 +1,7 @@
 package com.bid.bidalot.objects;
 
 import com.bid.bidalot.AuctionApp;
+import com.bid.bidalot.lists.MyLinkedList;
 
 import java.text.DecimalFormat;
 import java.time.LocalDate;
@@ -16,13 +17,20 @@ public class Lot {
     private double startPrice, askingPrice, finalSalePrice;
     private boolean sold;   //marks whether lot has been sold or not
     private Bidder lotOwner;    //bidder that put up the lot for sale
-    private LinkedList<Bid> listOfBids;
+    private MyLinkedList<Bid> listOfBids;
 
     //constructor
     public Lot (String title, String description, String type, String imageLink, int originDate, double askingPrice, Bidder lotOwner){
-        //todo: validation
-        this.title = title;
-        this.description = description;
+        if (title.length() <= 50)
+            this.title = title;
+        else
+            this.title = title.substring(0,50);
+
+        if (description.length() <= 500)
+            this.description = description;
+        else
+            this.description = description.substring(0,500);
+
         this.type = type;   //dropdown of pre-selected categories
         if (!imageLink.equals(""))  //todo: replace with file chooser and image upload?
             this.imageLink = imageLink;
@@ -31,10 +39,10 @@ public class Lot {
         this.originDate = originDate;
         this.startDate = LocalDate.now();
         this.startTime = LocalTime.now();
-        this.askingPrice = this.startPrice = Double.parseDouble(AuctionApp.DF.format(askingPrice));
+        this.askingPrice = this.startPrice = Double.parseDouble(AuctionApp.DF.format(askingPrice)); //validated in controller
         this.lotOwner = lotOwner;
         this.sold = false;
-        listOfBids = new LinkedList<>();
+        listOfBids = new MyLinkedList<>();
     }
 
     //methods
@@ -102,7 +110,7 @@ public class Lot {
         return lotOwner;
     }
 
-    public LinkedList<Bid> getListOfBids() {
+    public MyLinkedList<Bid> getListOfBids() {
         return listOfBids;
     }
 
@@ -112,11 +120,13 @@ public class Lot {
 
     //setters
     public void setTitle(String title) {
-        this.title = title;
+        if (title.length() <= 50)
+            this.title = title;
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        if (description.length() <= 500)
+            this.description = description;
     }
 
     public void setType(String type) {
@@ -164,12 +174,12 @@ public class Lot {
         this.lotOwner = lotOwner;
     }
 
-    public void setListOfBids(LinkedList<Bid> listOfBids) {
+    public void setListOfBids(MyLinkedList<Bid> listOfBids) {
         this.listOfBids = listOfBids;
     }
 
     public void setStartPrice(double startPrice) {
-        this.startPrice = startPrice;
+        this.startPrice = Float.parseFloat(AuctionApp.DF.format(startPrice));
     }
 
 }
