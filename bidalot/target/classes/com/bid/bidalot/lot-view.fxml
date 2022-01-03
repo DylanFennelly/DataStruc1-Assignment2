@@ -4,11 +4,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/15" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bid.bidalot.controllers.LotController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bid.bidalot.controllers.LotController">
     <children>
         <Label layoutX="22.0" layoutY="14.0" text="Lot View" textAlignment="CENTER">
             <font>
@@ -16,7 +17,7 @@
             </font>
         </Label>
         <Button layoutX="22.0" layoutY="55.0" mnemonicParsing="false" onAction="#changeToStartMenu" prefHeight="25.0" prefWidth="82.0" text="Return" />
-        <Button fx:id="addLotButton" disable="true" layoutX="127.0" layoutY="55.0" mnemonicParsing="false" onAction="#changeToAddMenu" prefHeight="25.0" prefWidth="82.0" text="Add Lot" />
+        <Button fx:id="addLotButton" disable="true" layoutX="127.0" layoutY="55.0" mnemonicParsing="false" onAction="#changeToAddMenu" prefHeight="25.0" prefWidth="82.0" text="Add Lot"/>
       <TableView fx:id="activeLotsTV" layoutX="22.0" layoutY="125.0" prefHeight="453.0" prefWidth="856.0">
         <columns>
           <TableColumn prefWidth="129.0" text="Title">

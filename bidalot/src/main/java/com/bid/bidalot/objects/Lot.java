@@ -13,15 +13,16 @@ public class Lot {
     private LocalTime startTime, finalSaleTime;
     private double askingPrice, finalSalePrice;
     private boolean sold;   //marks whether lot has been sold or not
+    private Bidder lotOwner;    //bidder that put up the lot for sale
     //linkedList of bids
 
     //constructor
-    public Lot (String title, String description, String type, String imageLink, LocalDate originDate, double askingPrice){
+    public Lot (String title, String description, String type, String imageLink, LocalDate originDate, double askingPrice, Bidder lotOwner){
         //todo: validation
         this.title = title;
         this.description = description;
-        this.type = type;
-        if (!imageLink.equals(""))
+        this.type = type;   //dropdown of pre-selected categories
+        if (!imageLink.equals(""))  //todo: replace with file chooser and image upload?
             this.imageLink = imageLink;
         else
             this.imageLink = "N/A";
@@ -29,6 +30,7 @@ public class Lot {
         this.startDate = LocalDate.now();
         this.startTime = LocalTime.now();
         this.askingPrice = Double.parseDouble(AuctionApp.DF.format(askingPrice));
+        this.lotOwner = lotOwner;
         this.sold = false;
     }
 
@@ -93,6 +95,10 @@ public class Lot {
         return sold;
     }
 
+    public Bidder getLotOwner() {
+        return lotOwner;
+    }
+
     //setters
     public void setTitle(String title) {
         this.title = title;
@@ -141,5 +147,9 @@ public class Lot {
 
     public void setSold(boolean sold) {
         this.sold = sold;
+    }
+
+    public void setLotOwner(Bidder lotOwner) {
+        this.lotOwner = lotOwner;
     }
 }

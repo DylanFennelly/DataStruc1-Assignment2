@@ -59,7 +59,7 @@ public class LotController {
     @FXML
     protected void addDummyValues(ActionEvent actionEvent){
         LocalDate origin = LocalDate.now().minusYears(20);
-        Lot testLot = new Lot("Old chair for sale","Dark oak chair from roughly 20 years ago. Ships from Kilkenny, Ireland.","Furniture","",origin,50.00);
-        activeLotsTV.getItems().add(testLot);
+        //Lot testLot = new Lot("Old chair for sale","Dark oak chair from roughly 20 years ago. Ships from Kilkenny, Ireland.","Furniture","",origin,50.00);
+        //activeLotsTV.getItems().add(testLot);
     }
 }
