@@ -14,6 +14,7 @@ import javafx.scene.control.TableView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Objects;
@@ -21,6 +22,8 @@ import java.util.Objects;
 import static com.bid.bidalot.AuctionApp.DRIVER;
 
 public class LotController {
+    public static int LotIndex;
+    private JFrame frame; //used for popup windows
     @FXML
     private TableView<Lot> activeLotsTV;
 
@@ -51,7 +54,7 @@ public class LotController {
     }
 
     @FXML
-    protected void changeToAddMenu(ActionEvent actionEvent) throws IOException {    //pops up in new window     todo: check for signed in
+    protected void changeToAddMenu(ActionEvent actionEvent) throws IOException {    //pops up in new window
         Parent addView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("add-lot-view.fxml")));
         Scene addScene = new Scene(addView);
         Stage stage = new Stage();
@@ -60,6 +63,21 @@ public class LotController {
         stage.setScene(addScene);
         stage.setTitle("Add Lot");
         stage.show();
+    }
+
+    @FXML
+    protected void changeToLotDetails(ActionEvent actionEvent) throws IOException{
+        //todo:hashing
+        LotIndex = activeLotsTV.getSelectionModel().getSelectedIndex();
+        if (LotIndex == -1) {
+            JOptionPane.showMessageDialog(frame, "Please select a lot to view the details of.", "Selection Error!", JOptionPane.ERROR_MESSAGE);
+        }else {
+            Parent detailsView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("lot-details-view.fxml")));
+            Scene detailsScene = new Scene(detailsView);
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            stage.setScene(detailsScene);
+            stage.setTitle("Bid-A-Lot: " + DRIVER.lotList.getElementByInt(LotIndex).getContents().getTitle());
+        }
     }
 
     @FXML
