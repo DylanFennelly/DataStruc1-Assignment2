@@ -1,6 +1,7 @@
 package com.bid.bidalot;
 
 import com.bid.bidalot.lists.MyLinkedList;
+import com.bid.bidalot.lists.Node;
 import com.bid.bidalot.objects.Bidder;
 import com.bid.bidalot.objects.Lot;
 import com.thoughtworks.xstream.XStream;

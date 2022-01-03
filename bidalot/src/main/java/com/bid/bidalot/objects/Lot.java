@@ -10,15 +10,16 @@ import java.util.LinkedList;
 public class Lot {
     //fields
     private String title, description, type, imageLink;
-    private LocalDate originDate, startDate, finalSaleDate;
+    private int originDate;
+    private LocalDate startDate, finalSaleDate;
     private LocalTime startTime, finalSaleTime;
-    private double askingPrice, finalSalePrice;
+    private double startPrice, askingPrice, finalSalePrice;
     private boolean sold;   //marks whether lot has been sold or not
     private Bidder lotOwner;    //bidder that put up the lot for sale
     private LinkedList<Bid> listOfBids;
 
     //constructor
-    public Lot (String title, String description, String type, String imageLink, LocalDate originDate, double askingPrice, Bidder lotOwner){
+    public Lot (String title, String description, String type, String imageLink, int originDate, double askingPrice, Bidder lotOwner){
         //todo: validation
         this.title = title;
         this.description = description;
@@ -30,7 +31,7 @@ public class Lot {
         this.originDate = originDate;
         this.startDate = LocalDate.now();
         this.startTime = LocalTime.now();
-        this.askingPrice = Double.parseDouble(AuctionApp.DF.format(askingPrice));
+        this.askingPrice = this.startPrice = Double.parseDouble(AuctionApp.DF.format(askingPrice));
         this.lotOwner = lotOwner;
         this.sold = false;
         listOfBids = new LinkedList<>();
@@ -65,7 +66,7 @@ public class Lot {
         return imageLink;
     }
 
-    public LocalDate getOriginDate() {
+    public int getOriginDate() {
         return originDate;
     }
 
@@ -105,6 +106,10 @@ public class Lot {
         return listOfBids;
     }
 
+    public double getStartPrice() {
+        return startPrice;
+    }
+
     //setters
     public void setTitle(String title) {
         this.title = title;
@@ -123,7 +128,7 @@ public class Lot {
             this.imageLink = imageLink;
     }
 
-    public void setOriginDate(LocalDate originDate) {
+    public void setOriginDate(int originDate) {
         this.originDate = originDate;
     }
 
@@ -161,6 +166,10 @@ public class Lot {
 
     public void setListOfBids(LinkedList<Bid> listOfBids) {
         this.listOfBids = listOfBids;
+    }
+
+    public void setStartPrice(double startPrice) {
+        this.startPrice = startPrice;
     }
 
 }

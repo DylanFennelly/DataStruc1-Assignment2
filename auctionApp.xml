@@ -1,15 +1,33 @@
 <object-stream>
   <com.bid.bidalot.AuctionApp_-Driver>
-    <lotList/>
+    <lotList>
+      <head>
+        <contents class="com.bid.bidalot.objects.Lot">
+          <title>Test</title>
+          <description>Test</description>
+          <type>Test</type>
+          <imageLink>Test</imageLink>
+          <originDate>2000</originDate>
+          <startDate>2022-01-03</startDate>
+          <startTime>13:43:14.1995746</startTime>
+          <startPrice>10.0</startPrice>
+          <askingPrice>10.0</askingPrice>
+          <finalSalePrice>0.0</finalSalePrice>
+          <sold>false</sold>
+          <lotOwner>
+            <name>Gary White</name>
+            <address>19 Winterwicke Lane</address>
+            <phone>123 456 7890</phone>
+            <email>gwhite@gmail.com</email>
+            <password>passw0rd</password>
+          </lotOwner>
+          <listOfBids/>
+        </contents>
+      </head>
+    </lotList>
     <bidderList>
       <head>
-        <contents class="com.bid.bidalot.objects.Bidder">
-          <name>Gary White</name>
-          <address>19 Winterwicke Lane</address>
-          <phone>123 456 7890</phone>
-          <email>gwhite@gmail.com</email>
-          <password>passw0rd</password>
-        </contents>
+        <contents class="com.bid.bidalot.objects.Bidder" reference="../../../lotList/head/contents/lotOwner"/>
       </head>
     </bidderList>
   </com.bid.bidalot.AuctionApp_-Driver>

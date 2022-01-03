@@ -42,6 +42,7 @@ public class RegisterLoginController {
     }
 
     protected Bidder addBidder(String name, String address, String phone, String email, String password, String passwordConfirm){
+        //todo: move JOptionPane popups to button method
         if (!name.equals("")){
             if(!address.equals("")){
                 if(phone.matches("^[\\d]{3}[\\s]?[\\d]{3}[\\s]?[\\d]{4}$")){
@@ -118,7 +119,6 @@ public class RegisterLoginController {
         Bidder login = loginBidder(LoginEmail.getText(), LoginPassword.getText());
         if (login != null){
             AuctionApp.loggedInBidder = login;
-            System.out.println(AuctionApp.loggedInBidder);
             closeWindow();
 
             //todo: find better way to refresh window

@@ -18,6 +18,8 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Objects;
 
+import static com.bid.bidalot.AuctionApp.DRIVER;
+
 public class LotController {
     @FXML
     private TableView<Lot> activeLotsTV;
@@ -33,6 +35,10 @@ public class LotController {
         if(AuctionApp.loggedInBidder != null){
             addLotButton.setDisable(false);
             loginLabel.setText("Logged in as: " + AuctionApp.loggedInBidder.getName());
+        }
+        activeLotsTV.getItems().clear();
+        for (Lot l : DRIVER.lotList){
+            activeLotsTV.getItems().add(l);
         }
     }
 
