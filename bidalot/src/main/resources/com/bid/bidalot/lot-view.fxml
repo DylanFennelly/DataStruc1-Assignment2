@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bid.bidalot.controllers.LotController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/15" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bid.bidalot.controllers.LotController">
     <children>
         <Label layoutX="22.0" layoutY="14.0" text="Lot View" textAlignment="CENTER">
             <font>
@@ -54,7 +54,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="loginLabel" layoutX="377.0" prefHeight="52.0" prefWidth="149.0" textAlignment="CENTER" wrapText="true" />
+      <Label fx:id="loginLabel" layoutX="377.0" prefHeight="52.0" prefWidth="149.0" textAlignment="CENTER" wrapText="true" text="Not logged in"/>
 
     </children>
 </AnchorPane>
