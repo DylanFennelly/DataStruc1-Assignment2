@@ -20,9 +20,16 @@ public class Lot {
 
     //constructor
     public Lot (String title, String description, String type, String imageLink, int originDate, double askingPrice, Bidder lotOwner){
-        //todo: validation
-        this.title = title;
-        this.description = description;
+        if (title.length() <= 50)
+            this.title = title;
+        else
+            this.title = title.substring(0,50);
+
+        if (description.length() <= 500)
+            this.description = description;
+        else
+            this.description = description.substring(0,500);
+
         this.type = type;   //dropdown of pre-selected categories
         if (!imageLink.equals(""))  //todo: replace with file chooser and image upload?
             this.imageLink = imageLink;
@@ -31,7 +38,7 @@ public class Lot {
         this.originDate = originDate;
         this.startDate = LocalDate.now();
         this.startTime = LocalTime.now();
-        this.askingPrice = this.startPrice = Double.parseDouble(AuctionApp.DF.format(askingPrice));
+        this.askingPrice = this.startPrice = Double.parseDouble(AuctionApp.DF.format(askingPrice)); //validated in controller
         this.lotOwner = lotOwner;
         this.sold = false;
         listOfBids = new LinkedList<>();
@@ -112,11 +119,13 @@ public class Lot {
 
     //setters
     public void setTitle(String title) {
-        this.title = title;
+        if (title.length() <= 50)
+            this.title = title;
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        if (description.length() <= 500)
+            this.description = description;
     }
 
     public void setType(String type) {
@@ -169,7 +178,7 @@ public class Lot {
     }
 
     public void setStartPrice(double startPrice) {
-        this.startPrice = startPrice;
+        this.startPrice = Float.parseFloat(AuctionApp.DF.format(startPrice));
     }
 
 }
