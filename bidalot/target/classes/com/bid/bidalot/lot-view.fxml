@@ -7,7 +7,8 @@
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-
+<!--todo-->
+<!--edit the tableview so that it's less bright and follow the rest of the scheme-->
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: linear-gradient(to bottom, #383a3d, grey);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bid.bidalot.controllers.LotController">
     <children>
         <Label layoutX="22.0" layoutY="14.0" text="Lot View" textAlignment="CENTER" textFill="WHITE">
