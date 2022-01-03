@@ -71,6 +71,18 @@ public class StartController {
     }
 
     @FXML
+    protected void changeToAdminMenu(ActionEvent actionEvent) throws IOException {
+        Parent adminView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("admin-view.fxml")));
+        Scene addScene = new Scene(adminView);
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initOwner(adminView.getScene().getWindow());
+        stage.setScene(addScene);
+        stage.setTitle("Administrator Menu");
+        stage.show();
+    }
+
+    @FXML
     protected void logoutButton(ActionEvent actionEvent){
         int option = JOptionPane.showConfirmDialog(frame, "Are you sure you want to logout?", "Logout Confirmation", JOptionPane.YES_NO_OPTION);
         if (option == JOptionPane.YES_OPTION){
@@ -87,14 +99,16 @@ public class StartController {
 
     //temporary save and load buttons for testing
     @FXML
-    protected void saveButton(ActionEvent actionEvent) throws Exception{
+    protected void saveButton(ActionEvent actionEvent) throws Exception {
         AuctionApp.save();
         JOptionPane.showMessageDialog(frame, "Save complete!", "Save Status", JOptionPane.INFORMATION_MESSAGE);
     }
 
     @FXML
-    protected void loadButton(ActionEvent actionEvent)  throws Exception{
+    protected void loadButton(ActionEvent actionEvent) throws Exception {
         AuctionApp.load();
         JOptionPane.showMessageDialog(frame, "Load complete!", "Load Status", JOptionPane.INFORMATION_MESSAGE);
     }
+
+
 }

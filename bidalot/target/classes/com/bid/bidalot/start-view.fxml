@@ -1,24 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/15" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bid.bidalot.controllers.StartController">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="640.0" style="-fx-background-color: linear-gradient(to bottom, #383a3d, grey);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bid.bidalot.controllers.StartController">
    <children>
-      <Label layoutX="42.0" layoutY="14.0" text="Welcome to Bid-A-Lot!" textAlignment="CENTER">
+      <Label layoutX="212.0" layoutY="14.0" text="Welcome to Bid-A-Lot!" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Button layoutX="22.0" layoutY="104.0" mnemonicParsing="false" onAction="#changeToLotMenu" prefHeight="50.0" prefWidth="100.0" text="View Lots" />
-      <Button layoutX="179.0" layoutY="104.0" mnemonicParsing="false" onAction="#changeToBidderMenu" prefHeight="50.0" prefWidth="100.0" text="View Bidders" />
-      <Button layoutX="22.0" layoutY="167.0" mnemonicParsing="false" onAction="#loadButton" text="load" />
-      <Button layoutX="60.0" layoutY="167.0" mnemonicParsing="false" onAction="#saveButton" text="save" />
-      <Button fx:id="registerButton" layoutX="103.0" layoutY="54.0" mnemonicParsing="false" onAction="#changeToRegisterLoginMenu" text="Register/Login" />
-      <Label fx:id="usernameLabel" alignment="CENTER" disable="true" layoutX="82.0" layoutY="29.0" prefHeight="50.0" prefWidth="136.0" textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="logoutButton" layoutX="122.0" layoutY="167.0" mnemonicParsing="false" onAction="#logoutButton" text="Log out" visible="false" />
-      <Button fx:id="adminButton" layoutX="197.0" layoutY="167.0" mnemonicParsing="false" text="Admin Settings" visible="false" />
+      <Label fx:id="usernameLabel" alignment="CENTER" disable="true" layoutX="252.0" layoutY="44.0" prefHeight="50.0" prefWidth="136.0" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+      <GridPane layoutX="14.0" layoutY="118.0" prefHeight="112.0" prefWidth="612.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button mnemonicParsing="false" onAction="#changeToBidderMenu" prefHeight="25.0" prefWidth="183.0" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="View Bidders" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets left="10.0" right="10.0" />
+               </GridPane.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#changeToLotMenu" prefHeight="25.0" prefWidth="189.0" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="View Lots">
+               <GridPane.margin>
+                  <Insets left="10.0" right="10.0" />
+               </GridPane.margin>
+            </Button>
+            <Button fx:id="registerButton" defaultButton="true" mnemonicParsing="false" onAction="#changeToRegisterLoginMenu" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-border-color: black; -fx-background-insets: 0; -fx-border-width: 0.5;" text="Register/Login" GridPane.columnIndex="2">
+               <GridPane.margin>
+                  <Insets left="10.0" right="10.0" />
+               </GridPane.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#saveButton" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Save" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="10.0" right="10.0" />
+               </GridPane.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#loadButton" prefHeight="25.0" prefWidth="197.0" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-width: 0.5; -fx-border-color: black;" text="Load" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="10.0" right="10.0" />
+               </GridPane.margin>
+            </Button>
+            <Button fx:id="adminButton" mnemonicParsing="false" onAction="#changeToAdminMenu" prefHeight="25.0" prefWidth="177.0" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #855252); -fx-border-color: black; -fx-background-insets: 0; -fx-border-width: 0.5;" text="Admin Settings" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="10.0" right="10.0" />
+               </GridPane.margin>
+            </Button>
+            <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logoutButton" prefHeight="25.0" prefWidth="197.0" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #528575); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Log out" visible="false" GridPane.columnIndex="2">
+               <GridPane.margin>
+                  <Insets left="10.0" right="10.0" />
+               </GridPane.margin>
+            </Button>
+         </children>
+      </GridPane>
    </children>
 </AnchorPane>

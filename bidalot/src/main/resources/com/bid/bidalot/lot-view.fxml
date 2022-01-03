@@ -7,17 +7,18 @@
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/15" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bid.bidalot.controllers.LotController">
+<!--todo-->
+<!--edit the tableview so that it's less bright and follow the rest of the scheme-->
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: linear-gradient(to bottom, #383a3d, grey);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bid.bidalot.controllers.LotController">
     <children>
-        <Label layoutX="22.0" layoutY="14.0" text="Lot View" textAlignment="CENTER">
+        <Label layoutX="22.0" layoutY="14.0" text="Lot View" textAlignment="CENTER" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="20.0" />
             </font>
         </Label>
-        <Button layoutX="22.0" layoutY="55.0" mnemonicParsing="false" onAction="#changeToStartMenu" prefHeight="25.0" prefWidth="82.0" text="Return" />
-        <Button fx:id="addLotButton" disable="true" layoutX="127.0" layoutY="55.0" mnemonicParsing="false" onAction="#changeToAddMenu" prefHeight="25.0" prefWidth="82.0" text="Add Lot" />
-      <TableView fx:id="activeLotsTV" layoutX="22.0" layoutY="125.0" prefHeight="453.0" prefWidth="856.0">
+        <Button layoutX="22.0" layoutY="55.0" mnemonicParsing="false" onAction="#changeToStartMenu" prefHeight="25.0" prefWidth="82.0" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-image-width: 0.5;" text="Return" />
+        <Button fx:id="addLotButton" disable="true" layoutX="127.0" layoutY="55.0" mnemonicParsing="false" onAction="#changeToAddMenu" prefHeight="25.0" prefWidth="82.0" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Add Lot" />
+      <TableView fx:id="activeLotsTV" layoutX="22.0" layoutY="125.0" prefHeight="453.0" prefWidth="856.0" style="-fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5; -fx-background-color: #a3a3a3;">
         <columns>
           <TableColumn prefWidth="129.0" reorderable="false" sortable="false" text="Title">
               <cellValueFactory>
@@ -46,15 +47,14 @@
             </TableColumn>
         </columns>
       </TableView>
-        <Button layoutX="568.0" layoutY="55.0" mnemonicParsing="false" text="View Selected Lot" onAction="#changeToLotDetails"/>
-      <Button layoutX="700.0" layoutY="55.0" mnemonicParsing="false" onAction="#addDummyValues" text="Sold Lots" />
-      <Button layoutX="798.0" layoutY="55.0" mnemonicParsing="false" text="Search" />
-      <Label layoutX="413.0" layoutY="105.0" prefHeight="20.0" prefWidth="76.0" text="Active Lots">
+      <Button layoutX="568.0" layoutY="55.0" mnemonicParsing="false" text="View Selected Lot" onAction="#changeToLotDetails"/>
+      <Button layoutX="700.0" layoutY="55.0" mnemonicParsing="false" onAction="#addDummyValues" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Sold Lots" />
+      <Button layoutX="798.0" layoutY="55.0" mnemonicParsing="false" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Search" />
+      <Label layoutX="413.0" layoutY="105.0" prefHeight="20.0" prefWidth="76.0" text="Active Lots" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="loginLabel" layoutX="377.0" prefHeight="52.0" prefWidth="149.0" textAlignment="CENTER" wrapText="true" text="Not logged in"/>
-
+      <Label fx:id="loginLabel" layoutX="377.0" prefHeight="52.0" prefWidth="149.0" textAlignment="CENTER" textFill="WHITE" wrapText="true" text="Not logged in" />
     </children>
 </AnchorPane>
