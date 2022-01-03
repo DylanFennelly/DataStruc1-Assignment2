@@ -5,6 +5,7 @@ import com.bid.bidalot.AuctionApp;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.LinkedList;
 
 public class Lot {
     //fields
@@ -14,7 +15,7 @@ public class Lot {
     private double askingPrice, finalSalePrice;
     private boolean sold;   //marks whether lot has been sold or not
     private Bidder lotOwner;    //bidder that put up the lot for sale
-    //linkedList of bids
+    private LinkedList<Bid> listOfBids;
 
     //constructor
     public Lot (String title, String description, String type, String imageLink, LocalDate originDate, double askingPrice, Bidder lotOwner){
@@ -32,6 +33,7 @@ public class Lot {
         this.askingPrice = Double.parseDouble(AuctionApp.DF.format(askingPrice));
         this.lotOwner = lotOwner;
         this.sold = false;
+        listOfBids = new LinkedList<>();
     }
 
     //methods
@@ -99,6 +101,10 @@ public class Lot {
         return lotOwner;
     }
 
+    public LinkedList<Bid> getListOfBids() {
+        return listOfBids;
+    }
+
     //setters
     public void setTitle(String title) {
         this.title = title;
@@ -152,4 +158,9 @@ public class Lot {
     public void setLotOwner(Bidder lotOwner) {
         this.lotOwner = lotOwner;
     }
+
+    public void setListOfBids(LinkedList<Bid> listOfBids) {
+        this.listOfBids = listOfBids;
+    }
+
 }
