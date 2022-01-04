@@ -67,7 +67,7 @@
                </font>
             </Label>
             <TextField fx:id="lotTitle" promptText="Enter title" GridPane.columnIndex="1" />
-            <TextArea fx:id="lotDesc" prefHeight="200.0" prefWidth="200.0" promptText="Enter description" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextArea fx:id="lotDesc" prefHeight="200.0" prefWidth="200.0" promptText="Enter description" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <ChoiceBox fx:id="lotType" prefHeight="25.0" prefWidth="287.0" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                 <items>
                     <FXCollections fx:factory="observableArrayList">
