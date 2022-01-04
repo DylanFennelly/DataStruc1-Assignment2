@@ -15,7 +15,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to bottom, #383a3d, grey);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bid.bidalot.controllers.AddLotController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to bottom, #383a3d, grey);" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bid.bidalot.controllers.AddLotController">
     <children>
         <Label layoutX="14.0" layoutY="14.0" text="Add Lot" textAlignment="CENTER" textFill="WHITE">
             <font>
@@ -67,29 +67,29 @@
                </font>
             </Label>
             <TextField fx:id="lotTitle" promptText="Enter title" GridPane.columnIndex="1" />
-            <TextArea fx:id="lotDesc" prefHeight="200.0" prefWidth="200.0" promptText="Enter description" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextArea fx:id="lotDesc" prefHeight="200.0" prefWidth="200.0" promptText="Enter description" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <ChoiceBox fx:id="lotType" prefHeight="25.0" prefWidth="287.0" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                 <items>
                     <FXCollections fx:factory="observableArrayList">
-                        <String fx:value="Antiques"/>
-                        <String fx:value="Audio Devices"/>
-                        <String fx:value="Books, Comics and Magazines"/>
-                        <String fx:value="Cameras and Photography"/>
-                        <String fx:value="Cars, Parts and Car Accessories"/>
-                        <String fx:value="Computers and Tablets"/>
-                        <String fx:value="DVDs, Films and TV"/>
-                        <String fx:value="Furniture"/>
-                        <String fx:value="Health and Beauty"/>
-                        <String fx:value="Home Decor"/>
-                        <String fx:value="Jewellery"/>
-                        <String fx:value="Men's Clothing"/>
-                        <String fx:value="Music"/>
-                        <String fx:value="Musical Instruments"/>
-                        <String fx:value="Mobile Phones"/>
-                        <String fx:value="Sporting Goods"/>
-                        <String fx:value="Toys and Games"/>
-                        <String fx:value="Video Games and Consoles"/>
-                        <String fx:value="Women's Clothing"/>
+                        <String fx:value="Antiques" />
+                        <String fx:value="Audio Devices" />
+                        <String fx:value="Books, Comics and Magazines" />
+                        <String fx:value="Cameras and Photography" />
+                        <String fx:value="Cars, Parts and Car Accessories" />
+                        <String fx:value="Computers and Tablets" />
+                        <String fx:value="DVDs, Films and TV" />
+                        <String fx:value="Furniture" />
+                        <String fx:value="Health and Beauty" />
+                        <String fx:value="Home Decor" />
+                        <String fx:value="Jewellery" />
+                        <String fx:value="Men's Clothing" />
+                        <String fx:value="Music" />
+                        <String fx:value="Musical Instruments" />
+                        <String fx:value="Mobile Phones" />
+                        <String fx:value="Sporting Goods" />
+                        <String fx:value="Toys and Games" />
+                        <String fx:value="Video Games and Consoles" />
+                        <String fx:value="Women's Clothing" />
                     </FXCollections>
                 </items>
             </ChoiceBox>

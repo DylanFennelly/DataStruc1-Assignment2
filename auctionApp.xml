@@ -12,7 +12,7 @@
             <startDate>2022-01-04</startDate>
             <startTime>14:28:50.0217813</startTime>
             <startPrice>100.0</startPrice>
-            <askingPrice>100.0</askingPrice>
+            <askingPrice>1529.64</askingPrice>
             <finalSalePrice>0.0</finalSalePrice>
             <sold>false</sold>
             <lotOwner>
@@ -22,7 +22,38 @@
               <email>dylanfennelly@email.com</email>
               <password>loginme1</password>
             </lotOwner>
-            <listOfBids/>
+            <listOfBids>
+              <head>
+                <next>
+                  <next>
+                    <contents class="com.bid.bidalot.objects.Bid">
+                      <bidAmount>100.0</bidAmount>
+                      <bidDate>04/01/22</bidDate>
+                      <bidTime>14:50:11</bidTime>
+                      <bidder>
+                        <name>Gary White</name>
+                        <address>19 Winterwicke Lane</address>
+                        <phone>123 456 7890</phone>
+                        <email>gwhite@gmail.com</email>
+                        <password>passw0rd</password>
+                      </bidder>
+                    </contents>
+                  </next>
+                  <contents class="com.bid.bidalot.objects.Bid">
+                    <bidAmount>100.01</bidAmount>
+                    <bidDate>04/01/22</bidDate>
+                    <bidTime>14:50:17</bidTime>
+                    <bidder reference="../../next/contents/bidder"/>
+                  </contents>
+                </next>
+                <contents class="com.bid.bidalot.objects.Bid">
+                  <bidAmount>1529.64</bidAmount>
+                  <bidDate>04/01/22</bidDate>
+                  <bidTime>14:50:31</bidTime>
+                  <bidder reference="../../next/next/contents/bidder"/>
+                </contents>
+              </head>
+            </listOfBids>
           </contents>
         </next>
         <contents class="com.bid.bidalot.objects.Lot">
@@ -37,13 +68,7 @@
           <askingPrice>12.25</askingPrice>
           <finalSalePrice>0.0</finalSalePrice>
           <sold>false</sold>
-          <lotOwner>
-            <name>Gary White</name>
-            <address>19 Winterwicke Lane</address>
-            <phone>123 456 7890</phone>
-            <email>gwhite@gmail.com</email>
-            <password>passw0rd</password>
-          </lotOwner>
+          <lotOwner reference="../../next/contents/listOfBids/head/next/next/contents/bidder"/>
           <listOfBids>
             <head>
               <next>
@@ -79,7 +104,7 @@
           </next>
           <contents class="com.bid.bidalot.objects.Bidder" reference="../../../../lotList/head/contents/listOfBids/head/next/contents/bidder"/>
         </next>
-        <contents class="com.bid.bidalot.objects.Bidder" reference="../../../lotList/head/contents/lotOwner"/>
+        <contents class="com.bid.bidalot.objects.Bidder" reference="../../../lotList/head/next/contents/listOfBids/head/next/next/contents/bidder"/>
       </head>
     </bidderList>
   </com.bid.bidalot.AuctionApp_-Driver>

@@ -88,7 +88,8 @@ public class LotDetailsController {
     protected void addBidButton(ActionEvent actionEvent){
         if (bidField.getText().matches("[\\d]+[.]+[\\d]{2}")){
             double bid = Double.parseDouble(bidField.getText());
-            if (bid > DRIVER.lotList.getElementByInt(LotIndex).getContents().getAskingPrice()){ //todo: place bid at starting if no bid  placed yet
+                //if bid is greater than current highest bid (asking price)                   OR    if bid is equal to the start price and no bids have been placed yet (allowing a bid to be placed at the starting bid price if no bids have been placed yet)
+            if (bid > DRIVER.lotList.getElementByInt(LotIndex).getContents().getAskingPrice() || (bid == DRIVER.lotList.getElementByInt(LotIndex).getContents().getStartPrice() && DRIVER.lotList.getElementByInt(LotIndex).getContents().getListOfBids().getListLength() == 0)){ //todo: place bid at starting if no bid  placed yet
                 int option = JOptionPane.showConfirmDialog(frame, "Are you sure you want to place this bid?\n\nBid amount: "+ String.format("%.2f",bid), "Bid Confirmation", JOptionPane.YES_NO_OPTION);
                 if (option == JOptionPane.YES_OPTION) {
                     JOptionPane.showMessageDialog(frame, "Bid placed!", "Bid Success!", JOptionPane.INFORMATION_MESSAGE);
