@@ -11,7 +11,7 @@
 <!--todo-->
 <!--edit the tableview so that it's less bright and follow the rest of the scheme-->
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: linear-gradient(to bottom, #383a3d, grey);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bid.bidalot.controllers.LotController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: linear-gradient(to bottom, #383a3d, grey);" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bid.bidalot.controllers.LotController">
     <children>
         <Label layoutX="22.0" layoutY="14.0" text="Lot View" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="10.0">
             <font>
@@ -22,27 +22,27 @@
         <Button fx:id="addLotButton" disable="true" layoutX="98.0" layoutY="55.0" mnemonicParsing="false" onAction="#changeToAddMenu" prefHeight="25.0" prefWidth="82.0" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Add Lot" />
       <TableView fx:id="activeLotsTV" layoutX="22.0" layoutY="125.0" prefHeight="506.0" prefWidth="880.0" style="-fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5; -fx-background-color: #a3a3a3;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
         <columns>
-          <TableColumn prefWidth="129.0" reorderable="false" sortable="false" text="Title">
+          <TableColumn prefWidth="129.0" reorderable="false" sortable="false" resizable="false"  text="Title">
               <cellValueFactory>
                   <PropertyValueFactory property="title" />
               </cellValueFactory>
           </TableColumn>
-          <TableColumn minWidth="7.0" prefWidth="92.0" reorderable="false" sortable="false" text="Type">
+          <TableColumn minWidth="7.0" prefWidth="129.0" reorderable="false" sortable="false" resizable="false"  text="Type">
               <cellValueFactory>
                   <PropertyValueFactory property="type" />
               </cellValueFactory>
           </TableColumn>
-            <TableColumn prefWidth="411.0" reorderable="false" sortable="false" text="Description">
+            <TableColumn prefWidth="399.0" reorderable="false" sortable="false" resizable="false"  text="Description">
                 <cellValueFactory>
                     <PropertyValueFactory property="description" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn minWidth="0.0" prefWidth="94.0" reorderable="false" sortable="false" text="Start Date">
+            <TableColumn minWidth="0.0" prefWidth="104.0" reorderable="false" sortable="false" resizable="false"  text="Start Date">
                 <cellValueFactory>
                     <PropertyValueFactory property="startDate" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn prefWidth="129.0" reorderable="false" sortable="false" text="Current Bid (€)">
+            <TableColumn prefWidth="117.0" reorderable="false" sortable="false" resizable="false"  text="Current Bid (€)">
                 <cellValueFactory>
                     <PropertyValueFactory property="askingPrice" />
                 </cellValueFactory>

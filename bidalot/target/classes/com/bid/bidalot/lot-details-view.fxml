@@ -18,7 +18,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="loginLabel" alignment="TOP_CENTER" layoutX="404.0" layoutY="3.0" prefHeight="40.0" prefWidth="149.0" text="Not logged in" textFill="WHITE" wrapText="true" />
+      <Label fx:id="loginLabel" alignment="TOP_CENTER" layoutX="391.0" prefHeight="40.0" prefWidth="149.0" text="Not logged in" textFill="WHITE" wrapText="true" />
       <Label fx:id="lotTitleLabel" alignment="TOP_LEFT" layoutX="14.0" layoutY="44.0" prefHeight="21.0" prefWidth="715.0" text="Lot Title" textFill="WHITE" AnchorPane.leftAnchor="10.0">
          <font>
             <Font size="15.0" />
