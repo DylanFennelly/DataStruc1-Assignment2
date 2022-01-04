@@ -79,8 +79,8 @@
             <PasswordField fx:id="BPassConfirm" promptText="Confirm password" GridPane.columnIndex="1" GridPane.rowIndex="5" />
          </children>
       </GridPane>
-      <Button fx:id="closeButton" layoutX="14.0" layoutY="325.0" mnemonicParsing="false" onAction="#closeWindowButton" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Cancel" />
-      <Button layoutX="309.0" layoutY="325.0" mnemonicParsing="false" onAction="#addBidderButton" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Register" />
+      <Button fx:id="closeButton" layoutX="14.0" layoutY="325.0" mnemonicParsing="false" onAction="#closeWindowButton" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Cancel" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" />
+      <Button layoutX="309.0" layoutY="325.0" mnemonicParsing="false" onAction="#addBidderButton" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Register" AnchorPane.bottomAnchor="10.0" />
       <Line endY="336.0" layoutX="383.0" layoutY="14.0" stroke="#d0d0d0" />
       <Label layoutX="398.0" layoutY="14.0" text="Login" textFill="WHITE">
          <font>
@@ -99,6 +99,6 @@
          </font>
       </Label>
       <PasswordField fx:id="LoginPassword" layoutX="398.0" layoutY="228.0" prefHeight="25.0" prefWidth="287.0" promptText="Enter password" />
-      <Button layoutX="634.0" layoutY="325.0" mnemonicParsing="false" onAction="#loginBidderButton" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Login" />
+      <Button layoutX="634.0" layoutY="325.0" mnemonicParsing="false" onAction="#loginBidderButton" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #828aff); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Login" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
    </children>
 </AnchorPane>

@@ -11,85 +11,86 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="786.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bid.bidalot.controllers.LotDetailsController">
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<AnchorPane prefHeight="720.0" prefWidth="900.0" style="-fx-background-color: linear-gradient(to bottom, #383a3d, grey);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bid.bidalot.controllers.LotDetailsController">
    <children>
-      <Label layoutX="14.0" layoutY="14.0" text="Lot Details">
+      <Label layoutX="14.0" layoutY="14.0" text="Lot Details" textFill="WHITE" AnchorPane.leftAnchor="10.0">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="loginLabel" alignment="TOP_CENTER" layoutX="335.0" layoutY="3.0" prefHeight="52.0" prefWidth="149.0" text="Not logged in" wrapText="true" />
-      <Label fx:id="lotTitleLabel" alignment="TOP_LEFT" layoutX="14.0" layoutY="44.0" prefHeight="21.0" prefWidth="715.0" text="Lot Title">
+      <Label fx:id="loginLabel" alignment="TOP_CENTER" layoutX="404.0" layoutY="3.0" prefHeight="40.0" prefWidth="149.0" text="Not logged in" textFill="WHITE" wrapText="true" />
+      <Label fx:id="lotTitleLabel" alignment="TOP_LEFT" layoutX="14.0" layoutY="44.0" prefHeight="21.0" prefWidth="715.0" text="Lot Title" textFill="WHITE" AnchorPane.leftAnchor="10.0">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label fx:id="lotTypeLabel" layoutX="14.0" layoutY="65.0" text="In &gt;Lot Type&lt;">
+      <Label fx:id="lotTypeLabel" layoutX="14.0" layoutY="65.0" text="In &gt;Lot Type&lt;" textFill="WHITE" AnchorPane.leftAnchor="10.0">
          <font>
             <Font name="System Italic" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="lotOriginLabel" layoutX="14.0" layoutY="82.0" text="circa &gt;Year&lt;">
+      <Label fx:id="lotOriginLabel" layoutX="14.0" layoutY="82.0" text="circa &gt;Year&lt;" textFill="WHITE" AnchorPane.leftAnchor="10.0">
          <font>
             <Font name="System Italic" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="soldLabel" layoutX="298.0" layoutY="64.0" text="SOLD!" textFill="RED" visible="false">
+      <Label fx:id="soldLabel" layoutX="299.0" layoutY="91.0" text="SOLD!" textFill="RED" visible="false">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <Label layoutX="14.0" layoutY="117.0" text="Description" />
+      <Label layoutX="14.0" layoutY="117.0" text="Description" textFill="WHITE" AnchorPane.leftAnchor="10.0" />
       <TextArea fx:id="lotDescTA" editable="false" layoutX="14.0" layoutY="134.0" prefHeight="246.0" prefWidth="357.0" wrapText="true" />
-      <Label layoutX="14.0" layoutY="390.0" text="Image(s) Link" />
+      <Label layoutX="10.0" layoutY="536.0" text="Image(s) Link" textFill="WHITE" />
       <Hyperlink fx:id="lotImageLink" onAction="#openImageLink" layoutX="11.0" layoutY="407.0" prefHeight="23.0" prefWidth="357.0" text="Image Link" />
-      <Label fx:id="lotNoImageLabel" disable="true" layoutX="14.0" layoutY="410.0" text="N/A" visible="false" />
-      <Label fx:id="lotStartedLabel" layoutX="14.0" layoutY="443.0" prefHeight="40.0" prefWidth="319.0" text="Lot started on &gt;date&lt; at &gt;time&lt; by &gt;lotOwner&lt;">
+      <Label fx:id="lotNoImageLabel" disable="true" layoutX="10.0" layoutY="555.0" text="N/A" visible="false" />
+      <Label fx:id="lotStartedLabel" alignment="TOP_LEFT" layoutX="10.0" layoutY="575.0" prefHeight="40.0" prefWidth="319.0" text="Lot started on &gt;date&lt; at &gt;time&lt; by &gt;lotOwner&lt;" textFill="WHITE" AnchorPane.leftAnchor="10.0">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lotSoldDateLabel" alignment="TOP_LEFT" disable="true" layoutX="14.0" layoutY="483.0" prefHeight="40.0" prefWidth="319.0" text="Lot sold on &gt;date&lt; at &gt;time&lt; to &gt;winning bidder&lt;" visible="false">
+      <Label fx:id="lotSoldDateLabel" alignment="TOP_LEFT" layoutX="10.0" layoutY="615.0" prefHeight="40.0" prefWidth="319.0" text="Lot sold on &gt;date&lt; at &gt;time&lt; to &gt;winning bidder&lt;" textFill="WHITE" visible="false">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="currentBidLabel" layoutX="450.0" layoutY="104.0" text="Current Bid: &gt;askingPrice&lt;">
+      <Label fx:id="currentBidLabel" alignment="TOP_CENTER" layoutX="478.0" layoutY="101.0" prefHeight="52.0" prefWidth="438.0" text="Current Bid: &gt;askingPrice&lt;" textFill="WHITE">
          <font>
-            <Font size="18.0" />
+            <Font size="24.0" />
          </font>
       </Label>
-      <Label fx:id="startPriceLabel" layoutX="450.0" layoutY="134.0" text="Started at: &gt;startingPrice&lt;" />
-      <TextField fx:id="bidField" layoutX="450.0" layoutY="178.0" prefHeight="25.0" prefWidth="112.0" promptText="Enter bid..." />
-      <Button fx:id="bidButton" disable="true" layoutX="590.0" layoutY="178.0" mnemonicParsing="false" onAction="#addBidButton" text="Place Bid" />
-      <Label layoutX="451.0" layoutY="219.0" text="Bid History" />
-      <TableView fx:id="bidTV" layoutX="450.0" layoutY="236.0" prefHeight="300.0" prefWidth="319.0" >
+      <Label fx:id="startPriceLabel" alignment="CENTER" layoutX="492.0" layoutY="148.0" prefHeight="17.0" prefWidth="438.0" text="Started at: &gt;startingPrice&lt;" textFill="WHITE" />
+      <TextField fx:id="bidField" layoutX="669.0" layoutY="203.0" prefHeight="25.0" prefWidth="177.0" promptText="Enter bid" />
+      <Button fx:id="bidButton" onAction="#addBidButton" disable="true" layoutX="827.0" layoutY="203.0" mnemonicParsing="false" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Place Bid" AnchorPane.rightAnchor="10.0" />
+      <Label layoutX="482.0" layoutY="207.0" text="Bid History" textFill="WHITE" />
+      <TableView fx:id="bidTV" layoutX="451.0" layoutY="236.0" prefHeight="294.0" prefWidth="438.0" AnchorPane.bottomAnchor="193.0" AnchorPane.rightAnchor="10.0">
         <columns>
-          <TableColumn prefWidth="75.0" reorderable="false" sortable="false" text="Bid (€)">
-             <cellValueFactory>
-                <PropertyValueFactory property="bidAmount" />
-             </cellValueFactory>
-          </TableColumn>
-          <TableColumn prefWidth="116.0" reorderable="false" sortable="false" text="Bidder">
-             <cellValueFactory>
-                <PropertyValueFactory property="bidder" />
-             </cellValueFactory>
-          </TableColumn>
-            <TableColumn prefWidth="69.0" reorderable="false" sortable="false" text="Date">
-               <cellValueFactory>
-                  <PropertyValueFactory property="bidDate" />
-               </cellValueFactory>
-            </TableColumn>
-            <TableColumn prefWidth="58.0" reorderable="false" sortable="false" text="Time">
-               <cellValueFactory>
-                  <PropertyValueFactory property="bidTime" />
-               </cellValueFactory>
-            </TableColumn>
+           <TableColumn prefWidth="75.0" reorderable="false" sortable="false" text="Bid (€)">
+              <cellValueFactory>
+                 <PropertyValueFactory property="bidAmount" />
+              </cellValueFactory>
+           </TableColumn>
+           <TableColumn prefWidth="116.0" reorderable="false" sortable="false" text="Bidder">
+              <cellValueFactory>
+                 <PropertyValueFactory property="bidder" />
+              </cellValueFactory>
+           </TableColumn>
+           <TableColumn prefWidth="69.0" reorderable="false" sortable="false" text="Date">
+              <cellValueFactory>
+                 <PropertyValueFactory property="bidDate" />
+              </cellValueFactory>
+           </TableColumn>
+           <TableColumn prefWidth="58.0" reorderable="false" sortable="false" text="Time">
+              <cellValueFactory>
+                 <PropertyValueFactory property="bidTime" />
+              </cellValueFactory>
+           </TableColumn>
         </columns>
       </TableView>
-      <Button layoutX="14.0" layoutY="561.0" mnemonicParsing="false" onAction="#changeToLotMenu" text="Return" />
-      <Button layoutX="650.0" layoutY="561.0" mnemonicParsing="false" text="View Bidder Details" />
-      <Button fx:id="sellLotButton" onAction="#sellLotButton" layoutX="599.0" layoutY="70.0" mnemonicParsing="false" text="Sell Lot" visible="false" />
-      <Button fx:id="withdrawLotButton" onAction="#withdrawLot" layoutX="666.0" layoutY="70.0" mnemonicParsing="false" text="Withdraw Lot" visible="false" />
+      <Button onAction="#changeToLotMenu" layoutX="10.0" layoutY="681.0" mnemonicParsing="false" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #828aff); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Return" AnchorPane.leftAnchor="10.0" />
+      <Button layoutX="797.0" layoutY="681.0" mnemonicParsing="false" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="View Bidder Details" AnchorPane.rightAnchor="10.0" />
+      <Button fx:id="sellLotButton" onAction="#sellLotButton" layoutX="482.0" layoutY="531.0" mnemonicParsing="false" prefWidth="90.0" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Sell Lot" visible="false" />
+      <Button fx:id="withdrawLotButton" onAction="#withdrawLot" layoutX="830.0" layoutY="531.0" mnemonicParsing="false" prefWidth="90.0" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Withdraw Lot" visible="false" AnchorPane.rightAnchor="10.0" />
    </children>
 </AnchorPane>

@@ -16,8 +16,8 @@
             </font>
         </Label>
         <Button layoutX="22.0" layoutY="55.0" mnemonicParsing="false" onAction="#changeToStartMenu" prefHeight="25.0" prefWidth="82.0" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Return" />
-      <Button fx:id="myProfileButton" layoutX="118.0" layoutY="55.0" mnemonicParsing="false" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="View My Profile" visible="false" />
-      <Button layoutX="680.0" layoutY="55.0" onAction="#changeToBidderDetails" mnemonicParsing="false" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="View Selected Bidder" />
+        <Button fx:id="myProfileButton" layoutX="118.0" layoutY="55.0" mnemonicParsing="false" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="View My Profile" visible="false" />
+        <Button layoutX="680.0" layoutY="55.0" onAction="#changeToBidderDetails" mnemonicParsing="false" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="View Selected Bidder" />
         <Button layoutX="824.0" layoutY="55.0" mnemonicParsing="false" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Search" />
         <TableView fx:id="biddersTV" layoutX="22.0" layoutY="125.0" prefHeight="453.0" prefWidth="856.0" style="-fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5; -fx-background-color: #a3a3a3;">
             <columns>
@@ -48,6 +48,6 @@
                 <Font name="System Bold" size="14.0" />
             </font>
         </Label>
-      <Label fx:id="loginLabel" layoutX="376.0" layoutY="3.0" prefHeight="52.0" prefWidth="149.0" text="Not logged in" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+        <Label fx:id="loginLabel" layoutX="376.0" layoutY="3.0" prefHeight="52.0" prefWidth="149.0" text="Not logged in" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
     </children>
 </AnchorPane>
