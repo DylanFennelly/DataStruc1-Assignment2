@@ -163,8 +163,8 @@ public class Lot {
         this.askingPrice = Double.parseDouble(AuctionApp.DF.format(askingPrice));
     }
 
-    public void setFinalSalePrice(double finalSalePrice) {
-        this.finalSalePrice = finalSalePrice;
+    public void setFinalSalePrice() {  //final sale price is askingPrice at time of sale
+        this.finalSalePrice = this.askingPrice;
     }
 
     public void setSold(boolean sold) {

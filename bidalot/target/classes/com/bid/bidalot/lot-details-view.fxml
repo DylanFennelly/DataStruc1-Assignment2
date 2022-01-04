@@ -63,24 +63,24 @@
       <TextField fx:id="bidField" layoutX="450.0" layoutY="178.0" prefHeight="25.0" prefWidth="112.0" promptText="Enter bid..." />
       <Button fx:id="bidButton" disable="true" layoutX="590.0" layoutY="178.0" mnemonicParsing="false" onAction="#addBidButton" text="Place Bid" />
       <Label layoutX="451.0" layoutY="219.0" text="Bid History" />
-      <TableView fx:id="bidTV" layoutX="450.0" layoutY="236.0" prefHeight="300.0" prefWidth="319.0">
+      <TableView fx:id="bidTV" layoutX="450.0" layoutY="236.0" prefHeight="300.0" prefWidth="319.0" >
         <columns>
-          <TableColumn prefWidth="75.0" text="Bid (€)">
+          <TableColumn prefWidth="75.0" reorderable="false" sortable="false" text="Bid (€)">
              <cellValueFactory>
                 <PropertyValueFactory property="bidAmount" />
              </cellValueFactory>
           </TableColumn>
-          <TableColumn prefWidth="116.0" text="Bidder">
+          <TableColumn prefWidth="116.0" reorderable="false" sortable="false" text="Bidder">
              <cellValueFactory>
                 <PropertyValueFactory property="bidder" />
              </cellValueFactory>
           </TableColumn>
-            <TableColumn prefWidth="69.0" text="Date">
+            <TableColumn prefWidth="69.0" reorderable="false" sortable="false" text="Date">
                <cellValueFactory>
                   <PropertyValueFactory property="bidDate" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn prefWidth="58.0" text="Time">
+            <TableColumn prefWidth="58.0" reorderable="false" sortable="false" text="Time">
                <cellValueFactory>
                   <PropertyValueFactory property="bidTime" />
                </cellValueFactory>
@@ -89,7 +89,7 @@
       </TableView>
       <Button layoutX="14.0" layoutY="561.0" mnemonicParsing="false" onAction="#changeToLotMenu" text="Return" />
       <Button layoutX="650.0" layoutY="561.0" mnemonicParsing="false" text="View Bidder Details" />
-      <Button fx:id="sellLotButton" layoutX="599.0" layoutY="70.0" mnemonicParsing="false" text="Sell Lot" visible="false" />
+      <Button fx:id="sellLotButton" onAction="#sellLotButton" layoutX="599.0" layoutY="70.0" mnemonicParsing="false" text="Sell Lot" visible="false" />
       <Button fx:id="withdrawLotButton" onAction="#withdrawLot" layoutX="666.0" layoutY="70.0" mnemonicParsing="false" text="Withdraw Lot" visible="false" />
    </children>
 </AnchorPane>

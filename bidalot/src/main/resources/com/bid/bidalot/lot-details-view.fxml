@@ -89,7 +89,7 @@
       </TableView>
       <Button layoutX="14.0" layoutY="561.0" mnemonicParsing="false" onAction="#changeToLotMenu" text="Return" />
       <Button layoutX="650.0" layoutY="561.0" mnemonicParsing="false" text="View Bidder Details" />
-      <Button fx:id="sellLotButton" layoutX="599.0" layoutY="70.0" mnemonicParsing="false" text="Sell Lot" visible="false" />
+      <Button fx:id="sellLotButton" onAction="#sellLotButton" layoutX="599.0" layoutY="70.0" mnemonicParsing="false" text="Sell Lot" visible="false" />
       <Button fx:id="withdrawLotButton" onAction="#withdrawLot" layoutX="666.0" layoutY="70.0" mnemonicParsing="false" text="Withdraw Lot" visible="false" />
    </children>
 </AnchorPane>

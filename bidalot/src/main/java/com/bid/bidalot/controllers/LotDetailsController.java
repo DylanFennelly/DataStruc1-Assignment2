@@ -3,6 +3,7 @@ package com.bid.bidalot.controllers;
 import com.bid.bidalot.AuctionApp;
 import com.bid.bidalot.objects.Bid;
 import com.bid.bidalot.objects.Bidder;
+import com.bid.bidalot.objects.Lot;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -152,5 +153,22 @@ public class LotDetailsController {
     @FXML
     protected void changeToLotMenu(ActionEvent actionEvent) throws IOException {
         backToLotMenu(actionEvent);
+    }
+
+    @FXML
+    private void sellLot(Lot lot){
+        lot.setSold(true);
+        lot.setFinalSaleDate(LocalDate.now());
+        lot.setFinalSaleTime(LocalTime.now());
+        lot.setFinalSalePrice();
+    }
+
+    @FXML
+    protected void sellLotButton(ActionEvent actionEvent){
+        int option = JOptionPane.showConfirmDialog(frame, "Are you sure you want to sell this lot? The current top bid will\nbe accepted and the lot will be closed.\n\nCurrent highest bid:"  + DRIVER.lotList.getElementByInt(LotIndex).getContents().getAskingPrice(), "Withdraw Confirmation", JOptionPane.YES_NO_OPTION);
+        if (option == JOptionPane.YES_OPTION) {
+            sellLot(DRIVER.lotList.getElementByInt(LotIndex).getContents());
+            initialize();
+        }
     }
 }

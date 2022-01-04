@@ -46,11 +46,13 @@
           <imageLink>https://i.etsystatic.com/11173290/r/il/89d978/1917127901/il_570xN.1917127901_fjul.jpg</imageLink>
           <originDate>1940</originDate>
           <startDate>2022-01-04</startDate>
+          <finalSaleDate>2022-01-04</finalSaleDate>
           <startTime>15:11:16.7126995</startTime>
+          <finalSaleTime>17:29:15.5433863</finalSaleTime>
           <startPrice>100.0</startPrice>
           <askingPrice>100.0</askingPrice>
-          <finalSalePrice>0.0</finalSalePrice>
-          <sold>false</sold>
+          <finalSalePrice>100.0</finalSalePrice>
+          <sold>true</sold>
           <lotOwner reference="../../../../bidderList/head/contents"/>
           <listOfBids>
             <head>
