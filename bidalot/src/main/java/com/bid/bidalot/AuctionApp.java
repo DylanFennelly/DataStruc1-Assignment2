@@ -26,8 +26,8 @@ public class AuctionApp extends Application {
     public static Scene startScene;
 
     public static class Driver {
-        public MyLinkedList<Lot> lotList = new MyLinkedList<>();
         public MyLinkedList<Bidder> bidderList = new MyLinkedList<>();
+        public MyLinkedList<Lot> lotList = new MyLinkedList<>();
     }
 
     @Override
