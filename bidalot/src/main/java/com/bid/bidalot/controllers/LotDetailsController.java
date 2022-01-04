@@ -165,10 +165,14 @@ public class LotDetailsController {
 
     @FXML
     protected void sellLotButton(ActionEvent actionEvent){
-        int option = JOptionPane.showConfirmDialog(frame, "Are you sure you want to sell this lot? The current top bid will\nbe accepted and the lot will be closed.\n\nCurrent highest bid:"  + DRIVER.lotList.getElementByInt(LotIndex).getContents().getAskingPrice(), "Withdraw Confirmation", JOptionPane.YES_NO_OPTION);
-        if (option == JOptionPane.YES_OPTION) {
-            sellLot(DRIVER.lotList.getElementByInt(LotIndex).getContents());
-            initialize();
+        if (DRIVER.lotList.getElementByInt(LotIndex).getContents().getListOfBids().getListLength() > 0) {
+            int option = JOptionPane.showConfirmDialog(frame, "Are you sure you want to sell this lot? The current top bid will\nbe accepted and the lot will be closed.\n\nCurrent highest bid:" + DRIVER.lotList.getElementByInt(LotIndex).getContents().getAskingPrice(), "Sell Confirmation", JOptionPane.YES_NO_OPTION);
+            if (option == JOptionPane.YES_OPTION) {
+                sellLot(DRIVER.lotList.getElementByInt(LotIndex).getContents());
+                initialize();
+            }
+        }else{
+            JOptionPane.showMessageDialog(frame, "The lot cannot be sold as there are no bids placed on the lot.", "Sell Error!", JOptionPane.ERROR_MESSAGE);
         }
     }
 
