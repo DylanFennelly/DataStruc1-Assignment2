@@ -171,4 +171,6 @@ public class LotDetailsController {
             initialize();
         }
     }
+
+    //todo: withdraw bids, edit lot
 }
