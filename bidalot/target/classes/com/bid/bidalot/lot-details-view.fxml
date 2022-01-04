@@ -10,69 +10,69 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="920.0" style="-fx-background-color: linear-gradient(to bottom, #383a3d, grey);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bid.bidalot.controllers.LotDetailsController">
+<AnchorPane prefHeight="720.0" prefWidth="900.0" style="-fx-background-color: linear-gradient(to bottom, #383a3d, grey);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bid.bidalot.controllers.LotDetailsController">
    <children>
-      <Label layoutX="14.0" layoutY="14.0" text="Lot Details" textFill="WHITE">
+      <Label layoutX="14.0" layoutY="14.0" text="Lot Details" textFill="WHITE" AnchorPane.leftAnchor="10.0">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="loginLabel" alignment="TOP_CENTER" layoutX="388.0" layoutY="3.0" prefHeight="52.0" prefWidth="149.0" text="Not logged in" textFill="WHITE" wrapText="true" />
-      <Label fx:id="lotTitleLabel" alignment="TOP_LEFT" layoutX="14.0" layoutY="44.0" prefHeight="21.0" prefWidth="715.0" text="Lot Title" textFill="WHITE">
+      <Label fx:id="loginLabel" alignment="TOP_CENTER" layoutX="404.0" layoutY="3.0" prefHeight="40.0" prefWidth="149.0" text="Not logged in" textFill="WHITE" wrapText="true" />
+      <Label fx:id="lotTitleLabel" alignment="TOP_LEFT" layoutX="14.0" layoutY="44.0" prefHeight="21.0" prefWidth="715.0" text="Lot Title" textFill="WHITE" AnchorPane.leftAnchor="10.0">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label fx:id="lotTypeLabel" layoutX="14.0" layoutY="65.0" text="In &gt;Lot Type&lt;" textFill="WHITE">
+      <Label fx:id="lotTypeLabel" layoutX="14.0" layoutY="65.0" text="In &gt;Lot Type&lt;" textFill="WHITE" AnchorPane.leftAnchor="10.0">
          <font>
             <Font name="System Italic" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="lotOriginLabel" layoutX="14.0" layoutY="82.0" text="circa &gt;Year&lt;" textFill="WHITE">
+      <Label fx:id="lotOriginLabel" layoutX="14.0" layoutY="82.0" text="circa &gt;Year&lt;" textFill="WHITE" AnchorPane.leftAnchor="10.0">
          <font>
             <Font name="System Italic" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="soldLabel" layoutX="293.0" layoutY="125.0" text="SOLD!" textFill="RED" visible="false">
+      <Label fx:id="soldLabel" layoutX="299.0" layoutY="91.0" text="SOLD!" textFill="RED" visible="false">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <Label layoutX="15.0" layoutY="151.0" prefHeight="17.0" prefWidth="61.0" text="Description" textFill="WHITE" />
-      <TextArea fx:id="lotDescTA" editable="false" layoutX="10.0" layoutY="168.0" prefHeight="368.0" prefWidth="357.0" AnchorPane.leftAnchor="10.0" />
-      <Label layoutX="11.0" layoutY="539.0" text="Image(s) Link" textFill="WHITE" />
-      <Hyperlink fx:id="lotImageLink" layoutX="10.0" layoutY="556.0" prefHeight="23.0" prefWidth="357.0" text="Image Link" />
-      <Label fx:id="lotNoImageLabel" disable="true" layoutX="11.0" layoutY="559.0" text="N/A" textFill="WHITE" visible="false" />
-      <Label fx:id="lotStartedLabel" layoutX="10.0" layoutY="579.0" prefHeight="40.0" prefWidth="319.0" text="Lot started on &gt;date&lt; at &gt;time&lt; by &gt;lotOwner&lt;" textFill="WHITE">
+      <Label layoutX="14.0" layoutY="117.0" text="Description" textFill="WHITE" AnchorPane.leftAnchor="10.0" />
+      <TextArea fx:id="lotDescTA" editable="false" layoutX="14.0" layoutY="134.0" prefHeight="393.0" prefWidth="357.0" AnchorPane.bottomAnchor="193.0" AnchorPane.leftAnchor="10.0" />
+      <Label layoutX="10.0" layoutY="536.0" text="Image(s) Link" textFill="WHITE" />
+      <Hyperlink fx:id="lotImageLink" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="10.0" layoutY="552.0" prefHeight="23.0" prefWidth="357.0" text="Image Link" AnchorPane.leftAnchor="10.0" />
+      <Label fx:id="lotNoImageLabel" disable="true" layoutX="10.0" layoutY="555.0" text="N/A" visible="false" />
+      <Label fx:id="lotStartedLabel" alignment="TOP_LEFT" layoutX="10.0" layoutY="575.0" prefHeight="40.0" prefWidth="319.0" text="Lot started on &gt;date&lt; at &gt;time&lt; by &gt;lotOwner&lt;" textFill="WHITE" AnchorPane.leftAnchor="10.0">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lotSoldDateLabel" alignment="TOP_LEFT" layoutX="10.0" layoutY="619.0" prefHeight="40.0" prefWidth="319.0" text="Lot sold on &gt;date&lt; at &gt;time&lt; to &gt;winning bidder&lt;" textFill="WHITE" visible="false">
+      <Label fx:id="lotSoldDateLabel" alignment="TOP_LEFT" layoutX="10.0" layoutY="615.0" prefHeight="40.0" prefWidth="319.0" text="Lot sold on &gt;date&lt; at &gt;time&lt; to &gt;winning bidder&lt;" textFill="WHITE" visible="false">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="currentBidLabel" alignment="CENTER" layoutX="492.0" layoutY="82.0" prefHeight="52.0" prefWidth="418.0" text="Current Bid: &gt;askingPrice&lt;" textFill="WHITE">
+      <Label fx:id="currentBidLabel" alignment="TOP_CENTER" layoutX="478.0" layoutY="101.0" prefHeight="52.0" prefWidth="438.0" text="Current Bid: &gt;askingPrice&lt;" textFill="WHITE">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label fx:id="startPriceLabel" layoutX="631.0" layoutY="135.0" text="Started at: &gt;startingPrice&lt;" textFill="WHITE" />
-      <TextField fx:id="bidField" layoutX="690.0" layoutY="175.0" prefHeight="25.0" prefWidth="149.0" promptText="Enter bid..." />
-      <Button fx:id="bidButton" disable="true" layoutX="837.0" layoutY="174.0" mnemonicParsing="false" style="-fx-background-insets: 0; -fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-border-color: black; -fx-border-width: 0.5;" text="Place Bid" AnchorPane.rightAnchor="10.0" />
-      <Label layoutX="492.0" layoutY="179.0" text="Bid History" textFill="WHITE" AnchorPane.bottomAnchor="520.0" />
-      <TableView fx:id="bidTV" layoutX="488.0" layoutY="204.0" prefHeight="329.0" prefWidth="418.0" AnchorPane.rightAnchor="10.0">
+      <Label fx:id="startPriceLabel" alignment="CENTER" layoutX="492.0" layoutY="148.0" prefHeight="17.0" prefWidth="438.0" text="Started at: &gt;startingPrice&lt;" textFill="WHITE" />
+      <TextField fx:id="bidField" layoutX="669.0" layoutY="203.0" prefHeight="25.0" prefWidth="177.0" promptText="Enter bid" />
+      <Button fx:id="bidButton" disable="true" layoutX="827.0" layoutY="203.0" mnemonicParsing="false" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Place Bid" AnchorPane.rightAnchor="10.0" />
+      <Label layoutX="482.0" layoutY="207.0" text="Bid History" textFill="WHITE" />
+      <TableView fx:id="bidTV" layoutX="451.0" layoutY="236.0" prefHeight="294.0" prefWidth="438.0" AnchorPane.bottomAnchor="193.0" AnchorPane.rightAnchor="10.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Bid" />
-          <TableColumn prefWidth="116.0" text="Bidder" />
-            <TableColumn prefWidth="69.0" text="Date" />
-            <TableColumn prefWidth="58.0" text="Time" />
+          <TableColumn prefWidth="100.0" text="Bid" />
+          <TableColumn prefWidth="160.0" text="Bidder" />
+            <TableColumn prefWidth="90.0" text="Date" />
+            <TableColumn prefWidth="90.0" text="Time" />
         </columns>
       </TableView>
-      <Button layoutX="10.0" layoutY="681.0" mnemonicParsing="false" style="-fx-background-insets: 0; -fx-background-color: linear-gradient(to bottom, #dbdbdb, #828aff); -fx-border-color: black; -fx-border-width: 0.5;" text="Return" />
-      <Button layoutX="789.0" layoutY="681.0" mnemonicParsing="false" style="-fx-background-insets: 0; -fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-border-color: black; -fx-border-width: 0.5;" text="View Bidder Details" AnchorPane.rightAnchor="10.0" />
-      <Button fx:id="sellLotButton" layoutX="820.0" layoutY="543.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-width: 0.5; -fx-border-color: black;" text="Sell Lot" visible="false" AnchorPane.rightAnchor="10.0" />
-      <Button fx:id="withdrawLotButton" layoutX="492.0" layoutY="543.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Withdraw Lot" visible="false" />
+      <Button layoutX="10.0" layoutY="681.0" mnemonicParsing="false" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #828aff); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Return" AnchorPane.leftAnchor="10.0" />
+      <Button layoutX="797.0" layoutY="681.0" mnemonicParsing="false" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="View Bidder Details" AnchorPane.rightAnchor="10.0" />
+      <Button fx:id="sellLotButton" layoutX="453.0" layoutY="540.0" mnemonicParsing="false" prefWidth="90.0" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Sell Lot" visible="false" />
+      <Button fx:id="withdrawLotButton" layoutX="801.0" layoutY="532.0" mnemonicParsing="false" prefWidth="90.0" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Withdraw Lot" visible="false" />
    </children>
 </AnchorPane>

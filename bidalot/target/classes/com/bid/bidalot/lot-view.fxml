@@ -49,14 +49,14 @@
             </TableColumn>
         </columns>
       </TableView>
-      <Button layoutX="632.0" layoutY="55.0" mnemonicParsing="false" onAction="#changeToLotDetails" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="View Selected Lot" />
-      <Button layoutX="751.0" layoutY="55.0" mnemonicParsing="false" onAction="#addDummyValues" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Sold Lots" AnchorPane.rightAnchor="82.0" />
-      <Button layoutX="824.0" layoutY="55.0" mnemonicParsing="false" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Search" AnchorPane.rightAnchor="22.0" />
+      <Button layoutX="635.0" layoutY="56.0" mnemonicParsing="false" onAction="#changeToLotDetails" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="View Selected Lot" />
+      <Button layoutX="751.0" layoutY="55.0" mnemonicParsing="false" onAction="#addDummyValues" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Sold Lots" />
+      <Button layoutX="824.0" layoutY="55.0" mnemonicParsing="false" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Search" />
       <Label layoutX="413.0" layoutY="105.0" prefHeight="20.0" prefWidth="76.0" text="Active Lots" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="loginLabel" alignment="CENTER" layoutX="377.0" layoutY="3.0" prefHeight="52.0" prefWidth="149.0" text="Not logged in" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+      <Label fx:id="loginLabel" alignment="TOP_CENTER" layoutX="377.0" layoutY="3.0" prefHeight="52.0" prefWidth="149.0" text="Not logged in" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
     </children>
 </AnchorPane>

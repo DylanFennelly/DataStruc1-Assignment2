@@ -16,8 +16,8 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="usernameLabel" alignment="CENTER" disable="true" layoutX="143.0" layoutY="44.0" prefHeight="50.0" prefWidth="136.0" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
-      <GridPane layoutX="114.0" layoutY="94.0" prefHeight="157.0" prefWidth="193.0">
+      <Label fx:id="usernameLabel" alignment="CENTER" disable="true" layoutX="142.0" layoutY="44.0" prefHeight="50.0" prefWidth="136.0" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+      <GridPane layoutX="113.0" layoutY="99.0" prefHeight="154.0" prefWidth="195.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
