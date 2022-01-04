@@ -158,11 +158,11 @@ public class Lot {
         this.finalSaleTime = finalSaleTime;
     }
 
-    public void setAskingPrice(float askingPrice) {
-        this.askingPrice = Float.parseFloat(AuctionApp.DF.format(askingPrice));
+    public void setAskingPrice(double askingPrice) {
+        this.askingPrice = Double.parseDouble(AuctionApp.DF.format(askingPrice));
     }
 
-    public void setFinalSalePrice(float finalSalePrice) {
+    public void setFinalSalePrice(double finalSalePrice) {
         this.finalSalePrice = finalSalePrice;
     }
 
@@ -179,7 +179,7 @@ public class Lot {
     }
 
     public void setStartPrice(double startPrice) {
-        this.startPrice = Float.parseFloat(AuctionApp.DF.format(startPrice));
+        this.startPrice = Double.parseDouble(AuctionApp.DF.format(startPrice));
     }
 
 }

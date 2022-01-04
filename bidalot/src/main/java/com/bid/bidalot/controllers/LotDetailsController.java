@@ -51,8 +51,8 @@ public class LotDetailsController {
         lotStartedLabel.setText("Lot started on " + DRIVER.lotList.getElementByInt(LotIndex).getContents().getStartDate().format(DateTimeFormatter.ofPattern("dd/MM/yy")) +     //https://howtodoinjava.com/java/date-time/localdate-format-example/
                 " at " + DRIVER.lotList.getElementByInt(LotIndex).getContents().getStartTime().format(DateTimeFormatter.ofPattern("HH:mm:ss")) +                                //https://www.geeksforgeeks.org/localtime-format-method-in-java-with-examples/
                 " by " + DRIVER.lotList.getElementByInt(LotIndex).getContents().getLotOwner().getName());
-        currentBidLabel.setText("Current Bid: " + DRIVER.lotList.getElementByInt(LotIndex).getContents().getAskingPrice()); //current highest bid
-        startPriceLabel.setText("Started at: " + DRIVER.lotList.getElementByInt(LotIndex).getContents().getStartPrice());   //start asking price
+        currentBidLabel.setText("Current Bid: " + String.format("%.2f",DRIVER.lotList.getElementByInt(LotIndex).getContents().getAskingPrice())); //current highest bid
+        startPriceLabel.setText("Started at: " + String.format("%.2f",DRIVER.lotList.getElementByInt(LotIndex).getContents().getStartPrice()));   //start asking price
 
         bidTV.getItems().clear();   //populating bid list
         for (Bid b : DRIVER.lotList.getElementByInt(LotIndex).getContents().getListOfBids()){
@@ -67,9 +67,8 @@ public class LotDetailsController {
             lotSoldDateLabel.setVisible(true);  //show sell date, time and winning bidder
             lotSoldDateLabel.setText("Lot sold on " + DRIVER.lotList.getElementByInt(LotIndex).getContents().getFinalSaleDate().format(DateTimeFormatter.ofPattern("dd/MM/yy")) +
                     " at " + DRIVER.lotList.getElementByInt(LotIndex).getContents().getFinalSaleTime().format(DateTimeFormatter.ofPattern("HH:mm:ss")) +
-                    " to " + DRIVER.lotList.getElementByInt(LotIndex).getContents().getListOfBids().head.getContents());    //head of bid list will be most recent (and winning) bid
-                                                                                                                            //todo: add winning bidder name once bid is setup
-            currentBidLabel.setText("Sold for: " + DRIVER.lotList.getElementByInt(LotIndex).getContents().getFinalSalePrice()); //update current bid to show winning bid
+                    " to " + DRIVER.lotList.getElementByInt(LotIndex).getContents().getListOfBids().head.getContents().getBidder().getName());    //head of bid list will be most recent (and winning) bid
+            currentBidLabel.setText("Sold for: " + String.format("%.2f",DRIVER.lotList.getElementByInt(LotIndex).getContents().getFinalSalePrice())); //update current bid to show winning bid
             sellLotButton.setVisible(false);    //hide sell and withdraw functionality
             withdrawLotButton.setVisible(false);
         }
