@@ -1,0 +1,16 @@
+<object-stream>
+  <com.bid.bidalot.AuctionApp_-Driver>
+    <lotList/>
+    <bidderList>
+      <head>
+        <contents class="com.bid.bidalot.objects.Bidder">
+          <name>ADMIN</name>
+          <address>ADMIN</address>
+          <phone>000 000 0000</phone>
+          <email>ADMIN@ADMIN.COM</email>
+          <password>password</password>
+        </contents>
+      </head>
+    </bidderList>
+  </com.bid.bidalot.AuctionApp_-Driver>
+</object-stream>
