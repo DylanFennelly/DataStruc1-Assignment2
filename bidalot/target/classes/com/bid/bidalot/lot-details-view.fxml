@@ -65,22 +65,22 @@
       <Label layoutX="482.0" layoutY="207.0" text="Bid History" textFill="WHITE" />
       <TableView fx:id="bidTV" layoutX="482.0" layoutY="233.0" prefHeight="294.0" prefWidth="438.0" AnchorPane.rightAnchor="10.0">
         <columns>
-           <TableColumn prefWidth="75.0" reorderable="false" sortable="false" text="Bid (€)">
+           <TableColumn prefWidth="96.0" reorderable="false" resizable="false" sortable="false" text="Bid (€)">
               <cellValueFactory>
                  <PropertyValueFactory property="bidAmount" />
               </cellValueFactory>
            </TableColumn>
-           <TableColumn prefWidth="116.0" reorderable="false" sortable="false" text="Bidder">
+           <TableColumn prefWidth="173.0" reorderable="false" resizable="false" sortable="false" text="Bidder">
               <cellValueFactory>
                  <PropertyValueFactory property="bidder" />
               </cellValueFactory>
            </TableColumn>
-           <TableColumn prefWidth="69.0" reorderable="false" sortable="false" text="Date">
+           <TableColumn prefWidth="83.0" reorderable="false" resizable="false" sortable="false" text="Date">
               <cellValueFactory>
                  <PropertyValueFactory property="bidDate" />
               </cellValueFactory>
            </TableColumn>
-           <TableColumn prefWidth="58.0" reorderable="false" sortable="false" text="Time">
+           <TableColumn prefWidth="85.0" reorderable="false" resizable="false" sortable="false" text="Time">
               <cellValueFactory>
                  <PropertyValueFactory property="bidTime" />
               </cellValueFactory>
