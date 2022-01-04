@@ -41,7 +41,8 @@ public class LotController {
         }
         activeLotsTV.getItems().clear();
         for (Lot l : DRIVER.lotList){
-            activeLotsTV.getItems().add(l);
+            //if (!l.isSold())    //only displays active lots todo: re-enable once hashing is in place
+                activeLotsTV.getItems().add(l);
         }
     }
 

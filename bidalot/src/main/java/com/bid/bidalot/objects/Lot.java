@@ -39,6 +39,7 @@ public class Lot {
         this.originDate = originDate;
         this.startDate = LocalDate.now();
         this.startTime = LocalTime.now();
+        //asking price = current highest bid
         this.askingPrice = this.startPrice = Double.parseDouble(AuctionApp.DF.format(askingPrice)); //validated in controller
         this.lotOwner = lotOwner;
         this.sold = false;
@@ -158,12 +159,12 @@ public class Lot {
         this.finalSaleTime = finalSaleTime;
     }
 
-    public void setAskingPrice(float askingPrice) {
-        this.askingPrice = Float.parseFloat(AuctionApp.DF.format(askingPrice));
+    public void setAskingPrice(double askingPrice) {
+        this.askingPrice = Double.parseDouble(AuctionApp.DF.format(askingPrice));
     }
 
-    public void setFinalSalePrice(float finalSalePrice) {
-        this.finalSalePrice = finalSalePrice;
+    public void setFinalSalePrice() {  //final sale price is askingPrice at time of sale
+        this.finalSalePrice = this.askingPrice;
     }
 
     public void setSold(boolean sold) {
@@ -179,7 +180,7 @@ public class Lot {
     }
 
     public void setStartPrice(double startPrice) {
-        this.startPrice = Float.parseFloat(AuctionApp.DF.format(startPrice));
+        this.startPrice = Double.parseDouble(AuctionApp.DF.format(startPrice));
     }
 
 }
