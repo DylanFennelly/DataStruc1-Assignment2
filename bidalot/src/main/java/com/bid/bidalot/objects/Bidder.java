@@ -41,8 +41,8 @@ public class Bidder {
 
     //methods
     @Override
-    public String toString(){
-        return name + " | Address: " + address +  " | Phone No.: " + phone + " | Email: " + email;
+    public String toString(){   //only return's name: in bids tableview, it was displaying all details instead of just the name.
+        return name;            //setting up the columns to do otherwise was quite complicated so with the time available, this is the best solution
     }
 
     //getters

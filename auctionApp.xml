@@ -2,6 +2,29 @@
   <com.bid.bidalot.AuctionApp_-Driver>
     <lotList>
       <head>
+        <next>
+          <contents class="com.bid.bidalot.objects.Lot">
+            <title>Old chair for sale</title>
+            <description>Old chair for sale in Tramore, Co. Waterford, Ireland. Mahogony wood, circa 1940. NO DELIVERY, COLLECT YOURSELF.</description>
+            <type>Furniture</type>
+            <imageLink>https://i.etsystatic.com/11173290/r/il/89d978/1917127901/il_570xN.1917127901_fjul.jpg</imageLink>
+            <originDate>1940</originDate>
+            <startDate>2022-01-04</startDate>
+            <startTime>14:28:50.0217813</startTime>
+            <startPrice>100.0</startPrice>
+            <askingPrice>100.0</askingPrice>
+            <finalSalePrice>0.0</finalSalePrice>
+            <sold>false</sold>
+            <lotOwner>
+              <name>Dylan Fennelly</name>
+              <address>28 Moonvoy Bridge</address>
+              <phone>098 765 4321</phone>
+              <email>dylanfennelly@email.com</email>
+              <password>loginme1</password>
+            </lotOwner>
+            <listOfBids/>
+          </contents>
+        </next>
         <contents class="com.bid.bidalot.objects.Lot">
           <title>Test</title>
           <description>Test</description>
@@ -11,7 +34,7 @@
           <startDate>2022-01-03</startDate>
           <startTime>13:43:14.1995746</startTime>
           <startPrice>10.0</startPrice>
-          <askingPrice>10.0</askingPrice>
+          <askingPrice>12.25</askingPrice>
           <finalSalePrice>0.0</finalSalePrice>
           <sold>false</sold>
           <lotOwner>
@@ -21,12 +44,41 @@
             <email>gwhite@gmail.com</email>
             <password>passw0rd</password>
           </lotOwner>
-          <listOfBids/>
+          <listOfBids>
+            <head>
+              <next>
+                <contents class="com.bid.bidalot.objects.Bid">
+                  <bidAmount>12.0</bidAmount>
+                  <bidDate>04/01/22</bidDate>
+                  <bidTime>14:25:24</bidTime>
+                  <bidder>
+                    <name>ADMIN</name>
+                    <address>ADMIN</address>
+                    <phone>102 938 4756</phone>
+                    <email>ADMIN@ADMIN.COM</email>
+                    <password>password</password>
+                  </bidder>
+                </contents>
+              </next>
+              <contents class="com.bid.bidalot.objects.Bid">
+                <bidAmount>12.25</bidAmount>
+                <bidDate>04/01/22</bidDate>
+                <bidTime>14:26:50</bidTime>
+                <bidder reference="../../../../../next/contents/lotOwner"/>
+              </contents>
+            </head>
+          </listOfBids>
         </contents>
       </head>
     </lotList>
     <bidderList>
       <head>
+        <next>
+          <next>
+            <contents class="com.bid.bidalot.objects.Bidder" reference="../../../../../lotList/head/next/contents/lotOwner"/>
+          </next>
+          <contents class="com.bid.bidalot.objects.Bidder" reference="../../../../lotList/head/contents/listOfBids/head/next/contents/bidder"/>
+        </next>
         <contents class="com.bid.bidalot.objects.Bidder" reference="../../../lotList/head/contents/lotOwner"/>
       </head>
     </bidderList>

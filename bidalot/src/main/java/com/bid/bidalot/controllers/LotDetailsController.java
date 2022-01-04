@@ -2,9 +2,18 @@ package com.bid.bidalot.controllers;
 
 import com.bid.bidalot.AuctionApp;
 import com.bid.bidalot.objects.Bid;
+import com.bid.bidalot.objects.Bidder;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
+import javax.swing.*;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
@@ -12,6 +21,7 @@ import static com.bid.bidalot.AuctionApp.DRIVER;
 import static com.bid.bidalot.controllers.LotController.LotIndex;
 
 public class LotDetailsController {
+    private JFrame frame;
     @FXML
     private Label loginLabel, lotTitleLabel, lotTypeLabel, lotOriginLabel, soldLabel, lotNoImageLabel, lotStartedLabel, lotSoldDateLabel, currentBidLabel, startPriceLabel;
     @FXML
@@ -72,6 +82,40 @@ public class LotDetailsController {
             sellLotButton.setVisible(false);    //hide sell and withdraw functionality
             withdrawLotButton.setVisible(false);
         }
+    }
 
+    @FXML
+    protected void addBidButton(ActionEvent actionEvent){
+        if (bidField.getText().matches("[\\d]+[.]+[\\d]{2}")){
+            double bid = Double.parseDouble(bidField.getText());
+            if (bid > DRIVER.lotList.getElementByInt(LotIndex).getContents().getAskingPrice()){ //todo: place bid at starting if no bid  placed yet
+                int option = JOptionPane.showConfirmDialog(frame, "Are you sure you want to place this bid?\n\nBid amount: "+ String.format("%.2f",bid), "Bid Confirmation", JOptionPane.YES_NO_OPTION);
+                if (option == JOptionPane.YES_OPTION) {
+                    JOptionPane.showMessageDialog(frame, "Bid placed!", "Bid Success!", JOptionPane.INFORMATION_MESSAGE);
+                    DRIVER.lotList.getElementByInt(LotIndex).getContents().getListOfBids().addElementToTop(new Bid(bid, LocalDate.now(), LocalTime.now(), AuctionApp.loggedInBidder));
+                    DRIVER.lotList.getElementByInt(LotIndex).getContents().setAskingPrice(bid);
+
+                    //clear list to ensure bids do not display in wrong order
+                    bidTV.getItems().clear();   //populating bid list
+                    for (Bid b : DRIVER.lotList.getElementByInt(LotIndex).getContents().getListOfBids()){
+                        bidTV.getItems().add(b);
+                    }
+                    currentBidLabel.setText("Current Bid: " + String.format("%.2f",DRIVER.lotList.getElementByInt(LotIndex).getContents().getAskingPrice()));
+
+                }
+            }else {
+                JOptionPane.showMessageDialog(frame, "Placed bid must be greater than current highest bid.\n\n Current highest bid: " + DRIVER.lotList.getElementByInt(LotIndex).getContents().getAskingPrice(), "Bid Error!", JOptionPane.ERROR_MESSAGE);
+            }
+        }else{
+            JOptionPane.showMessageDialog(frame, "Please enter a valid bid.\n\nFormat: Any number of digits, followed by a decimal point and two digits.\nE.g.: 10.00, 150.25, 1298.04\nPlaced bid must be higher than current top bid.", "Bid Error!", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    @FXML
+    protected void changeToLotMenu(ActionEvent actionEvent){
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.setScene(StartController.lotScene);
+        stage.setTitle("Bid-A-Lot: Lots");
+        stage.show();
     }
 }

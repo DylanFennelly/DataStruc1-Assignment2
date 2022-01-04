@@ -39,6 +39,7 @@ public class Lot {
         this.originDate = originDate;
         this.startDate = LocalDate.now();
         this.startTime = LocalTime.now();
+        //asking price = current highest bid
         this.askingPrice = this.startPrice = Double.parseDouble(AuctionApp.DF.format(askingPrice)); //validated in controller
         this.lotOwner = lotOwner;
         this.sold = false;
