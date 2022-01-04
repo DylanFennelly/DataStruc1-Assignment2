@@ -5,13 +5,24 @@ import com.bid.bidalot.objects.Bid;
 import com.bid.bidalot.objects.Bidder;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import javax.swing.*;
 
+import java.awt.*;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -19,6 +30,7 @@ import java.util.Objects;
 
 import static com.bid.bidalot.AuctionApp.DRIVER;
 import static com.bid.bidalot.controllers.LotController.LotIndex;
+import static com.bid.bidalot.controllers.StartController.lotScene;
 
 public class LotDetailsController {
     private JFrame frame;
@@ -113,10 +125,32 @@ public class LotDetailsController {
     }
 
     @FXML
-    protected void changeToLotMenu(ActionEvent actionEvent){
+    protected void openImageLink(ActionEvent actionEvent) throws URISyntaxException, IOException {
+        Desktop.getDesktop().browse(new URI(DRIVER.lotList.getElementByInt(LotIndex).getContents().getImageLink()));    //https://www.youtube.com/watch?v=SlE0dCuO5yc
+    }
+
+    private void backToLotMenu(ActionEvent actionEvent) throws IOException {
+        //reload lot-view to refresh lots TableView
+        Parent lotView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("lot-view.fxml")));
+        lotScene = new Scene(lotView);
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        stage.setScene(StartController.lotScene);
+        stage.setScene(lotScene);
         stage.setTitle("Bid-A-Lot: Lots");
         stage.show();
+    }
+
+    @FXML
+    private void withdrawLot(ActionEvent actionEvent) throws IOException {
+        int option = JOptionPane.showConfirmDialog(frame, "Are you sure you want to withdraw this lot? The lot \nlisting and all bids will be deleted.", "Withdraw Confirmation", JOptionPane.YES_NO_OPTION);
+        if (option == JOptionPane.YES_OPTION) {
+            JOptionPane.showMessageDialog(frame, "Lot withdrawn.", "Withdraw Complete", JOptionPane.INFORMATION_MESSAGE);
+            DRIVER.lotList.removeElement(LotIndex);
+            backToLotMenu(actionEvent);
+        }
+    }
+
+    @FXML
+    protected void changeToLotMenu(ActionEvent actionEvent) throws IOException {
+        backToLotMenu(actionEvent);
     }
 }

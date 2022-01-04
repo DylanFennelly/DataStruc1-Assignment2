@@ -39,6 +39,7 @@ public class LotController {
             addLotButton.setDisable(false);
             loginLabel.setText("Logged in as: " + AuctionApp.loggedInBidder.getName());
         }
+        //todo: display only active lots
         activeLotsTV.getItems().clear();
         for (Lot l : DRIVER.lotList){
             activeLotsTV.getItems().add(l);

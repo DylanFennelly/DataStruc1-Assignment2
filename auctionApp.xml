@@ -22,6 +22,23 @@
     </bidderList>
     <lotList>
       <head>
+        <next>
+          <contents class="com.bid.bidalot.objects.Lot">
+            <title>TEST2</title>
+            <description>TEST</description>
+            <type>Sporting Goods</type>
+            <imageLink>N/A</imageLink>
+            <originDate>2000</originDate>
+            <startDate>2022-01-04</startDate>
+            <startTime>16:07:48.1608863</startTime>
+            <startPrice>999.0</startPrice>
+            <askingPrice>999.0</askingPrice>
+            <finalSalePrice>0.0</finalSalePrice>
+            <sold>false</sold>
+            <lotOwner reference="../../../../../bidderList/head/next/contents"/>
+            <listOfBids/>
+          </contents>
+        </next>
         <contents class="com.bid.bidalot.objects.Lot">
           <title>Old chair for sale</title>
           <description>Old chair for sale in Tramore, Co.Waterford Ireland. Mahogany, circa 1940. NO DELIVERY, COLLECTION ONLY</description>
