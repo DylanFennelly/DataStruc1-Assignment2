@@ -71,25 +71,25 @@
             <ChoiceBox fx:id="lotType" prefHeight="25.0" prefWidth="287.0" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                 <items>
                     <FXCollections fx:factory="observableArrayList">
-                        <String fx:value="Antiques"/>
-                        <String fx:value="Audio Devices"/>
-                        <String fx:value="Books, Comics and Magazines"/>
-                        <String fx:value="Cameras and Photography"/>
-                        <String fx:value="Cars, Parts and Car Accessories"/>
-                        <String fx:value="Computers and Tablets"/>
-                        <String fx:value="DVDs, Films and TV"/>
-                        <String fx:value="Furniture"/>
-                        <String fx:value="Health and Beauty"/>
-                        <String fx:value="Home Decor"/>
-                        <String fx:value="Jewellery"/>
-                        <String fx:value="Men's Clothing"/>
-                        <String fx:value="Music"/>
-                        <String fx:value="Musical Instruments"/>
-                        <String fx:value="Mobile Phones"/>
-                        <String fx:value="Sporting Goods"/>
-                        <String fx:value="Toys and Games"/>
-                        <String fx:value="Video Games and Consoles"/>
-                        <String fx:value="Women's Clothing"/>
+                        <String fx:value="Antiques" />
+                        <String fx:value="Audio Devices" />
+                        <String fx:value="Books, Comics and Magazines" />
+                        <String fx:value="Cameras and Photography" />
+                        <String fx:value="Cars, Parts and Car Accessories" />
+                        <String fx:value="Computers and Tablets" />
+                        <String fx:value="DVDs, Films and TV" />
+                        <String fx:value="Furniture" />
+                        <String fx:value="Health and Beauty" />
+                        <String fx:value="Home Decor" />
+                        <String fx:value="Jewellery" />
+                        <String fx:value="Men's Clothing" />
+                        <String fx:value="Music" />
+                        <String fx:value="Musical Instruments" />
+                        <String fx:value="Mobile Phones" />
+                        <String fx:value="Sporting Goods" />
+                        <String fx:value="Toys and Games" />
+                        <String fx:value="Video Games and Consoles" />
+                        <String fx:value="Women's Clothing" />
                     </FXCollections>
                 </items>
             </ChoiceBox>
@@ -99,7 +99,7 @@
          </children>
       </GridPane>
         <Button fx:id="closeButton" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#closeWindowButton" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Cancel" />
-      <Button layoutX="548.0" layoutY="361.0" mnemonicParsing="false" onAction="#addLotButton" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Add" />
+      <Button layoutX="548.0" layoutY="361.0" mnemonicParsing="false" onAction="#addLotButton" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #828aff); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Add" />
       <Line endX="-66.0" endY="356.0" layoutX="300.0" layoutY="29.0" startX="-66.0" startY="-15.0" stroke="#d0d0d0" />
     </children>
 </AnchorPane>
