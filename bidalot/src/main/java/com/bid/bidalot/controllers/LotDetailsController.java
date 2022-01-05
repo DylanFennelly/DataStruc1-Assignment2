@@ -16,6 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import javax.swing.*;
@@ -46,7 +47,7 @@ public class LotDetailsController {
     @FXML
     private TableView<Bid> bidTV;
     @FXML
-    private Button bidButton, sellLotButton, withdrawLotButton, withdrawBidButton;
+    private Button bidButton, sellLotButton, withdrawLotButton, withdrawBidButton, editLotButton;
 
     @FXML
     protected void initialize(){
@@ -55,8 +56,9 @@ public class LotDetailsController {
             withdrawBidButton.setDisable(false);
             loginLabel.setText("Logged in as: " + AuctionApp.loggedInBidder.getName());
             if (AuctionApp.loggedInBidder == DRIVER.lotList.getElementByInt(LotIndex).getContents().getLotOwner()) {    //if logged in as creator of lot,
-                sellLotButton.setVisible(true); //enable sell and withdraw functionality
+                sellLotButton.setVisible(true); //enable sell, edit, and withdraw functionality
                 withdrawLotButton.setVisible(true);
+                editLotButton.setVisible(true);
                 bidButton.setVisible(false);    //cant place bid if owner of lot
                 withdrawBidButton.setVisible(false);
                 bidField.setVisible(false);
@@ -95,8 +97,9 @@ public class LotDetailsController {
                     " at " + DRIVER.lotList.getElementByInt(LotIndex).getContents().getFinalSaleTime().format(DateTimeFormatter.ofPattern("HH:mm:ss")) +
                     " to " + DRIVER.lotList.getElementByInt(LotIndex).getContents().getListOfBids().head.getContents().getBidder().getName());    //head of bid list will be most recent (and winning) bid
             currentBidLabel.setText("Sold for: " + String.format("%.2f",DRIVER.lotList.getElementByInt(LotIndex).getContents().getFinalSalePrice())); //update current bid to show winning bid
-            sellLotButton.setVisible(false);    //hide sell and withdraw functionality
+            sellLotButton.setVisible(false);    //hide sell, edit, and withdraw functionality
             withdrawLotButton.setVisible(false);
+            editLotButton.setVisible(false);
         }
     }
 
@@ -105,7 +108,7 @@ public class LotDetailsController {
         if (bidField.getText().matches("[\\d]+[.]+[\\d]{2}")){
             double bid = Double.parseDouble(bidField.getText());
                 //if bid is greater than current highest bid (asking price)                   OR    if bid is equal to the start price and no bids have been placed yet (allowing a bid to be placed at the starting bid price if no bids have been placed yet)
-            if (bid > DRIVER.lotList.getElementByInt(LotIndex).getContents().getAskingPrice() || (bid == DRIVER.lotList.getElementByInt(LotIndex).getContents().getStartPrice() && DRIVER.lotList.getElementByInt(LotIndex).getContents().getListOfBids().getListLength() == 0)){ //todo: place bid at starting if no bid  placed yet
+            if (bid > DRIVER.lotList.getElementByInt(LotIndex).getContents().getAskingPrice() || (bid == DRIVER.lotList.getElementByInt(LotIndex).getContents().getStartPrice() && DRIVER.lotList.getElementByInt(LotIndex).getContents().getListOfBids().getListLength() == 0)){
                 int option = JOptionPane.showConfirmDialog(frame, "Are you sure you want to place this bid?\n\nBid amount: "+ String.format("%.2f",bid), "Bid Confirmation", JOptionPane.YES_NO_OPTION);
                 if (option == JOptionPane.YES_OPTION) {
                     JOptionPane.showMessageDialog(frame, "Bid placed!", "Bid Success!", JOptionPane.INFORMATION_MESSAGE);
@@ -134,7 +137,7 @@ public class LotDetailsController {
     }
 
     private void backToLotMenu(ActionEvent actionEvent) throws IOException {
-        //reload lot-view to refresh lots TableView
+        //reload lot-view to refresh lots TableView to reflect any changes made
         Parent lotView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("lot-view.fxml")));
         lotScene = new Scene(lotView);
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
@@ -216,5 +219,17 @@ public class LotDetailsController {
         }else{
             JOptionPane.showMessageDialog(frame, "There are no bids to withdraw.", "Withdraw Error!", JOptionPane.ERROR_MESSAGE);
         }
+    }
+
+    @FXML
+    protected void changeToEditMenu(ActionEvent actionEvent) throws IOException {    //pops up in new window
+        Parent editView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("edit-lot-view.fxml")));
+        Scene editScene = new Scene(editView);
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);     //locks main window until popup window is closed  |  https://stackoverflow.com/questions/15625987/block-owner-window-java-fx
+        stage.initOwner(editView.getScene().getWindow());
+        stage.setScene(editScene);
+        stage.setTitle("Edit Lot");
+        stage.show();
     }
 }

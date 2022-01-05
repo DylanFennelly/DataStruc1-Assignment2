@@ -38,7 +38,6 @@ public class AddLotController {
     private ChoiceBox<String> lotType;
 
     @FXML
-
     protected void closeWindow(){    //https://stackoverflow.com/questions/25037724/how-to-close-a-java-window-with-a-button-click-javafx-project/41838183
         Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
@@ -51,6 +50,7 @@ public class AddLotController {
 
     @FXML
     protected void addLotButton(ActionEvent actionEvent) throws IOException {
+        //todo: prevent whitespace only inputs
         if (!lotTitle.getText().equals("")) {
             if (!lotDesc.getText().equals("")) {
                 if (lotType.getValue() != null) {

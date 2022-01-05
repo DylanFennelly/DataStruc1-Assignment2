@@ -32,7 +32,7 @@ public class Lot {
             this.description = description.substring(0,500);
 
         this.type = type;   //dropdown of pre-selected categories
-        if (!imageLink.equals(""))  //todo: replace with file chooser and image upload?
+        if (!imageLink.equals(""))
             this.imageLink = imageLink;
         else
             this.imageLink = "N/A";
@@ -47,7 +47,6 @@ public class Lot {
     }
 
     //methods
-    //todo: alter/shorten for listView, more in depth details displayed on lot page
     @Override
     public String toString() {
         return title + " | Description: " + description + " | Type: " + type +
