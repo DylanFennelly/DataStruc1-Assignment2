@@ -27,7 +27,6 @@ public class AuctionApp extends Application {
     public static Scene startScene;
 
     public static class Driver {
-        public MyLinkedList<Bidder> bidderList = new MyLinkedList<>();
         public BidderHashTable bidderHashTable = new BidderHashTable();
         public MyLinkedList<Lot> lotList = new MyLinkedList<>();
     }

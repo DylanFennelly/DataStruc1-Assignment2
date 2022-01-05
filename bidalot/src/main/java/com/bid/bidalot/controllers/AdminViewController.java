@@ -39,7 +39,8 @@ public class AdminViewController {
     protected void clearAll(ActionEvent event) {
         int option = JOptionPane.showConfirmDialog(frame, "Are you sure you want to clear all data in the system?", "Data Deletion Confirmation", JOptionPane.YES_NO_OPTION);
         if (option == JOptionPane.YES_OPTION) {
-            DRIVER.bidderList.removeAllElements();
+            //todo: test
+            DRIVER.bidderHashTable.clearAllElements();
             DRIVER.lotList.removeAllElements();
         }
     }

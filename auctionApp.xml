@@ -1,30 +1,58 @@
 <object-stream>
   <com.bid.bidalot.AuctionApp_-Driver>
-    <bidderList>
-      <head>
-        <next>
-          <contents class="com.bid.bidalot.objects.Bidder">
-            <name>ADMIN</name>
-            <address>ADMIN</address>
-            <phone>000 000 0000</phone>
-            <email>ADMIN@ADMIN.COM</email>
-            <password>PASSWORD</password>
-          </contents>
-        </next>
-        <contents class="com.bid.bidalot.objects.Bidder">
-          <name>T</name>
-          <address>t</address>
-          <phone>102 938 4756</phone>
-          <email>t@t.com</email>
-          <password>password</password>
-        </contents>
-      </head>
-    </bidderList>
     <bidderHashTable>
       <bidderHashTable>
         <com.bid.bidalot.lists.MyLinkedList>
           <head>
-            <contents class="com.bid.bidalot.objects.Bidder" reference="../../../../../bidderList/head/next/contents"/>
+            <contents class="com.bid.bidalot.objects.Bidder">
+              <name>ADMIN</name>
+              <address>ADMIN</address>
+              <phone>098 765 4321</phone>
+              <email>ADMIN@ADMIN.COM</email>
+              <password>password</password>
+            </contents>
+          </head>
+        </com.bid.bidalot.lists.MyLinkedList>
+        <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList>
+          <head>
+            <contents class="com.bid.bidalot.objects.Bidder">
+              <name>dylan</name>
+              <address>d</address>
+              <phone>102 938 3756</phone>
+              <email>dylan@gmail.com</email>
+              <password>password</password>
+            </contents>
+          </head>
+        </com.bid.bidalot.lists.MyLinkedList>
+        <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList>
+          <head>
+            <contents class="com.bid.bidalot.objects.Bidder">
+              <name>jason</name>
+              <address>j</address>
+              <phone>102 938 4756</phone>
+              <email>jason@gmail.com</email>
+              <password>password</password>
+            </contents>
+          </head>
+        </com.bid.bidalot.lists.MyLinkedList>
+        <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList>
+          <head>
+            <contents class="com.bid.bidalot.objects.Bidder">
+              <name>mate</name>
+              <address>hi</address>
+              <phone>102 938 4756</phone>
+              <email>mate@gmail.com</email>
+              <password>password</password>
+            </contents>
           </head>
         </com.bid.bidalot.lists.MyLinkedList>
         <com.bid.bidalot.lists.MyLinkedList/>
@@ -33,21 +61,15 @@
         <com.bid.bidalot.lists.MyLinkedList/>
         <com.bid.bidalot.lists.MyLinkedList/>
         <com.bid.bidalot.lists.MyLinkedList/>
-        <com.bid.bidalot.lists.MyLinkedList/>
-        <com.bid.bidalot.lists.MyLinkedList/>
-        <com.bid.bidalot.lists.MyLinkedList/>
-        <com.bid.bidalot.lists.MyLinkedList/>
-        <com.bid.bidalot.lists.MyLinkedList/>
-        <com.bid.bidalot.lists.MyLinkedList/>
-        <com.bid.bidalot.lists.MyLinkedList/>
-        <com.bid.bidalot.lists.MyLinkedList/>
-        <com.bid.bidalot.lists.MyLinkedList/>
-        <com.bid.bidalot.lists.MyLinkedList/>
-        <com.bid.bidalot.lists.MyLinkedList/>
-        <com.bid.bidalot.lists.MyLinkedList/>
         <com.bid.bidalot.lists.MyLinkedList>
           <head>
-            <contents class="com.bid.bidalot.objects.Bidder" reference="../../../../../bidderList/head/contents"/>
+            <contents class="com.bid.bidalot.objects.Bidder">
+              <name>t</name>
+              <address>t</address>
+              <phone>102 938 4756</phone>
+              <email>t@t.com</email>
+              <password>password</password>
+            </contents>
           </head>
         </com.bid.bidalot.lists.MyLinkedList>
         <com.bid.bidalot.lists.MyLinkedList/>
@@ -59,24 +81,6 @@
         <com.bid.bidalot.lists.MyLinkedList/>
       </bidderHashTable>
     </bidderHashTable>
-    <lotList>
-      <head>
-        <contents class="com.bid.bidalot.objects.Lot">
-          <title>Test</title>
-          <description>Test</description>
-          <type>Cameras and Photography</type>
-          <imageLink>N/A</imageLink>
-          <originDate>2000</originDate>
-          <startDate>2022-01-05</startDate>
-          <startTime>18:27:34.4011101</startTime>
-          <startPrice>10.0</startPrice>
-          <askingPrice>10.0</askingPrice>
-          <finalSalePrice>0.0</finalSalePrice>
-          <sold>false</sold>
-          <lotOwner reference="../../../../bidderList/head/contents"/>
-          <listOfBids/>
-        </contents>
-      </head>
-    </lotList>
+    <lotList/>
   </com.bid.bidalot.AuctionApp_-Driver>
 </object-stream>

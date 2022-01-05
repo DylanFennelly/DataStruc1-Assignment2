@@ -34,16 +34,16 @@ public class EditBidderController {
     @FXML
     protected void initialize() {
         //autofilling Bidder deatils into fields
-        BName.setText(DRIVER.bidderList.getElementByInt(BidderIndex).getContents().getName());
-        BAddress.setText(DRIVER.bidderList.getElementByInt(BidderIndex).getContents().getAddress());
-        BPhone.setText(DRIVER.bidderList.getElementByInt(BidderIndex).getContents().getPhone());
+        BName.setText(BidderController.selectedBidder.getName());
+        BAddress.setText(BidderController.selectedBidder.getAddress());
+        BPhone.setText(BidderController.selectedBidder.getPhone());
     }
 
     //password change unlocked after entering password
     @FXML
     protected void unlockPasswordButton(ActionEvent actionEvent){
         String password = JOptionPane.showInputDialog(frame, "Enter password to unlock change password settings:");
-        if (password.matches(DRIVER.bidderList.getElementByInt(BidderIndex).getContents().getPassword())){
+        if (password.matches(BidderController.selectedBidder.getPassword())){
             BNewPass.setDisable(false);
             BNewPassConfirm.setDisable(false);
         }else{
@@ -87,21 +87,21 @@ public class EditBidderController {
         if (phone.equals("") || phone.matches("^[\\d]{3}[\\s]?[\\d]{3}[\\s]?[\\d]{4}$")){
             if (password.equals("") || password.length() >= 8) {
                 if (password.equals(BNewPassConfirm.getText().trim())){
-                    if(!password.matches(DRIVER.bidderList.getElementByInt(BidderIndex).getContents().getPassword())) {
+                    if(!password.matches(BidderController.selectedBidder.getPassword())) {
 
                         //setting up pop up to display only info that will be changed
                         String jOptionConfirmText = "The following details will be updated:\n";
                         //confirming if any changes have been made
                         boolean changeMade = false;
                         //if a title was entered and the entered title was not the same as the lot's title as is
-                        if (!name.equals("") && !name.equals(DRIVER.bidderList.getElementByInt(BidderIndex).getContents().getName())) {
+                        if (!name.equals("") && !name.equals(BidderController.selectedBidder.getName())) {
                             if (name.length() <= 25)
                                 jOptionConfirmText = jOptionConfirmText + "\nName: " + name;
                             else
                                 jOptionConfirmText = jOptionConfirmText + "\nName: " + name.substring(0, 25) + "...";
                             changeMade = true;
                         }
-                        if (!address.equals("") && !address.equals(DRIVER.bidderList.getElementByInt(BidderIndex).getContents().getAddress())) {
+                        if (!address.equals("") && !address.equals(BidderController.selectedBidder.getAddress())) {
                             if (address.length() <= 25)
                                 jOptionConfirmText = jOptionConfirmText + "\nAddress: " + address;
                             else
@@ -109,11 +109,11 @@ public class EditBidderController {
                             changeMade = true;
                         }
 
-                        if (!phone.equals("") && !phone.equals(DRIVER.bidderList.getElementByInt(BidderIndex).getContents().getPhone())) {
+                        if (!phone.equals("") && !phone.equals(BidderController.selectedBidder.getPhone())) {
                             jOptionConfirmText = jOptionConfirmText + "\nPhone Number: " + phone;
                             changeMade = true;
                         }
-                        if (!password.equals("") && !password.equals(DRIVER.bidderList.getElementByInt(BidderIndex).getContents().getPassword())) {
+                        if (!password.equals("") && !password.equals(BidderController.selectedBidder.getPassword())) {
                             jOptionConfirmText = jOptionConfirmText + "\nPassword changed.";
                             changeMade = true;
                         }
@@ -122,7 +122,7 @@ public class EditBidderController {
                             int option = JOptionPane.showConfirmDialog(frame, jOptionConfirmText + "\n\nDo you want to proceed with these changes?", "Edit Confirmation", JOptionPane.YES_NO_OPTION);
                             if (option == JOptionPane.YES_OPTION) {
                                 JOptionPane.showMessageDialog(frame, "Bidder details have been updated", "Edit Success!", JOptionPane.INFORMATION_MESSAGE);
-                                updateBidder(DRIVER.bidderList.getElementByInt(BidderIndex).getContents(),name,address,phone,password);
+                                updateBidder(BidderController.selectedBidder,name,address,phone,password);
                                 closeWindow();
 
                                 //resetting temp values back to null
@@ -132,7 +132,7 @@ public class EditBidderController {
                                 Stage stage = (Stage) bidderDetailsScene.getWindow();
                                 bidderDetailsScene = new Scene(detailsView);
                                 stage.setScene(bidderDetailsScene);
-                                stage.setTitle("Bid-A-Lot: " + DRIVER.bidderList.getElementByInt(BidderIndex).getContents().getName());
+                                stage.setTitle("Bid-A-Lot: " + BidderController.selectedBidder.getName());
                             }
 
                         }else{

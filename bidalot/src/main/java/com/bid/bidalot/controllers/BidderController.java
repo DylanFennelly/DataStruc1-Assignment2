@@ -1,6 +1,7 @@
 package com.bid.bidalot.controllers;
 
 import com.bid.bidalot.AuctionApp;
+import com.bid.bidalot.lists.MyLinkedList;
 import com.bid.bidalot.objects.Bidder;
 import com.bid.bidalot.objects.Lot;
 import javafx.event.ActionEvent;
@@ -41,8 +42,11 @@ public class BidderController {
         }
 
         biddersTV.getItems().clear();
-        for (Bidder b : DRIVER.bidderList){
-            biddersTV.getItems().add(b);
+        //todo: test
+        for (int i=0; i<=DRIVER.bidderHashTable.hashTableLength()-1 ;i++){  //length - 1, as indices go from 0 to 26, 27 is out of bounds
+            for (Bidder temp : DRIVER.bidderHashTable.getLinkedList(i)){
+                biddersTV.getItems().add(temp);
+            }
         }
     }
 
@@ -56,7 +60,7 @@ public class BidderController {
 
     @FXML
     protected void changeToBidderDetails(ActionEvent actionEvent) throws IOException {
-        selectedBidder = biddersTV.getSelectionModel().getSelectedItem();
+        selectedBidder = DRIVER.bidderHashTable.findPositionByEmail(biddersTV.getSelectionModel().getSelectedItem().getEmail());
         if (selectedBidder == null) {
             JOptionPane.showMessageDialog(frame, "Please select a bidder to view the details of.", "Selection Error!", JOptionPane.ERROR_MESSAGE);
         }else {

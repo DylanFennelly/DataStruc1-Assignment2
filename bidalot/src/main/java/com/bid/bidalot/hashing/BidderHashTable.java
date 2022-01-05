@@ -33,17 +33,6 @@ public class BidderHashTable {
         bidderHashTable[hashFunction(b)].addElementToTop(b);
     }
 
-    public void showHashTable() {
-        System.out.println("Hash Table (Using Sep Chaining)\n=====================");
-        for (int i = 0; i < bidderHashTable.length; i++) {
-            System.out.println("Chain " + i + "\n=======");
-            for (Object b : bidderHashTable[i])
-                System.out.println(b);
-            System.out.println();
-        }
-        System.out.println();
-    }
-
     //finds a bidder in the hashtable based on an input email (email is unique across bidders)
     public Bidder findPositionByEmail(String i) {
         //create temp bidder with input email
@@ -58,5 +47,19 @@ public class BidderHashTable {
         }
         System.out.println("Hashtable does not contain " + i);
         return null;    //if matching email is not found, return null;
+    }
+
+    //remove all elements from all linkedLists in hashTable
+    public void clearAllElements(){
+        for (MyLinkedList<Bidder> bidders : bidderHashTable)
+            bidders.removeAllElements();
+    }
+
+    public MyLinkedList<Bidder> getLinkedList(int i){
+        return bidderHashTable[i];
+    }
+
+    public int hashTableLength(){
+        return bidderHashTable.length;
     }
 }
