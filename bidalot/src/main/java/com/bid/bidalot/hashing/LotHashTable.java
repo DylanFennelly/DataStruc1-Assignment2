@@ -19,8 +19,15 @@ public class LotHashTable {
     }
 
     public int hashFunction(Lot k){
+        //create a combination string of the lotOwner and time lot was started (both attributes are unchangeable and universally unique when combined)
         String combination = k.getLotOwner() + k.getStartTime().toString();
-        return combination.hashCode()%lotHashTable.length;
+        int total=0;
+        for (int i =0; i<combination.length();i++){
+            //add up character code values of all characters in the string
+            total+=combination.charAt(i);
+        }
+        //return remainder of total divided by hashtable length (30)
+        return total%lotHashTable.length;
     }
 
     public void add(Lot l){

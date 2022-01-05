@@ -61,4 +61,6 @@ public class BidderDetailsController {
         stage.setTitle("Bid-A-Lot: Bidders");
         stage.show();
     }
+
+    //todo: delete account
 }
