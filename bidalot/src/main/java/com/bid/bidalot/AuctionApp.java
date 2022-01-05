@@ -31,7 +31,7 @@ public class AuctionApp extends Application {
     }
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) throws Exception {
         DRIVER = new Driver();
 
         Parent p = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("start-view.fxml")));
@@ -40,6 +40,7 @@ public class AuctionApp extends Application {
         stage.setScene(startScene);
         stage.setResizable(false);
         stage.show();
+        load();
     }
 
     public static void save() throws Exception{
