@@ -26,14 +26,15 @@ public class LotController {
     public static Lot selectedLot;
     private JFrame frame; //used for popup windows
     public static Scene lotDetailsScene;
+    boolean activeLots;     //keeping track of what state the view is in - preventing error when trying to enter sold lot
     @FXML
-    private TableView<Lot> activeLotsTV;
+    private TableView<Lot> activeLotsTV, soldLotsTV;
 
     @FXML
-    private Button addLotButton;
+    private Button addLotButton, activeLotsButton, soldLotsButton;
 
     @FXML
-    private Label loginLabel;
+    private Label loginLabel, lotsLabel;
 
     @FXML
     protected void initialize() {
@@ -46,8 +47,11 @@ public class LotController {
             for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)){
                 if(!temp.isSold())  //only displaying lots that have not been sold
                     activeLotsTV.getItems().add(temp);
+                else
+                    soldLotsTV.getItems().add(temp);
             }
         }
+        activeLots = true;
     }
 
     @FXML
@@ -73,7 +77,12 @@ public class LotController {
 
     @FXML
     protected void changeToLotDetails(ActionEvent actionEvent) throws IOException{
-        selectedLot = DRIVER.lotHashTable.findPosition(activeLotsTV.getSelectionModel().getSelectedItem());
+        System.out.println(activeLots);
+        if (activeLots) {
+            selectedLot = DRIVER.lotHashTable.findPosition(activeLotsTV.getSelectionModel().getSelectedItem());
+        } else {
+            selectedLot = DRIVER.lotHashTable.findPosition(soldLotsTV.getSelectionModel().getSelectedItem());
+        }
         if (selectedLot == null) {
             JOptionPane.showMessageDialog(frame, "Please select a lot to view the details of.", "Selection Error!", JOptionPane.ERROR_MESSAGE);
         }else {
@@ -87,6 +96,21 @@ public class LotController {
 
     @FXML
     protected void showSoldLots(ActionEvent actionEvent){
-        //todo
+        soldLotsTV.setVisible(true);
+        activeLotsTV.setVisible(false);
+        activeLotsButton.setVisible(true);
+        soldLotsButton.setVisible(false);
+        lotsLabel.setText("Sold Lots");
+        activeLots=false;
+    }
+
+    @FXML
+    protected void showActiveLots(ActionEvent actionEvent){
+        soldLotsTV.setVisible(false);
+        activeLotsTV.setVisible(true);
+        activeLotsButton.setVisible(false);
+        soldLotsButton.setVisible(true);
+        lotsLabel.setText("Active Lots");
+        activeLots=true;
     }
 }
