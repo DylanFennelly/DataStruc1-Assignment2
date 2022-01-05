@@ -108,9 +108,9 @@ public class RegisterLoginController {
     }
 
    protected Bidder loginBidder(String email, String password){
-        //todo: replace linear search
-       for (Bidder temp : DRIVER.bidderList){
-           if (email.equalsIgnoreCase(temp.getEmail()) && password.equalsIgnoreCase(temp.getPassword()) )
+       Bidder temp = DRIVER.bidderHashTable.findPositionByEmail(email);
+       if (temp!=null) {
+           if (password.equalsIgnoreCase(temp.getPassword()))
                return temp;
        }
        return null;

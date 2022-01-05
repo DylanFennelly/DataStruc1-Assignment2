@@ -59,6 +59,24 @@
         <com.bid.bidalot.lists.MyLinkedList/>
       </bidderHashTable>
     </bidderHashTable>
-    <lotList/>
+    <lotList>
+      <head>
+        <contents class="com.bid.bidalot.objects.Lot">
+          <title>Test</title>
+          <description>Test</description>
+          <type>Cameras and Photography</type>
+          <imageLink>N/A</imageLink>
+          <originDate>2000</originDate>
+          <startDate>2022-01-05</startDate>
+          <startTime>18:27:34.4011101</startTime>
+          <startPrice>10.0</startPrice>
+          <askingPrice>10.0</askingPrice>
+          <finalSalePrice>0.0</finalSalePrice>
+          <sold>false</sold>
+          <lotOwner reference="../../../../bidderList/head/contents"/>
+          <listOfBids/>
+        </contents>
+      </head>
+    </lotList>
   </com.bid.bidalot.AuctionApp_-Driver>
 </object-stream>

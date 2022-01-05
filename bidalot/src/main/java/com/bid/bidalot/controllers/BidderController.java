@@ -23,6 +23,7 @@ import static com.bid.bidalot.AuctionApp.DRIVER;
 
 public class BidderController {
     public static int BidderIndex;
+    public static Bidder selectedBidder;
     private JFrame frame; //used for popup windows
     public static Scene bidderDetailsScene;
     @FXML
@@ -55,16 +56,15 @@ public class BidderController {
 
     @FXML
     protected void changeToBidderDetails(ActionEvent actionEvent) throws IOException {
-        //todo:hashing
-        BidderIndex = biddersTV.getSelectionModel().getSelectedIndex();
-        if (BidderIndex == -1) {
+        selectedBidder = biddersTV.getSelectionModel().getSelectedItem();
+        if (selectedBidder == null) {
             JOptionPane.showMessageDialog(frame, "Please select a bidder to view the details of.", "Selection Error!", JOptionPane.ERROR_MESSAGE);
         }else {
             Parent detailsView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("bidder-details-view.fxml")));
             bidderDetailsScene = new Scene(detailsView);
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             stage.setScene(bidderDetailsScene);
-            stage.setTitle("Bid-A-Lot: " + DRIVER.bidderList.getElementByInt(BidderIndex).getContents().getName());
+            stage.setTitle("Bid-A-Lot: " + selectedBidder.getName());
         }
     }
 }
