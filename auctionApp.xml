@@ -197,11 +197,13 @@
               <imageLink>N/A</imageLink>
               <originDate>2000</originDate>
               <startDate>2022-01-05</startDate>
+              <finalSaleDate>2022-01-05</finalSaleDate>
               <startTime>21:57:40.3977632</startTime>
+              <finalSaleTime>23:41:47.7757566</finalSaleTime>
               <startPrice>10.0</startPrice>
               <askingPrice>14.0</askingPrice>
-              <finalSalePrice>0.0</finalSalePrice>
-              <sold>false</sold>
+              <finalSalePrice>14.0</finalSalePrice>
+              <sold>true</sold>
               <lotOwner reference="../../../../../../bidderHashTable/bidderHashTable/com.bid.bidalot.lists.MyLinkedList[4]/head/contents"/>
               <listOfBids>
                 <head>
