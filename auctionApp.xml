@@ -32,6 +32,23 @@
     <lotList>
       <head>
         <next>
+          <next>
+            <contents class="com.bid.bidalot.objects.Lot">
+              <title>Test</title>
+              <description>test</description>
+              <type>Cameras and Photography</type>
+              <imageLink>N/A</imageLink>
+              <originDate>2000</originDate>
+              <startDate>2022-01-05</startDate>
+              <startTime>10:58:14.1983371</startTime>
+              <startPrice>12.0</startPrice>
+              <askingPrice>12.0</askingPrice>
+              <finalSalePrice>0.0</finalSalePrice>
+              <sold>false</sold>
+              <lotOwner reference="../../../../../../bidderList/head/contents"/>
+              <listOfBids/>
+            </contents>
+          </next>
           <contents class="com.bid.bidalot.objects.Lot">
             <title>TEST2</title>
             <description>TEST</description>
