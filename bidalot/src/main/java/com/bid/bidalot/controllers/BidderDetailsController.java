@@ -53,6 +53,9 @@ public class BidderDetailsController {
 
     @FXML
     protected void backToBidderMenu(ActionEvent actionEvent) throws IOException{
+        //reload bidder-view to refresh lots TableView to reflect any changes made
+        Parent bidView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("bidder-view.fxml")));
+        bidScene = new Scene(bidView);
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         stage.setScene(bidScene);
         stage.setTitle("Bid-A-Lot: Bidders");

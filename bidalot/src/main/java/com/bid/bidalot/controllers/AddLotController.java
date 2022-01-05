@@ -50,7 +50,7 @@ public class AddLotController {
 
     @FXML
     protected void addLotButton(ActionEvent actionEvent) throws IOException {
-        //todo: prevent whitespace only inputs
+        //todo: trim leading/trailing whitespace
         if (!lotTitle.getText().equals("")) {
             if (!lotDesc.getText().equals("")) {
                 if (lotType.getValue() != null) {
