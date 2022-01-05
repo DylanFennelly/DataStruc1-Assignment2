@@ -36,9 +36,11 @@ public class LotHashTable {
 
     public Lot findPosition(Lot l){
         int loc = hashFunction(l);   //generate hashCode from l
+        String combination = l.getLotOwner() + l.getStartTime().toString();
 
         for (Lot lot : lotHashTable[loc]) {     //iterate through list found by hashCode of temp
-            if (hashFunction(lot) == hashFunction(l)) {     //if matching lot hashcode is found
+            String tempCombo = lot.getLotOwner() + lot.getStartTime().toString();
+            if (tempCombo.equals(combination)) {     //if temp lot combo string is the same as input lot combo string, then lots are the same
                 System.out.println("Lot" + lot.getTitle() + " found in chain " + loc);
                 return lot;   //return bidder
             }

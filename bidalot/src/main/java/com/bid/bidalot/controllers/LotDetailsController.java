@@ -31,8 +31,11 @@ import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 import static com.bid.bidalot.AuctionApp.DRIVER;
+import static com.bid.bidalot.controllers.BidderController.selectedBidder;
 import static com.bid.bidalot.controllers.LotController.LotIndex;
+import static com.bid.bidalot.controllers.LotController.selectedLot;
 import static com.bid.bidalot.controllers.StartController.lotScene;
+import static com.bid.bidalot.controllers.BidderController.bidderDetailsScene;
 
 public class LotDetailsController {
     private JFrame frame;
@@ -80,6 +83,7 @@ public class LotDetailsController {
                 " by " +LotController.selectedLot.getLotOwner().getName());
         currentBidLabel.setText("Current Bid: " + String.format("%.2f",LotController.selectedLot.getAskingPrice())); //current highest bid
         startPriceLabel.setText("Started at: " + String.format("%.2f",LotController.selectedLot.getStartPrice()));   //start asking price
+                                                     // ^ fixing an issue with both decimals places not displaying | https://java2blog.com/format-double-to-2-decimal-places-java/
 
         bidTV.getItems().clear();   //populating bid list
         for (Bid b : LotController.selectedLot.getListOfBids()){
@@ -112,7 +116,7 @@ public class LotDetailsController {
                 int option = JOptionPane.showConfirmDialog(frame, "Are you sure you want to place this bid?\n\nBid amount: "+ String.format("%.2f",bid), "Bid Confirmation", JOptionPane.YES_NO_OPTION);
                 if (option == JOptionPane.YES_OPTION) {
                     JOptionPane.showMessageDialog(frame, "Bid placed!", "Bid Success!", JOptionPane.INFORMATION_MESSAGE);
-                    LotController.selectedLot.getListOfBids().addElementToTop(new Bid(bid, LocalDate.now(), LocalTime.now(), AuctionApp.loggedInBidder));
+                    LotController.selectedLot.getListOfBids().addElementToTop(new Bid(bid, LocalDate.now(), LocalTime.now(), AuctionApp.loggedInBidder, selectedLot));
                     LotController.selectedLot.setAskingPrice(bid);
 
                     //clear list to ensure bids do not display in wrong order
@@ -184,8 +188,6 @@ public class LotDetailsController {
         }
     }
 
-    //todo: withdraw bids, edit lot
-
     @FXML
     protected void withdrawBidButton(ActionEvent actionEvent){
         //todo: withdraw bids, regardless if they are top bid or not?
@@ -229,7 +231,23 @@ public class LotDetailsController {
         stage.initModality(Modality.APPLICATION_MODAL);     //locks main window until popup window is closed  |  https://stackoverflow.com/questions/15625987/block-owner-window-java-fx
         stage.initOwner(editView.getScene().getWindow());
         stage.setScene(editScene);
+        stage.setResizable(false);
         stage.setTitle("Edit Lot");
         stage.show();
+    }
+
+    //view Bidder profile by selecting their bid from the bid list
+    @FXML
+    protected void changeToBidderMenu(ActionEvent actionEvent) throws IOException{
+        selectedBidder = DRIVER.bidderHashTable.findPositionByEmail(bidTV.getSelectionModel().getSelectedItem().getBidder().getEmail());
+        if (selectedBidder == null) {
+            JOptionPane.showMessageDialog(frame, "Please select a bidder to view the details of.", "Selection Error!", JOptionPane.ERROR_MESSAGE);
+        }else {
+            Parent detailsView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("bidder-details-view.fxml")));
+            bidderDetailsScene = new Scene(detailsView);
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            stage.setScene(bidderDetailsScene);
+            stage.setTitle("Bid-A-Lot: " + selectedBidder.getName());
+        }
     }
 }

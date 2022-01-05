@@ -48,13 +48,8 @@ public class Lot {
 
     //methods
     @Override
-    public String toString() {
-        return title + " | Description: " + description + " | Type: " + type +
-                " | Image Link: " + imageLink + " | Origin Date: " + originDate +
-                " | Start Date: " + startDate + " | Start Time: " + startTime +
-                " | Sold Date: " + finalSaleDate +  " | Sold Time: " + finalSaleDate +
-                " | Current Asking Price: " + String.format("%.2f", askingPrice) + " | Sold Price: " + String.format("%.2f", finalSalePrice) + " | Sold Status: " + sold;
-                                            // ^ fixing an issue with both decimals places not displaying | https://java2blog.com/format-double-to-2-decimal-places-java/
+    public String toString() {      //only returns name: same situation as in bidder view: for formatting reasons in tableview (bidder details bids tableview)
+        return title;
     }
 
     //getters

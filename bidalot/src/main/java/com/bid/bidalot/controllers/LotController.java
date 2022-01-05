@@ -66,13 +66,13 @@ public class LotController {
         stage.initModality(Modality.APPLICATION_MODAL);     //locks main window until popup window is closed  |  https://stackoverflow.com/questions/15625987/block-owner-window-java-fx
         stage.initOwner(addView.getScene().getWindow());
         stage.setScene(addScene);
+        stage.setResizable(false);
         stage.setTitle("Add Lot");
         stage.show();
     }
 
     @FXML
     protected void changeToLotDetails(ActionEvent actionEvent) throws IOException{
-        //todo:test
         selectedLot = DRIVER.lotHashTable.findPosition(activeLotsTV.getSelectionModel().getSelectedItem());
         if (selectedLot == null) {
             JOptionPane.showMessageDialog(frame, "Please select a lot to view the details of.", "Selection Error!", JOptionPane.ERROR_MESSAGE);
