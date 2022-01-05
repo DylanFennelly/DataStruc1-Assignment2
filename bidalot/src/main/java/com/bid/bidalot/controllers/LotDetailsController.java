@@ -137,7 +137,7 @@ public class LotDetailsController {
     }
 
     private void backToLotMenu(ActionEvent actionEvent) throws IOException {
-        //reload lot-view to refresh lots TableView
+        //reload lot-view to refresh lots TableView to reflect any changes made
         Parent lotView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("lot-view.fxml")));
         lotScene = new Scene(lotView);
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();

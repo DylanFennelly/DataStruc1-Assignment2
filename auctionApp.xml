@@ -34,11 +34,11 @@
         <next>
           <next>
             <contents class="com.bid.bidalot.objects.Lot">
-              <title>Test</title>
-              <description>test</description>
-              <type>Cameras and Photography</type>
-              <imageLink>N/A</imageLink>
-              <originDate>2000</originDate>
+              <title>Test12</title>
+              <description>test1</description>
+              <type>Books, Comics and Magazines</type>
+              <imageLink>http://mommymilkers.net/</imageLink>
+              <originDate>2009</originDate>
               <startDate>2022-01-05</startDate>
               <startTime>10:58:14.1983371</startTime>
               <startPrice>12.0</startPrice>

@@ -24,6 +24,7 @@ import static com.bid.bidalot.AuctionApp.DRIVER;
 public class LotController {
     public static int LotIndex;
     private JFrame frame; //used for popup windows
+    public static Scene lotDetailsScene;
     @FXML
     private TableView<Lot> activeLotsTV;
 
@@ -74,9 +75,9 @@ public class LotController {
             JOptionPane.showMessageDialog(frame, "Please select a lot to view the details of.", "Selection Error!", JOptionPane.ERROR_MESSAGE);
         }else {
             Parent detailsView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("lot-details-view.fxml")));
-            Scene detailsScene = new Scene(detailsView);
+            lotDetailsScene = new Scene(detailsView);
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            stage.setScene(detailsScene);
+            stage.setScene(lotDetailsScene);
             stage.setTitle("Bid-A-Lot: " + DRIVER.lotList.getElementByInt(LotIndex).getContents().getTitle());
         }
     }

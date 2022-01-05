@@ -92,7 +92,7 @@
             </children>
         </GridPane>
         <Button fx:id="closeButton" layoutX="10.0" layoutY="325.0" onAction="#closeWindowButton" mnemonicParsing="false" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Cancel" AnchorPane.leftAnchor="10.0" />
-        <Button layoutX="550.0" layoutY="325.0" mnemonicParsing="false" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #828aff); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Edit" AnchorPane.rightAnchor="10.0" />
+        <Button layoutX="550.0" onAction="#updateLotButton" layoutY="325.0" mnemonicParsing="false" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #828aff); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Edit" AnchorPane.rightAnchor="10.0" />
         <Line endX="-66.0" endY="318.0" layoutX="300.0" layoutY="29.0" startX="-66.0" startY="-15.0" stroke="#d0d0d0" />
     </children>
 </AnchorPane>
