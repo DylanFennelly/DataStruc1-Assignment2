@@ -3,12 +3,17 @@ package com.bid.bidalot.controllers;
 import com.bid.bidalot.AuctionApp;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 import static com.bid.bidalot.AuctionApp.DRIVER;
 import static com.bid.bidalot.controllers.BidderController.BidderIndex;
@@ -32,6 +37,18 @@ public class BidderDetailsController {
         addressLabel.setText(DRIVER.bidderList.getElementByInt(BidderIndex).getContents().getAddress());
         phoneLabel.setText(DRIVER.bidderList.getElementByInt(BidderIndex).getContents().getPhone());
         emailLabel.setText(DRIVER.bidderList.getElementByInt(BidderIndex).getContents().getEmail());
+    }
+
+    @FXML
+    protected void changeToEditMenu(ActionEvent actionEvent) throws IOException {
+        Parent editView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("edit-bidder-view.fxml")));
+        Scene editScene = new Scene(editView);
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);     //locks main window until popup window is closed  |  https://stackoverflow.com/questions/15625987/block-owner-window-java-fx
+        stage.initOwner(editView.getScene().getWindow());
+        stage.setScene(editScene);
+        stage.setTitle("Edit Bidder");
+        stage.show();
     }
 
     @FXML
