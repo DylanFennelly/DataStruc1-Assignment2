@@ -3,6 +3,15 @@
     <bidderList>
       <head>
         <next>
+          <next>
+            <contents class="com.bid.bidalot.objects.Bidder">
+              <name>garywhite</name>
+              <address>g</address>
+              <phone>102 938 4756</phone>
+              <email>gwhite@gmail.com</email>
+              <password>password</password>
+            </contents>
+          </next>
           <contents class="com.bid.bidalot.objects.Bidder">
             <name>ADMIN</name>
             <address>ADMIN</address>
@@ -30,13 +39,32 @@
             <imageLink>N/A</imageLink>
             <originDate>2000</originDate>
             <startDate>2022-01-04</startDate>
+            <finalSaleDate>2022-01-05</finalSaleDate>
             <startTime>16:07:48.1608863</startTime>
+            <finalSaleTime>00:18:55.8844833</finalSaleTime>
             <startPrice>999.0</startPrice>
-            <askingPrice>999.0</askingPrice>
-            <finalSalePrice>0.0</finalSalePrice>
-            <sold>false</sold>
+            <askingPrice>1050.0</askingPrice>
+            <finalSalePrice>1050.0</finalSalePrice>
+            <sold>true</sold>
             <lotOwner reference="../../../../../bidderList/head/next/contents"/>
-            <listOfBids/>
+            <listOfBids>
+              <head>
+                <next>
+                  <contents class="com.bid.bidalot.objects.Bid">
+                    <bidAmount>1000.0</bidAmount>
+                    <bidDate>05/01/22</bidDate>
+                    <bidTime>00:16:56</bidTime>
+                    <bidder reference="../../../../../../../../../bidderList/head/contents"/>
+                  </contents>
+                </next>
+                <contents class="com.bid.bidalot.objects.Bid">
+                  <bidAmount>1050.0</bidAmount>
+                  <bidDate>05/01/22</bidDate>
+                  <bidTime>00:18:02</bidTime>
+                  <bidder reference="../../../../../../../../bidderList/head/next/next/contents"/>
+                </contents>
+              </head>
+            </listOfBids>
           </contents>
         </next>
         <contents class="com.bid.bidalot.objects.Lot">
