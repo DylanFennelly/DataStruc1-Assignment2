@@ -23,7 +23,6 @@ import java.util.Objects;
 import static com.bid.bidalot.AuctionApp.DRIVER;
 
 public class BidderController {
-    public static int BidderIndex;
     public static Bidder selectedBidder;
     private JFrame frame; //used for popup windows
     public static Scene bidderDetailsScene;
@@ -70,4 +69,6 @@ public class BidderController {
             stage.setTitle("Bid-A-Lot: " + selectedBidder.getName());
         }
     }
+
+    //todo: myProfile Button
 }

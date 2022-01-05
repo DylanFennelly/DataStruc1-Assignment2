@@ -30,7 +30,6 @@ public class AuctionApp extends Application {
     public static class Driver {
         public BidderHashTable bidderHashTable = new BidderHashTable();
         public LotHashTable lotHashTable = new LotHashTable();
-        public MyLinkedList<Lot> lotList = new MyLinkedList<>();
     }
 
     @Override

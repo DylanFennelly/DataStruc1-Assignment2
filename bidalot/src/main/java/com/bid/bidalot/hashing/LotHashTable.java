@@ -40,6 +40,22 @@ public class LotHashTable {
         return null;    //if matching email is not found, return null;
     }
 
+    public void removeElement(Lot l){
+        int loc = hashFunction(l);   //generate hashCode from l
+        boolean removed = false;
+
+        for (int i = 0; i<lotHashTable[loc].getListLength();i++){//iterate through list found by hashCode of temp
+            if (hashFunction(lotHashTable[loc].getElementByInt(i).getContents()) == hashFunction(l)) {     //if matching lot hashcode is found
+                System.out.println("Lot" + lotHashTable[loc].getElementByInt(i).getContents().getTitle() + " found in chain " + loc + "\nRemoving...");
+                lotHashTable[loc].removeElement(i);
+                removed = true;
+                break;
+            }
+        }
+        if (!removed)
+            System.out.println("Hashtable does not contain " + l.getTitle());
+    }
+
     //remove all elements from all linkedLists in hashTable
     public void clearAllElements(){
         for (MyLinkedList<Lot> lots : lotHashTable)

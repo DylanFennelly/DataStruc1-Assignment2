@@ -19,7 +19,6 @@ import java.io.IOException;
 import java.util.Objects;
 
 import static com.bid.bidalot.AuctionApp.DRIVER;
-import static com.bid.bidalot.controllers.BidderController.BidderIndex;
 import static com.bid.bidalot.controllers.BidderController.bidderDetailsScene;
 
 public class EditBidderController {
