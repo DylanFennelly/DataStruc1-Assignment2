@@ -82,6 +82,7 @@
                         <String fx:value="Toys and Games" />
                         <String fx:value="Video Games and Consoles" />
                         <String fx:value="Women's Clothing" />
+                        <String fx:value="Other"/>
                     </FXCollections>
                 </items>
             </ChoiceBox>
