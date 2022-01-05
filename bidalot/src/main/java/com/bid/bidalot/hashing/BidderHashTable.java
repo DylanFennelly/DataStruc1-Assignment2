@@ -14,7 +14,7 @@ public class BidderHashTable {
 
         //creating link lists in each slot
         for (int i = 0; i < bidderHashTable.length; i++)
-            bidderHashTable[i] = new MyLinkedList<Bidder>();
+            bidderHashTable[i] = new MyLinkedList<>();
     }
 
     public int hashFunction(Bidder k) {

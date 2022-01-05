@@ -89,6 +89,7 @@ public class RegisterLoginController {
         Bidder newBidder = addBidder(BName.getText(), BAddress.getText(), BPhone.getText(), BEmail.getText(), BPass.getText(), BPassConfirm.getText());
         if (newBidder != null){
             DRIVER.bidderList.addElementToEnd(newBidder);
+            DRIVER.bidderHashTable.add(newBidder);
             JOptionPane.showMessageDialog(frame, "Bidder successfully registered!", "Register Success!", JOptionPane.INFORMATION_MESSAGE);
 
             //setting login fields for quicker login after bidder creation

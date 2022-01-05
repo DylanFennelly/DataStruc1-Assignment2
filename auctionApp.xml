@@ -3,15 +3,6 @@
     <bidderList>
       <head>
         <next>
-          <next>
-            <contents class="com.bid.bidalot.objects.Bidder">
-              <name>garywhite</name>
-              <address>g</address>
-              <phone>102 938 4756</phone>
-              <email>gwhite@gmail.com</email>
-              <password>password</password>
-            </contents>
-          </next>
           <contents class="com.bid.bidalot.objects.Bidder">
             <name>ADMIN</name>
             <address>ADMIN</address>
@@ -21,96 +12,53 @@
           </contents>
         </next>
         <contents class="com.bid.bidalot.objects.Bidder">
-          <name>Dylan Fennelly</name>
-          <address>Tramore, Co. Waterford</address>
-          <phone>123 456 7890</phone>
-          <email>dylanfenelly@gmail.com</email>
+          <name>T</name>
+          <address>t</address>
+          <phone>102 938 4756</phone>
+          <email>t@t.com</email>
           <password>password</password>
         </contents>
       </head>
     </bidderList>
-    <lotList>
-      <head>
-        <next>
-          <next>
-            <contents class="com.bid.bidalot.objects.Lot">
-              <title>Test12</title>
-              <description>test1</description>
-              <type>Books, Comics and Magazines</type>
-              <imageLink>http://mommymilkers.net/</imageLink>
-              <originDate>2009</originDate>
-              <startDate>2022-01-05</startDate>
-              <startTime>10:58:14.1983371</startTime>
-              <startPrice>12.0</startPrice>
-              <askingPrice>12.0</askingPrice>
-              <finalSalePrice>0.0</finalSalePrice>
-              <sold>false</sold>
-              <lotOwner reference="../../../../../../bidderList/head/contents"/>
-              <listOfBids/>
-            </contents>
-          </next>
-          <contents class="com.bid.bidalot.objects.Lot">
-            <title>TEST2</title>
-            <description>TEST</description>
-            <type>Sporting Goods</type>
-            <imageLink>N/A</imageLink>
-            <originDate>2000</originDate>
-            <startDate>2022-01-04</startDate>
-            <finalSaleDate>2022-01-05</finalSaleDate>
-            <startTime>16:07:48.1608863</startTime>
-            <finalSaleTime>00:18:55.8844833</finalSaleTime>
-            <startPrice>999.0</startPrice>
-            <askingPrice>1050.0</askingPrice>
-            <finalSalePrice>1050.0</finalSalePrice>
-            <sold>true</sold>
-            <lotOwner reference="../../../../../bidderList/head/next/contents"/>
-            <listOfBids>
-              <head>
-                <next>
-                  <contents class="com.bid.bidalot.objects.Bid">
-                    <bidAmount>1000.0</bidAmount>
-                    <bidDate>05/01/22</bidDate>
-                    <bidTime>00:16:56</bidTime>
-                    <bidder reference="../../../../../../../../../bidderList/head/contents"/>
-                  </contents>
-                </next>
-                <contents class="com.bid.bidalot.objects.Bid">
-                  <bidAmount>1050.0</bidAmount>
-                  <bidDate>05/01/22</bidDate>
-                  <bidTime>00:18:02</bidTime>
-                  <bidder reference="../../../../../../../../bidderList/head/next/next/contents"/>
-                </contents>
-              </head>
-            </listOfBids>
-          </contents>
-        </next>
-        <contents class="com.bid.bidalot.objects.Lot">
-          <title>Old chair for sale</title>
-          <description>Old chair for sale in Tramore, Co.Waterford Ireland. Mahogany, circa 1940. NO DELIVERY, COLLECTION ONLY</description>
-          <type>Furniture</type>
-          <imageLink>https://i.etsystatic.com/11173290/r/il/89d978/1917127901/il_570xN.1917127901_fjul.jpg</imageLink>
-          <originDate>1940</originDate>
-          <startDate>2022-01-04</startDate>
-          <finalSaleDate>2022-01-04</finalSaleDate>
-          <startTime>15:11:16.7126995</startTime>
-          <finalSaleTime>17:29:15.5433863</finalSaleTime>
-          <startPrice>100.0</startPrice>
-          <askingPrice>100.0</askingPrice>
-          <finalSalePrice>100.0</finalSalePrice>
-          <sold>true</sold>
-          <lotOwner reference="../../../../bidderList/head/contents"/>
-          <listOfBids>
-            <head>
-              <contents class="com.bid.bidalot.objects.Bid">
-                <bidAmount>100.0</bidAmount>
-                <bidDate>04/01/22</bidDate>
-                <bidTime>15:11:50</bidTime>
-                <bidder reference="../../../../../../../bidderList/head/next/contents"/>
-              </contents>
-            </head>
-          </listOfBids>
-        </contents>
-      </head>
-    </lotList>
+    <bidderHashTable>
+      <bidderHashTable>
+        <com.bid.bidalot.lists.MyLinkedList>
+          <head>
+            <contents class="com.bid.bidalot.objects.Bidder" reference="../../../../../bidderList/head/next/contents"/>
+          </head>
+        </com.bid.bidalot.lists.MyLinkedList>
+        <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList>
+          <head>
+            <contents class="com.bid.bidalot.objects.Bidder" reference="../../../../../bidderList/head/contents"/>
+          </head>
+        </com.bid.bidalot.lists.MyLinkedList>
+        <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList/>
+      </bidderHashTable>
+    </bidderHashTable>
+    <lotList/>
   </com.bid.bidalot.AuctionApp_-Driver>
 </object-stream>

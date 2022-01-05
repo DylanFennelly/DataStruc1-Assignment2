@@ -1,5 +1,6 @@
 package com.bid.bidalot;
 
+import com.bid.bidalot.hashing.BidderHashTable;
 import com.bid.bidalot.lists.MyLinkedList;
 import com.bid.bidalot.lists.Node;
 import com.bid.bidalot.objects.Bidder;
@@ -27,6 +28,7 @@ public class AuctionApp extends Application {
 
     public static class Driver {
         public MyLinkedList<Bidder> bidderList = new MyLinkedList<>();
+        public BidderHashTable bidderHashTable = new BidderHashTable();
         public MyLinkedList<Lot> lotList = new MyLinkedList<>();
     }
 
@@ -40,6 +42,7 @@ public class AuctionApp extends Application {
         stage.setScene(startScene);
         stage.setResizable(false);
         stage.show();
+        //todo: check if auctionApp.xml exists + create new file if it doesnt
         load();
     }
 
