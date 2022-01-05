@@ -65,7 +65,11 @@
                 <PropertyValueFactory property="bidAmount" />
             </cellValueFactory>
           </TableColumn>
-            <TableColumn editable="false" prefWidth="107.0" reorderable="false" sortable="false" resizable="false" text="Lot Name" />
+            <TableColumn editable="false" prefWidth="107.0" reorderable="false" sortable="false" resizable="false" text="Lot Title">
+                <cellValueFactory>
+                    <PropertyValueFactory property="parentLot" />
+                </cellValueFactory>
+            </TableColumn>
             <TableColumn editable="false" prefWidth="94.0" reorderable="false" sortable="false" resizable="false" text="Date">
                 <cellValueFactory>
                     <PropertyValueFactory property="bidDate" />
@@ -79,7 +83,7 @@
         </columns>
       </TableView>
       <Label layoutX="404.0" layoutY="29.0" text="Bid History" textFill="WHITE" />
-      <Button layoutX="676.0" layoutY="314.0" mnemonicParsing="false" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="View Selected Bid" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+      <Button layoutX="676.0" layoutY="314.0" mnemonicParsing="false" onAction="#changeToLotDetails" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="View Selected Bid" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
       <Label fx:id="loginLabel" alignment="CENTER" layoutX="168.0" layoutY="6.0" prefHeight="17.0" prefWidth="472.0" text="Not logged in" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
    </children>
 </AnchorPane>

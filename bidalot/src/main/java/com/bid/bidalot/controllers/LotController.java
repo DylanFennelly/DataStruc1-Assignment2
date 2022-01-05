@@ -73,7 +73,6 @@ public class LotController {
 
     @FXML
     protected void changeToLotDetails(ActionEvent actionEvent) throws IOException{
-        //todo:test
         selectedLot = DRIVER.lotHashTable.findPosition(activeLotsTV.getSelectionModel().getSelectedItem());
         if (selectedLot == null) {
             JOptionPane.showMessageDialog(frame, "Please select a lot to view the details of.", "Selection Error!", JOptionPane.ERROR_MESSAGE);

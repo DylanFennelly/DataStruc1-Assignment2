@@ -15,14 +15,18 @@ import javafx.scene.control.TableView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.util.Objects;
 
 import static com.bid.bidalot.AuctionApp.DRIVER;
 import static com.bid.bidalot.controllers.BidderController.selectedBidder;
+import static com.bid.bidalot.controllers.LotController.selectedLot;
 import static com.bid.bidalot.controllers.StartController.bidScene;
+import static com.bid.bidalot.controllers.LotController.lotDetailsScene;
 
 public class BidderDetailsController {
+    private JFrame frame; //used for popup windows
     @FXML
     private Label loginLabel , nameLabel, addressLabel, phoneLabel, emailLabel;
     @FXML
@@ -55,7 +59,6 @@ public class BidderDetailsController {
                 }
             }
         }
-
     }
 
     @FXML
@@ -80,6 +83,20 @@ public class BidderDetailsController {
         stage.setScene(bidScene);
         stage.setTitle("Bid-A-Lot: Bidders");
         stage.show();
+    }
+
+    @FXML
+    protected void changeToLotDetails(ActionEvent actionEvent) throws IOException {
+        selectedLot = DRIVER.lotHashTable.findPosition(bidsTV.getSelectionModel().getSelectedItem().getParentLot());
+        if (selectedLot == null) {
+            JOptionPane.showMessageDialog(frame, "Please select a lot to view the details of.", "Selection Error!", JOptionPane.ERROR_MESSAGE);
+        } else {
+            Parent detailsView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("lot-details-view.fxml")));
+            lotDetailsScene = new Scene(detailsView);
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            stage.setScene(lotDetailsScene);
+            stage.setTitle("Bid-A-Lot: " + selectedLot.getTitle());
+        }
     }
 
     //todo: delete account
