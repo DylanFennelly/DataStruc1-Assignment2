@@ -10,14 +10,14 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="350.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bid.bidalot.controllers.BidderDetailsController">
+<AnchorPane prefHeight="350.0" prefWidth="800.0" style="-fx-background-color: linear-gradient(to bottom, #383a3d, grey);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bid.bidalot.controllers.BidderDetailsController">
    <children>
-      <Label layoutX="14.0" layoutY="14.0" text="Bidder Details">
+      <Label layoutX="14.0" layoutY="14.0" text="Bidder Details" textFill="WHITE" AnchorPane.leftAnchor="10.0">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <GridPane gridLinesVisible="true" layoutX="14.0" layoutY="44.0" prefHeight="262.0" prefWidth="303.0">
+      <GridPane gridLinesVisible="true" layoutX="14.0" layoutY="44.0" prefHeight="262.0" prefWidth="303.0" style="-fx-border-color: #d0d0d0; -fx-border-width: 2;" AnchorPane.leftAnchor="10.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="147.0" minWidth="10.0" prefWidth="118.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="208.0" minWidth="10.0" prefWidth="185.0" />
@@ -29,35 +29,35 @@
             <RowConstraints maxHeight="49.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label alignment="CENTER" prefHeight="21.0" prefWidth="118.0" text="Name">
+            <Label alignment="CENTER" prefHeight="21.0" prefWidth="118.0" text="Name" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="21.0" prefWidth="118.0" text="Address" GridPane.rowIndex="1">
+            <Label alignment="CENTER" prefHeight="21.0" prefWidth="118.0" text="Address" textFill="WHITE" GridPane.rowIndex="1">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="21.0" prefWidth="118.0" text="Phone Number" GridPane.rowIndex="2">
+            <Label alignment="CENTER" prefHeight="21.0" prefWidth="118.0" text="Phone Number" textFill="WHITE" GridPane.rowIndex="2">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="21.0" prefWidth="118.0" text="Email Address" GridPane.rowIndex="3">
+            <Label alignment="CENTER" prefHeight="21.0" prefWidth="118.0" text="Email Address" textFill="WHITE" GridPane.rowIndex="3">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="nameLabel" alignment="CENTER" prefHeight="62.0" prefWidth="185.0" text="&gt;Bidder Name&lt;" wrapText="true" GridPane.columnIndex="1" />
-            <Label fx:id="addressLabel" alignment="CENTER" prefHeight="122.0" prefWidth="185.0" text="&gt;Bidder Address&lt;" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label fx:id="phoneLabel" alignment="CENTER" prefHeight="44.0" prefWidth="185.0" text="&gt;Bidder Phone Num&lt;" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label fx:id="emailLabel" alignment="CENTER" prefHeight="45.0" prefWidth="185.0" text="&gt;Bider Email&lt;" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label fx:id="nameLabel" alignment="CENTER" prefHeight="62.0" prefWidth="185.0" text="&gt;Bidder Name&lt;" textFill="WHITE" wrapText="true" GridPane.columnIndex="1" />
+            <Label fx:id="addressLabel" alignment="CENTER" prefHeight="122.0" prefWidth="185.0" text="&gt;Bidder Address&lt;" textFill="WHITE" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="phoneLabel" alignment="CENTER" prefHeight="44.0" prefWidth="185.0" text="&gt;Bidder Phone Num&lt;" textFill="WHITE" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="emailLabel" alignment="CENTER" prefHeight="45.0" prefWidth="185.0" text="&gt;Bider Email&lt;" textFill="WHITE" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
          </children>
       </GridPane>
-      <Button layoutX="14.0" layoutY="314.0" onAction="#backToBidderMenu" mnemonicParsing="false" text="Return" />
-      <Button fx:id="editButton" disable="true" layoutX="241.0" layoutY="314.0" mnemonicParsing="false" text="Edit Details" />
-      <TableView fx:id="bidsTV" layoutX="400.0" layoutY="44.0" prefHeight="262.0" prefWidth="386.0">
+      <Button layoutX="14.0" layoutY="314.0" mnemonicParsing="false" onAction="#backToBidderMenu" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #828aff); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Return" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" />
+      <Button fx:id="editButton" disable="true" layoutX="241.0" layoutY="314.0" mnemonicParsing="false" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Edit Details" AnchorPane.bottomAnchor="10.0" />
+      <TableView fx:id="bidsTV" layoutX="400.0" layoutY="44.0" prefHeight="262.0" prefWidth="386.0" style="-fx-background-color: #d0d0d0;" AnchorPane.rightAnchor="10.0">
         <columns>
           <TableColumn editable="false" prefWidth="90.0" reorderable="false" sortable="false" text="Bid (€)" />
             <TableColumn editable="false" prefWidth="107.0" reorderable="false" sortable="false" text="Lot Name" />
@@ -65,8 +65,8 @@
             <TableColumn editable="false" prefWidth="94.0" reorderable="false" sortable="false" text="Time" />
         </columns>
       </TableView>
-      <Label layoutX="400.0" layoutY="29.0" text="Bid History" />
-      <Button layoutX="676.0" layoutY="314.0" mnemonicParsing="false" text="View Selected Bid" />
-      <Label fx:id="loginLabel" alignment="CENTER" layoutX="164.0" layoutY="6.0" prefHeight="17.0" prefWidth="472.0" text="Not logged in" textAlignment="CENTER" wrapText="true" />
+      <Label layoutX="404.0" layoutY="29.0" text="Bid History" textFill="WHITE" />
+      <Button layoutX="676.0" layoutY="314.0" mnemonicParsing="false" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="View Selected Bid" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+      <Label fx:id="loginLabel" alignment="CENTER" layoutX="168.0" layoutY="6.0" prefHeight="17.0" prefWidth="472.0" text="Not logged in" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
    </children>
 </AnchorPane>

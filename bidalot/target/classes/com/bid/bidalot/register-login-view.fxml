@@ -87,18 +87,18 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="LoginEmail" layoutX="398.0" layoutY="107.0" prefHeight="25.0" prefWidth="287.0" promptText="Enter email address" />
-      <Label layoutX="398.0" layoutY="70.0" text="Email Address" textFill="WHITE">
+      <TextField fx:id="LoginEmail" layoutX="398.0" layoutY="107.0" prefHeight="25.0" prefWidth="287.0" promptText="Enter email address" AnchorPane.rightAnchor="10.0" />
+      <Label layoutX="405.0" layoutY="75.0" text="Email Address" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="398.0" layoutY="190.0" text="Password" textFill="WHITE">
+      <Label layoutX="403.0" layoutY="196.0" text="Password" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <PasswordField fx:id="LoginPassword" layoutX="398.0" layoutY="228.0" prefHeight="25.0" prefWidth="287.0" promptText="Enter password" />
+      <PasswordField fx:id="LoginPassword" layoutX="398.0" layoutY="228.0" prefHeight="25.0" prefWidth="287.0" promptText="Enter password" AnchorPane.rightAnchor="10.0" />
       <Button layoutX="634.0" layoutY="325.0" mnemonicParsing="false" onAction="#loginBidderButton" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #828aff); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Login" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
    </children>
 </AnchorPane>
