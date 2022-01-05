@@ -83,7 +83,8 @@ public class Bidder {
                 String temp = phone.replaceAll("[^\\d]", "");
                 temp = temp.substring(0, 3) + " " + temp.substring(3, 6) + " " + temp.substring(6);
                 this.phone = temp;
-            }
+            }else
+                this.phone = phone;
     }
 
     public void setEmail(String email) {
