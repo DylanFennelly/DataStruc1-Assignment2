@@ -42,8 +42,7 @@ public class BidderController {
         }
 
         biddersTV.getItems().clear();
-        //todo: test
-        for (int i=0; i<=DRIVER.bidderHashTable.hashTableLength()-1 ;i++){  //length - 1, as indices go from 0 to 26, 27 is out of bounds
+        for (int i=0; i<DRIVER.bidderHashTable.hashTableLength() ;i++){
             for (Bidder temp : DRIVER.bidderHashTable.getLinkedList(i)){
                 biddersTV.getItems().add(temp);
             }

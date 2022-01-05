@@ -1,6 +1,7 @@
 package com.bid.bidalot;
 
 import com.bid.bidalot.hashing.BidderHashTable;
+import com.bid.bidalot.hashing.LotHashTable;
 import com.bid.bidalot.lists.MyLinkedList;
 import com.bid.bidalot.lists.Node;
 import com.bid.bidalot.objects.Bidder;
@@ -28,6 +29,7 @@ public class AuctionApp extends Application {
 
     public static class Driver {
         public BidderHashTable bidderHashTable = new BidderHashTable();
+        public LotHashTable lotHashTable = new LotHashTable();
         public MyLinkedList<Lot> lotList = new MyLinkedList<>();
     }
 

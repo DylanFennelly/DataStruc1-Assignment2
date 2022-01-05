@@ -21,22 +21,22 @@
         <Button layoutX="824.0" layoutY="55.0" mnemonicParsing="false" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Search" AnchorPane.rightAnchor="10.0" />
         <TableView fx:id="biddersTV" layoutX="22.0" layoutY="125.0" prefHeight="499.0" prefWidth="880.0" style="-fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5; -fx-background-color: #a3a3a3;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
             <columns>
-                <TableColumn prefWidth="162.0" reorderable="false" resizable="false" sortable="true" text="Name">
+                <TableColumn prefWidth="162.0" reorderable="false" resizable="false" sortable="false" text="Name">
                     <cellValueFactory>
                         <PropertyValueFactory property="name" />
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn prefWidth="358.0" reorderable="false" resizable="false" sortable="true" text="Address">
+                <TableColumn prefWidth="358.0" reorderable="false" resizable="false" sortable="false" text="Address">
                     <cellValueFactory>
                         <PropertyValueFactory property="address" />
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn minWidth="0.0" prefWidth="163.0" reorderable="false" resizable="false" sortable="true" text="Phone">
+                <TableColumn minWidth="0.0" prefWidth="163.0" reorderable="false" resizable="false" sortable="false" text="Phone">
                     <cellValueFactory>
                         <PropertyValueFactory property="phone" />
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn prefWidth="172.0" reorderable="false" resizable="false" sortable="true" text="Email">
+                <TableColumn prefWidth="172.0" reorderable="false" resizable="false" sortable="false" text="Email">
                     <cellValueFactory>
                         <PropertyValueFactory property="email" />
                     </cellValueFactory>
