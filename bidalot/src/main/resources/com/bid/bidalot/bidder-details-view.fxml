@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <AnchorPane prefHeight="350.0" prefWidth="800.0" style="-fx-background-color: linear-gradient(to bottom, #383a3d, grey);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bid.bidalot.controllers.BidderDetailsController">
    <children>
       <Label layoutX="14.0" layoutY="14.0" text="Bidder Details" textFill="WHITE" AnchorPane.leftAnchor="10.0">
@@ -59,10 +60,22 @@
       <Button fx:id="editButton" disable="true" layoutX="241.0" layoutY="314.0" mnemonicParsing="false" onAction="#changeToEditMenu" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Edit Details" AnchorPane.bottomAnchor="10.0" />
       <TableView fx:id="bidsTV" layoutX="400.0" layoutY="44.0" prefHeight="262.0" prefWidth="386.0" style="-fx-background-color: #d0d0d0;" AnchorPane.rightAnchor="10.0">
         <columns>
-          <TableColumn editable="false" prefWidth="90.0" reorderable="false" sortable="false" text="Bid (€)" />
-            <TableColumn editable="false" prefWidth="107.0" reorderable="false" sortable="false" text="Lot Name" />
-            <TableColumn editable="false" prefWidth="94.0" reorderable="false" sortable="false" text="Date" />
-            <TableColumn editable="false" prefWidth="94.0" reorderable="false" sortable="false" text="Time" />
+          <TableColumn editable="false" prefWidth="90.0" reorderable="false" sortable="false" resizable="false" text="Bid (€)">
+            <cellValueFactory>
+                <PropertyValueFactory property="bidAmount" />
+            </cellValueFactory>
+          </TableColumn>
+            <TableColumn editable="false" prefWidth="107.0" reorderable="false" sortable="false" resizable="false" text="Lot Name" />
+            <TableColumn editable="false" prefWidth="94.0" reorderable="false" sortable="false" resizable="false" text="Date">
+                <cellValueFactory>
+                    <PropertyValueFactory property="bidDate" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn editable="false" prefWidth="94.0" reorderable="false" sortable="false" resizable="false" text="Time">
+                <cellValueFactory>
+                    <PropertyValueFactory property="bidTime" />
+                </cellValueFactory>
+            </TableColumn>
         </columns>
       </TableView>
       <Label layoutX="404.0" layoutY="29.0" text="Bid History" textFill="WHITE" />

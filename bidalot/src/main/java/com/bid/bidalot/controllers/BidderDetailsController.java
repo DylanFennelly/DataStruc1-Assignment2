@@ -1,6 +1,8 @@
 package com.bid.bidalot.controllers;
 
 import com.bid.bidalot.AuctionApp;
+import com.bid.bidalot.objects.Bid;
+import com.bid.bidalot.objects.Lot;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -24,6 +27,8 @@ public class BidderDetailsController {
     private Label loginLabel , nameLabel, addressLabel, phoneLabel, emailLabel;
     @FXML
     private Button editButton;
+    @FXML
+    private TableView<Bid> bidsTV;
 
     @FXML
     protected void initialize() {
@@ -37,6 +42,20 @@ public class BidderDetailsController {
         addressLabel.setText(selectedBidder.getAddress());
         phoneLabel.setText(selectedBidder.getPhone());
         emailLabel.setText(selectedBidder.getEmail());
+
+        bidsTV.getItems().clear();
+        //populating bidsTV with all bids bidder has placed
+        //linear search
+        for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
+            for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
+                for(Bid bid : temp.getListOfBids()){
+                    if (bid.getBidder() == selectedBidder){
+                        bidsTV.getItems().add(bid);
+                    }
+                }
+            }
+        }
+
     }
 
     @FXML

@@ -74,6 +74,68 @@
     <lotHashTable>
       <lotHashTable>
         <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList>
+          <head>
+            <next>
+              <contents class="com.bid.bidalot.objects.Lot">
+                <title>testing</title>
+                <description>ghgh	</description>
+                <type>Cameras and Photography</type>
+                <imageLink>N/A</imageLink>
+                <originDate>2000</originDate>
+                <startDate>2022-01-05</startDate>
+                <startTime>22:23:43.7073065</startTime>
+                <startPrice>46.0</startPrice>
+                <askingPrice>55.05</askingPrice>
+                <finalSalePrice>0.0</finalSalePrice>
+                <sold>false</sold>
+                <lotOwner reference="../../../../../../../bidderHashTable/bidderHashTable/com.bid.bidalot.lists.MyLinkedList[13]/head/contents"/>
+                <listOfBids>
+                  <head>
+                    <next>
+                      <contents class="com.bid.bidalot.objects.Bid">
+                        <bidAmount>55.0</bidAmount>
+                        <bidDate>05/01/22</bidDate>
+                        <bidTime>22:34:07</bidTime>
+                        <bidder reference="../../../../../../../../../../../bidderHashTable/bidderHashTable/com.bid.bidalot.lists.MyLinkedList[10]/head/contents"/>
+                      </contents>
+                    </next>
+                    <contents class="com.bid.bidalot.objects.Bid">
+                      <bidAmount>55.05</bidAmount>
+                      <bidDate>05/01/22</bidDate>
+                      <bidTime>22:34:27</bidTime>
+                      <bidder reference="../../../../../../../../../../bidderHashTable/bidderHashTable/com.bid.bidalot.lists.MyLinkedList[10]/head/contents"/>
+                    </contents>
+                  </head>
+                </listOfBids>
+              </contents>
+            </next>
+            <contents class="com.bid.bidalot.objects.Lot">
+              <title>jack</title>
+              <description>n	</description>
+              <type>Computers and Tablets</type>
+              <imageLink>N/A</imageLink>
+              <originDate>2000</originDate>
+              <startDate>2022-01-05</startDate>
+              <startTime>22:24:22.436591</startTime>
+              <startPrice>45.0</startPrice>
+              <askingPrice>45.0</askingPrice>
+              <finalSalePrice>0.0</finalSalePrice>
+              <sold>false</sold>
+              <lotOwner reference="../../../../../../bidderHashTable/bidderHashTable/com.bid.bidalot.lists.MyLinkedList/head/contents"/>
+              <listOfBids>
+                <head>
+                  <contents class="com.bid.bidalot.objects.Bid">
+                    <bidAmount>45.0</bidAmount>
+                    <bidDate>05/01/22</bidDate>
+                    <bidTime>22:25:11</bidTime>
+                    <bidder reference="../../../../../../../../../bidderHashTable/bidderHashTable/com.bid.bidalot.lists.MyLinkedList[10]/head/contents"/>
+                  </contents>
+                </head>
+              </listOfBids>
+            </contents>
+          </head>
+        </com.bid.bidalot.lists.MyLinkedList>
         <com.bid.bidalot.lists.MyLinkedList/>
         <com.bid.bidalot.lists.MyLinkedList/>
         <com.bid.bidalot.lists.MyLinkedList/>
@@ -93,8 +155,25 @@
         <com.bid.bidalot.lists.MyLinkedList/>
         <com.bid.bidalot.lists.MyLinkedList/>
         <com.bid.bidalot.lists.MyLinkedList/>
-        <com.bid.bidalot.lists.MyLinkedList/>
-        <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList>
+          <head>
+            <contents class="com.bid.bidalot.objects.Lot">
+              <title>Jason</title>
+              <description>d</description>
+              <type>Cameras and Photography</type>
+              <imageLink>N/A</imageLink>
+              <originDate>2000</originDate>
+              <startDate>2022-01-05</startDate>
+              <startTime>22:24:58.9558405</startTime>
+              <startPrice>80.0</startPrice>
+              <askingPrice>80.0</askingPrice>
+              <finalSalePrice>0.0</finalSalePrice>
+              <sold>false</sold>
+              <lotOwner reference="../../../../../../bidderHashTable/bidderHashTable/com.bid.bidalot.lists.MyLinkedList[10]/head/contents"/>
+              <listOfBids/>
+            </contents>
+          </head>
+        </com.bid.bidalot.lists.MyLinkedList>
         <com.bid.bidalot.lists.MyLinkedList/>
         <com.bid.bidalot.lists.MyLinkedList>
           <head>
