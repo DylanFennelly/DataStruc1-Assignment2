@@ -66,6 +66,7 @@ public class StartController {
         stage.initModality(Modality.APPLICATION_MODAL);     //locks main window until popup window is closed  |  https://stackoverflow.com/questions/15625987/block-owner-window-java-fx
         stage.initOwner(addView.getScene().getWindow());
         stage.setScene(addScene);
+        stage.setResizable(false);
         stage.setTitle("Register/Login");
         stage.show();
     }
@@ -78,6 +79,7 @@ public class StartController {
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.initOwner(adminView.getScene().getWindow());
         stage.setScene(addScene);
+        stage.setResizable(false);
         stage.setTitle("Administrator Menu");
         stage.show();
     }

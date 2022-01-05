@@ -2,19 +2,59 @@
   <com.bid.bidalot.AuctionApp_-Driver>
     <bidderHashTable>
       <bidderHashTable>
+        <com.bid.bidalot.lists.MyLinkedList>
+          <head>
+            <contents class="com.bid.bidalot.objects.Bidder">
+              <name>ADMIN</name>
+              <address>ADMIN</address>
+              <phone>000 000 0000</phone>
+              <email>ADMIN@ADMIN.COM</email>
+              <password>password</password>
+            </contents>
+          </head>
+        </com.bid.bidalot.lists.MyLinkedList>
+        <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList>
+          <head>
+            <contents class="com.bid.bidalot.objects.Bidder">
+              <name>Dylan Fennelly</name>
+              <address>28 Moonvoy Bridge</address>
+              <phone>102 938 4756</phone>
+              <email>dylanfennelly@gmail.com</email>
+              <password>password</password>
+            </contents>
+          </head>
+        </com.bid.bidalot.lists.MyLinkedList>
         <com.bid.bidalot.lists.MyLinkedList/>
         <com.bid.bidalot.lists.MyLinkedList/>
         <com.bid.bidalot.lists.MyLinkedList/>
         <com.bid.bidalot.lists.MyLinkedList/>
         <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList>
+          <head>
+            <contents class="com.bid.bidalot.objects.Bidder">
+              <name>Jason Anca</name>
+              <address>Carlow or something</address>
+              <phone>102 938 4756</phone>
+              <email>jasonanca@gmail.com</email>
+              <password>password</password>
+            </contents>
+          </head>
+        </com.bid.bidalot.lists.MyLinkedList>
         <com.bid.bidalot.lists.MyLinkedList/>
         <com.bid.bidalot.lists.MyLinkedList/>
-        <com.bid.bidalot.lists.MyLinkedList/>
-        <com.bid.bidalot.lists.MyLinkedList/>
-        <com.bid.bidalot.lists.MyLinkedList/>
-        <com.bid.bidalot.lists.MyLinkedList/>
-        <com.bid.bidalot.lists.MyLinkedList/>
-        <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList>
+          <head>
+            <contents class="com.bid.bidalot.objects.Bidder">
+              <name>Máté Dominics</name>
+              <address>Kilkenny</address>
+              <phone>098 765 4321</phone>
+              <email>matedominics@gmail.com</email>
+              <password>password</password>
+            </contents>
+          </head>
+        </com.bid.bidalot.lists.MyLinkedList>
         <com.bid.bidalot.lists.MyLinkedList/>
         <com.bid.bidalot.lists.MyLinkedList/>
         <com.bid.bidalot.lists.MyLinkedList/>
@@ -56,7 +96,50 @@
         <com.bid.bidalot.lists.MyLinkedList/>
         <com.bid.bidalot.lists.MyLinkedList/>
         <com.bid.bidalot.lists.MyLinkedList/>
-        <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList>
+          <head>
+            <contents class="com.bid.bidalot.objects.Lot">
+              <title>Testing Lot</title>
+              <description>Testing</description>
+              <type>Antiques</type>
+              <imageLink>N/A</imageLink>
+              <originDate>2000</originDate>
+              <startDate>2022-01-05</startDate>
+              <startTime>21:57:40.3977632</startTime>
+              <startPrice>10.0</startPrice>
+              <askingPrice>12.0</askingPrice>
+              <finalSalePrice>0.0</finalSalePrice>
+              <sold>false</sold>
+              <lotOwner reference="../../../../../../bidderHashTable/bidderHashTable/com.bid.bidalot.lists.MyLinkedList[4]/head/contents"/>
+              <listOfBids>
+                <head>
+                  <next>
+                    <next>
+                      <contents class="com.bid.bidalot.objects.Bid">
+                        <bidAmount>10.0</bidAmount>
+                        <bidDate>05/01/22</bidDate>
+                        <bidTime>22:01:13</bidTime>
+                        <bidder reference="../../../../../../../../../../../bidderHashTable/bidderHashTable/com.bid.bidalot.lists.MyLinkedList[13]/head/contents"/>
+                      </contents>
+                    </next>
+                    <contents class="com.bid.bidalot.objects.Bid">
+                      <bidAmount>11.0</bidAmount>
+                      <bidDate>05/01/22</bidDate>
+                      <bidTime>22:01:43</bidTime>
+                      <bidder reference="../../../../../../../../../../bidderHashTable/bidderHashTable/com.bid.bidalot.lists.MyLinkedList/head/contents"/>
+                    </contents>
+                  </next>
+                  <contents class="com.bid.bidalot.objects.Bid">
+                    <bidAmount>12.0</bidAmount>
+                    <bidDate>05/01/22</bidDate>
+                    <bidTime>22:03:10</bidTime>
+                    <bidder reference="../../../../../../../../../bidderHashTable/bidderHashTable/com.bid.bidalot.lists.MyLinkedList[10]/head/contents"/>
+                  </contents>
+                </head>
+              </listOfBids>
+            </contents>
+          </head>
+        </com.bid.bidalot.lists.MyLinkedList>
         <com.bid.bidalot.lists.MyLinkedList/>
         <com.bid.bidalot.lists.MyLinkedList/>
         <com.bid.bidalot.lists.MyLinkedList/>

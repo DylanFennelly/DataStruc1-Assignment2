@@ -47,6 +47,7 @@ public class BidderDetailsController {
         stage.initModality(Modality.APPLICATION_MODAL);     //locks main window until popup window is closed  |  https://stackoverflow.com/questions/15625987/block-owner-window-java-fx
         stage.initOwner(editView.getScene().getWindow());
         stage.setScene(editScene);
+        stage.setResizable(false);
         stage.setTitle("Edit Bidder");
         stage.show();
     }

@@ -66,6 +66,7 @@ public class LotController {
         stage.initModality(Modality.APPLICATION_MODAL);     //locks main window until popup window is closed  |  https://stackoverflow.com/questions/15625987/block-owner-window-java-fx
         stage.initOwner(addView.getScene().getWindow());
         stage.setScene(addScene);
+        stage.setResizable(false);
         stage.setTitle("Add Lot");
         stage.show();
     }

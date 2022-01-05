@@ -31,8 +31,10 @@ import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 import static com.bid.bidalot.AuctionApp.DRIVER;
+import static com.bid.bidalot.controllers.BidderController.selectedBidder;
 import static com.bid.bidalot.controllers.LotController.LotIndex;
 import static com.bid.bidalot.controllers.StartController.lotScene;
+import static com.bid.bidalot.controllers.BidderController.bidderDetailsScene;
 
 public class LotDetailsController {
     private JFrame frame;
@@ -184,8 +186,6 @@ public class LotDetailsController {
         }
     }
 
-    //todo: withdraw bids, edit lot
-
     @FXML
     protected void withdrawBidButton(ActionEvent actionEvent){
         //todo: withdraw bids, regardless if they are top bid or not?
@@ -229,7 +229,23 @@ public class LotDetailsController {
         stage.initModality(Modality.APPLICATION_MODAL);     //locks main window until popup window is closed  |  https://stackoverflow.com/questions/15625987/block-owner-window-java-fx
         stage.initOwner(editView.getScene().getWindow());
         stage.setScene(editScene);
+        stage.setResizable(false);
         stage.setTitle("Edit Lot");
         stage.show();
+    }
+
+    //view Bidder profile by selecting their bid from the bid list
+    @FXML
+    protected void changeToBidderMenu(ActionEvent actionEvent) throws IOException{
+        selectedBidder = DRIVER.bidderHashTable.findPositionByEmail(bidTV.getSelectionModel().getSelectedItem().getBidder().getEmail());
+        if (selectedBidder == null) {
+            JOptionPane.showMessageDialog(frame, "Please select a bidder to view the details of.", "Selection Error!", JOptionPane.ERROR_MESSAGE);
+        }else {
+            Parent detailsView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("bidder-details-view.fxml")));
+            bidderDetailsScene = new Scene(detailsView);
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            stage.setScene(bidderDetailsScene);
+            stage.setTitle("Bid-A-Lot: " + selectedBidder.getName());
+        }
     }
 }
