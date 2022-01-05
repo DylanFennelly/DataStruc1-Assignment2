@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 import static com.bid.bidalot.AuctionApp.DRIVER;
-import static com.bid.bidalot.controllers.BidderController.BidderIndex;
+import static com.bid.bidalot.controllers.BidderController.selectedBidder;
 import static com.bid.bidalot.controllers.StartController.bidScene;
 
 public class BidderDetailsController {
@@ -29,14 +29,14 @@ public class BidderDetailsController {
     protected void initialize() {
         if (AuctionApp.loggedInBidder != null) {
             loginLabel.setText("Logged in as: " + AuctionApp.loggedInBidder.getName());
-            if (AuctionApp.loggedInBidder.getEmail().equals(DRIVER.bidderList.getElementByInt(BidderIndex).getContents().getEmail()) )  //if logged-in user is same as selected user profile, enable editing
+            if (AuctionApp.loggedInBidder.getEmail().equals(selectedBidder.getEmail()) )  //if logged-in user is same as selected user profile, enable editing
                 editButton.setDisable(false);
         }
 
-        nameLabel.setText(DRIVER.bidderList.getElementByInt(BidderIndex).getContents().getName());
-        addressLabel.setText(DRIVER.bidderList.getElementByInt(BidderIndex).getContents().getAddress());
-        phoneLabel.setText(DRIVER.bidderList.getElementByInt(BidderIndex).getContents().getPhone());
-        emailLabel.setText(DRIVER.bidderList.getElementByInt(BidderIndex).getContents().getEmail());
+        nameLabel.setText(selectedBidder.getName());
+        addressLabel.setText(selectedBidder.getAddress());
+        phoneLabel.setText(selectedBidder.getPhone());
+        emailLabel.setText(selectedBidder.getEmail());
     }
 
     @FXML
@@ -61,4 +61,6 @@ public class BidderDetailsController {
         stage.setTitle("Bid-A-Lot: Bidders");
         stage.show();
     }
+
+    //todo: delete account
 }

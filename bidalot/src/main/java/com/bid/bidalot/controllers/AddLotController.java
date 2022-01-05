@@ -57,9 +57,7 @@ public class AddLotController {
                     if (lotOrigin.getValue() != null) {
                         if (lotStarting.getText().matches("[\\d]+[.]+[\\d]{2}")) {    //any number of digits, followed by a decimal point and two digits
                             double askingPrice = Double.parseDouble(lotStarting.getText());
-                            Lot newLot = new Lot(lotTitle.getText(), lotDesc.getText(), lotType.getValue(), lotImage.getText(), lotOrigin.getValue(), askingPrice, AuctionApp.loggedInBidder);
-                            //todo: hashing
-                            DRIVER.lotList.addElementToEnd(newLot);
+                            DRIVER.lotHashTable.add(new Lot(lotTitle.getText(), lotDesc.getText(), lotType.getValue(), lotImage.getText(), lotOrigin.getValue(), askingPrice, AuctionApp.loggedInBidder));
                             JOptionPane.showMessageDialog(frame, "Lot successfully added!", "Add Success!", JOptionPane.INFORMATION_MESSAGE);
                             closeWindow();
 

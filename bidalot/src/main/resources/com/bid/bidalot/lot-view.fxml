@@ -50,7 +50,7 @@
         </columns>
       </TableView>
       <Button layoutX="645.0" layoutY="55.0" mnemonicParsing="false" onAction="#changeToLotDetails" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="View Selected Lot" />
-      <Button layoutX="763.0" layoutY="55.0" mnemonicParsing="false" onAction="#addDummyValues" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Sold Lots" />
+      <Button layoutX="763.0" layoutY="55.0" mnemonicParsing="false" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Sold Lots" />
       <Button layoutX="824.0" layoutY="55.0" mnemonicParsing="false" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Search" AnchorPane.rightAnchor="10.0" />
       <Label layoutX="412.0" layoutY="59.0" prefHeight="20.0" prefWidth="76.0" text="Active Lots" textFill="WHITE">
          <font>

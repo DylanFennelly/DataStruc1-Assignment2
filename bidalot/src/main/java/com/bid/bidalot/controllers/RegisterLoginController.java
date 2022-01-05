@@ -49,14 +49,9 @@ public class RegisterLoginController {
                 if(phone.matches("^[\\d]{3}[\\s]?[\\d]{3}[\\s]?[\\d]{4}$")){
                     if(email.matches("^[\\w-.]+@([\\w-]+.)+[\\w-]{2,4}$")){
                         //preventing duplicate email addresses
-                        boolean matchingEmail = false;
-                        for (Bidder temp : DRIVER.bidderList){  //todo: replace linear search
-                            if (temp.getEmail().equalsIgnoreCase(email)) {
-                                matchingEmail = true;
-                                break;
-                            }
-                        }
-                        if (!matchingEmail) {
+                        //todo: test
+                        Bidder temp = DRIVER.bidderHashTable.findPositionByEmail(email);    //returns null if email is not found
+                        if (temp==null) {
                             if (password.length() >= 8) {
                                 if (password.equals(passwordConfirm)) {
                                     return new Bidder(name, address, phone, email, password);
@@ -88,7 +83,7 @@ public class RegisterLoginController {
     private void addBidderButton(ActionEvent actionEvent) throws IOException {
         Bidder newBidder = addBidder(BName.getText(), BAddress.getText(), BPhone.getText(), BEmail.getText(), BPass.getText(), BPassConfirm.getText());
         if (newBidder != null){
-            DRIVER.bidderList.addElementToEnd(newBidder);
+            DRIVER.bidderHashTable.add(newBidder);
             JOptionPane.showMessageDialog(frame, "Bidder successfully registered!", "Register Success!", JOptionPane.INFORMATION_MESSAGE);
 
             //setting login fields for quicker login after bidder creation
@@ -107,9 +102,9 @@ public class RegisterLoginController {
     }
 
    protected Bidder loginBidder(String email, String password){
-        //todo: replace linear search
-       for (Bidder temp : DRIVER.bidderList){
-           if (email.equalsIgnoreCase(temp.getEmail()) && password.equalsIgnoreCase(temp.getPassword()) )
+       Bidder temp = DRIVER.bidderHashTable.findPositionByEmail(email);
+       if (temp!=null) {
+           if (password.equalsIgnoreCase(temp.getPassword()))
                return temp;
        }
        return null;
