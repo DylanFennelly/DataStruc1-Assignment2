@@ -85,7 +85,7 @@ public class EditLotController {
 
     @FXML
     protected void updateLotButton(ActionEvent actionEvent) throws IOException {
-        String title = lotTitle.getText().trim();   //removing whitespace
+        String title = lotTitle.getText().trim();   //removing leading/trailing whitespace
         String description = lotDesc.getText().trim();
         String type = lotType.getValue();
         String imageLink = lotImage.getText().trim();
@@ -132,6 +132,9 @@ public class EditLotController {
                 JOptionPane.showMessageDialog(frame, "Lot details have been updated", "Edit Success!", JOptionPane.INFORMATION_MESSAGE);
                 updateLot(DRIVER.lotList.getElementByInt(LotIndex).getContents(),title,description,type,imageLink,originDate);
                 closeWindow();
+
+                //resetting temp values back to null
+                title = description = type = imageLink = null;
 
                 //refreshing lot scene to reflect updates
                 Parent detailsView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("lot-details-view.fxml")));

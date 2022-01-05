@@ -24,6 +24,7 @@ import static com.bid.bidalot.AuctionApp.DRIVER;
 public class BidderController {
     public static int BidderIndex;
     private JFrame frame; //used for popup windows
+    public static Scene bidderDetailsScene;
     @FXML
     private TableView<Bidder> biddersTV;
     @FXML
@@ -60,9 +61,9 @@ public class BidderController {
             JOptionPane.showMessageDialog(frame, "Please select a bidder to view the details of.", "Selection Error!", JOptionPane.ERROR_MESSAGE);
         }else {
             Parent detailsView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("bidder-details-view.fxml")));
-            Scene detailsScene = new Scene(detailsView);
+            bidderDetailsScene = new Scene(detailsView);
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            stage.setScene(detailsScene);
+            stage.setScene(bidderDetailsScene);
             stage.setTitle("Bid-A-Lot: " + DRIVER.bidderList.getElementByInt(BidderIndex).getContents().getName());
         }
     }
