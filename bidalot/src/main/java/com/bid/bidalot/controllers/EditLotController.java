@@ -17,7 +17,6 @@ import java.io.IOException;
 import java.util.Objects;
 
 import static com.bid.bidalot.AuctionApp.DRIVER;
-import static com.bid.bidalot.controllers.LotController.LotIndex;
 import static com.bid.bidalot.controllers.LotController.lotDetailsScene;
 
 public class EditLotController {
@@ -40,10 +39,10 @@ public class EditLotController {
     @FXML
     protected void initialize() {
         //autofilling current Lot details into fields
-        lotTitle.setText(DRIVER.lotList.getElementByInt(LotIndex).getContents().getTitle());
-        lotDesc.setText(DRIVER.lotList.getElementByInt(LotIndex).getContents().getDescription());
-        lotType.setValue(DRIVER.lotList.getElementByInt(LotIndex).getContents().getType());
-        lotImage.setText(DRIVER.lotList.getElementByInt(LotIndex).getContents().getImageLink());
+        lotTitle.setText(LotController.selectedLot.getTitle());
+        lotDesc.setText(LotController.selectedLot.getDescription());
+        lotType.setValue(LotController.selectedLot.getType());
+        lotImage.setText(LotController.selectedLot.getImageLink());
         //lot origin is more complicated to setup
     }
 
@@ -96,32 +95,32 @@ public class EditLotController {
         //confirming if any changes have been made
         boolean changeMade = false;
         //if a title was entered and the entered title was not the same as the lot's title as is
-        if (!title.equals("") && !title.equals(DRIVER.lotList.getElementByInt(LotIndex).getContents().getTitle())) {
+        if (!title.equals("") && !title.equals(LotController.selectedLot.getTitle())) {
             if (title.length() <= 25)
                 jOptionConfirmText = jOptionConfirmText + "\nTitle: " + title;
             else
                 jOptionConfirmText = jOptionConfirmText + "\nTitle: " + title.substring(0,25) + "...";
             changeMade = true;
         }
-        if (!description.equals("") && !description.equals(DRIVER.lotList.getElementByInt(LotIndex).getContents().getDescription())){
+        if (!description.equals("") && !description.equals(LotController.selectedLot.getDescription())){
             if (description.length() <= 25)
                 jOptionConfirmText = jOptionConfirmText + "\nDescription: " + description;
             else
                 jOptionConfirmText = jOptionConfirmText + "\nDescription: " + description.substring(0,25) + "...";
             changeMade = true;
         }
-        if(!type.equals(DRIVER.lotList.getElementByInt(LotIndex).getContents().getType())){
+        if(!type.equals(LotController.selectedLot.getType())){
             jOptionConfirmText = jOptionConfirmText + "\nLot Type: " + type;
             changeMade = true;
         }
-        if (!imageLink.equals("") && !imageLink.equals(DRIVER.lotList.getElementByInt(LotIndex).getContents().getImageLink())){
+        if (!imageLink.equals("") && !imageLink.equals(LotController.selectedLot.getImageLink())){
             if (imageLink.length() <= 25)
                 jOptionConfirmText = jOptionConfirmText + "\nImage Link: " + imageLink;
             else
                 jOptionConfirmText = jOptionConfirmText + "\nImage Link: " + imageLink.substring(0,25) + "...";
             changeMade = true;
         }
-        if (originDate!=DRIVER.lotList.getElementByInt(LotIndex).getContents().getOriginDate()){
+        if (originDate!=LotController.selectedLot.getOriginDate()){
             jOptionConfirmText = jOptionConfirmText + "\nOrigin Date: " + originDate;
             changeMade = true;
         }
@@ -130,7 +129,7 @@ public class EditLotController {
             int option = JOptionPane.showConfirmDialog(frame, jOptionConfirmText + "\n\nDo you want to proceed with these changes?", "Edit Confirmation", JOptionPane.YES_NO_OPTION);
             if (option == JOptionPane.YES_OPTION){
                 JOptionPane.showMessageDialog(frame, "Lot details have been updated", "Edit Success!", JOptionPane.INFORMATION_MESSAGE);
-                updateLot(DRIVER.lotList.getElementByInt(LotIndex).getContents(),title,description,type,imageLink,originDate);
+                updateLot(LotController.selectedLot,title,description,type,imageLink,originDate);
                 closeWindow();
 
                 //resetting temp values back to null
@@ -141,7 +140,7 @@ public class EditLotController {
                 Stage stage = (Stage) lotDetailsScene.getWindow();
                 lotDetailsScene = new Scene(detailsView);
                 stage.setScene(lotDetailsScene);
-                stage.setTitle("Bid-A-Lot: " + DRIVER.lotList.getElementByInt(LotIndex).getContents().getTitle());
+                stage.setTitle("Bid-A-Lot: " + LotController.selectedLot.getTitle());
             }
         }else{
             JOptionPane.showMessageDialog(frame, "No changes to the lot details have been made.", "Edit Error!", JOptionPane.ERROR_MESSAGE);

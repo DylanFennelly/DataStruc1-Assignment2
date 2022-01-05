@@ -23,6 +23,7 @@ import static com.bid.bidalot.AuctionApp.DRIVER;
 
 public class LotController {
     public static int LotIndex;
+    public static Lot selectedLot;
     private JFrame frame; //used for popup windows
     public static Scene lotDetailsScene;
     @FXML
@@ -41,9 +42,11 @@ public class LotController {
             loginLabel.setText("Logged in as: " + AuctionApp.loggedInBidder.getName());
         }
         activeLotsTV.getItems().clear();
-        for (Lot l : DRIVER.lotList){
-            //if (!l.isSold())    //only displays active lots todo: re-enable once hashing is in place
-                activeLotsTV.getItems().add(l);
+        for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
+            for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)){
+                if(!temp.isSold())  //only displaying lots that have not been sold
+                    activeLotsTV.getItems().add(temp);
+            }
         }
     }
 
@@ -69,23 +72,21 @@ public class LotController {
 
     @FXML
     protected void changeToLotDetails(ActionEvent actionEvent) throws IOException{
-        //todo:hashing
-        LotIndex = activeLotsTV.getSelectionModel().getSelectedIndex();
-        if (LotIndex == -1) {
+        //todo:test
+        selectedLot = DRIVER.lotHashTable.findPosition(activeLotsTV.getSelectionModel().getSelectedItem());
+        if (selectedLot == null) {
             JOptionPane.showMessageDialog(frame, "Please select a lot to view the details of.", "Selection Error!", JOptionPane.ERROR_MESSAGE);
         }else {
             Parent detailsView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("lot-details-view.fxml")));
             lotDetailsScene = new Scene(detailsView);
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             stage.setScene(lotDetailsScene);
-            stage.setTitle("Bid-A-Lot: " + DRIVER.lotList.getElementByInt(LotIndex).getContents().getTitle());
+            stage.setTitle("Bid-A-Lot: " + selectedLot.getTitle());
         }
     }
 
     @FXML
-    protected void addDummyValues(ActionEvent actionEvent){
-        LocalDate origin = LocalDate.now().minusYears(20);
-        //Lot testLot = new Lot("Old chair for sale","Dark oak chair from roughly 20 years ago. Ships from Kilkenny, Ireland.","Furniture","",origin,50.00);
-        //activeLotsTV.getItems().add(testLot);
+    protected void showSoldLots(ActionEvent actionEvent){
+        //todo
     }
 }

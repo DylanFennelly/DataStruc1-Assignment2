@@ -55,7 +55,7 @@ public class LotDetailsController {
             bidButton.setDisable(false);    //only able to place bid if logged in
             withdrawBidButton.setDisable(false);
             loginLabel.setText("Logged in as: " + AuctionApp.loggedInBidder.getName());
-            if (AuctionApp.loggedInBidder == DRIVER.lotList.getElementByInt(LotIndex).getContents().getLotOwner()) {    //if logged in as creator of lot,
+            if (AuctionApp.loggedInBidder == LotController.selectedLot.getLotOwner()) {    //if logged in as creator of lot,
                 sellLotButton.setVisible(true); //enable sell, edit, and withdraw functionality
                 withdrawLotButton.setVisible(true);
                 editLotButton.setVisible(true);
@@ -64,39 +64,39 @@ public class LotDetailsController {
                 bidField.setVisible(false);
             }
         }
-        lotTitleLabel.setText(DRIVER.lotList.getElementByInt(LotIndex).getContents().getTitle());   //setting title
-        lotTypeLabel.setText("In " + DRIVER.lotList.getElementByInt(LotIndex).getContents().getType()); //setting lot type
-        lotOriginLabel.setText("circa " + DRIVER.lotList.getElementByInt(LotIndex).getContents().getOriginDate());  //setting origin label
-        lotDescTA.setText(DRIVER.lotList.getElementByInt(LotIndex).getContents().getDescription()); //setting description
-        if (!DRIVER.lotList.getElementByInt(LotIndex).getContents().getImageLink().equals("N/A"))   //if image link supplied, display link
-            lotImageLink.setText(DRIVER.lotList.getElementByInt(LotIndex).getContents().getImageLink());
+        lotTitleLabel.setText(LotController.selectedLot.getTitle());   //setting title
+        lotTypeLabel.setText("In " + LotController.selectedLot.getType()); //setting lot type
+        lotOriginLabel.setText("circa " + LotController.selectedLot.getOriginDate());  //setting origin label
+        lotDescTA.setText(LotController.selectedLot.getDescription()); //setting description
+        if (!LotController.selectedLot.getImageLink().equals("N/A"))   //if image link supplied, display link
+            lotImageLink.setText(LotController.selectedLot.getImageLink());
         else {  //else, display N/A label
             lotImageLink.setVisible(false);
             lotNoImageLabel.setVisible(true);
         }
         //setting start date, time and lot owner
-        lotStartedLabel.setText("Lot started on " + DRIVER.lotList.getElementByInt(LotIndex).getContents().getStartDate().format(DateTimeFormatter.ofPattern("dd/MM/yy")) +     //https://howtodoinjava.com/java/date-time/localdate-format-example/
-                " at " + DRIVER.lotList.getElementByInt(LotIndex).getContents().getStartTime().format(DateTimeFormatter.ofPattern("HH:mm:ss")) +                                //https://www.geeksforgeeks.org/localtime-format-method-in-java-with-examples/
-                " by " + DRIVER.lotList.getElementByInt(LotIndex).getContents().getLotOwner().getName());
-        currentBidLabel.setText("Current Bid: " + String.format("%.2f",DRIVER.lotList.getElementByInt(LotIndex).getContents().getAskingPrice())); //current highest bid
-        startPriceLabel.setText("Started at: " + String.format("%.2f",DRIVER.lotList.getElementByInt(LotIndex).getContents().getStartPrice()));   //start asking price
+        lotStartedLabel.setText("Lot started on " + LotController.selectedLot.getStartDate().format(DateTimeFormatter.ofPattern("dd/MM/yy")) +     //https://howtodoinjava.com/java/date-time/localdate-format-example/
+                " at " + LotController.selectedLot.getStartTime().format(DateTimeFormatter.ofPattern("HH:mm:ss")) +                                //https://www.geeksforgeeks.org/localtime-format-method-in-java-with-examples/
+                " by " +LotController.selectedLot.getLotOwner().getName());
+        currentBidLabel.setText("Current Bid: " + String.format("%.2f",LotController.selectedLot.getAskingPrice())); //current highest bid
+        startPriceLabel.setText("Started at: " + String.format("%.2f",LotController.selectedLot.getStartPrice()));   //start asking price
 
         bidTV.getItems().clear();   //populating bid list
-        for (Bid b : DRIVER.lotList.getElementByInt(LotIndex).getContents().getListOfBids()){
+        for (Bid b : LotController.selectedLot.getListOfBids()){
             bidTV.getItems().add(b);
         }
 
         //if lot has been sold
-        if(DRIVER.lotList.getElementByInt(LotIndex).getContents().isSold()){
+        if(LotController.selectedLot.isSold()){
             soldLabel.setVisible(true); //enable SOLD! label
             bidButton.setVisible(false);    //hide bid functionality
             withdrawBidButton.setVisible(false);
             bidField.setVisible(false);
             lotSoldDateLabel.setVisible(true);  //show sell date, time and winning bidder
-            lotSoldDateLabel.setText("Lot sold on " + DRIVER.lotList.getElementByInt(LotIndex).getContents().getFinalSaleDate().format(DateTimeFormatter.ofPattern("dd/MM/yy")) +
-                    " at " + DRIVER.lotList.getElementByInt(LotIndex).getContents().getFinalSaleTime().format(DateTimeFormatter.ofPattern("HH:mm:ss")) +
-                    " to " + DRIVER.lotList.getElementByInt(LotIndex).getContents().getListOfBids().head.getContents().getBidder().getName());    //head of bid list will be most recent (and winning) bid
-            currentBidLabel.setText("Sold for: " + String.format("%.2f",DRIVER.lotList.getElementByInt(LotIndex).getContents().getFinalSalePrice())); //update current bid to show winning bid
+            lotSoldDateLabel.setText("Lot sold on " + LotController.selectedLot.getFinalSaleDate().format(DateTimeFormatter.ofPattern("dd/MM/yy")) +
+                    " at " + LotController.selectedLot.getFinalSaleTime().format(DateTimeFormatter.ofPattern("HH:mm:ss")) +
+                    " to " + LotController.selectedLot.getListOfBids().head.getContents().getBidder().getName());    //head of bid list will be most recent (and winning) bid
+            currentBidLabel.setText("Sold for: " + String.format("%.2f",LotController.selectedLot.getFinalSalePrice())); //update current bid to show winning bid
             sellLotButton.setVisible(false);    //hide sell, edit, and withdraw functionality
             withdrawLotButton.setVisible(false);
             editLotButton.setVisible(false);
@@ -107,24 +107,24 @@ public class LotDetailsController {
     protected void addBidButton(ActionEvent actionEvent){
         if (bidField.getText().matches("[\\d]+[.]+[\\d]{2}")){
             double bid = Double.parseDouble(bidField.getText());
-                //if bid is greater than current highest bid (asking price)                   OR    if bid is equal to the start price and no bids have been placed yet (allowing a bid to be placed at the starting bid price if no bids have been placed yet)
-            if (bid > DRIVER.lotList.getElementByInt(LotIndex).getContents().getAskingPrice() || (bid == DRIVER.lotList.getElementByInt(LotIndex).getContents().getStartPrice() && DRIVER.lotList.getElementByInt(LotIndex).getContents().getListOfBids().getListLength() == 0)){
+                //if bid is greater than current highest bid (asking price)   OR   if bid is equal to the start price and no bids have been placed yet (allowing a bid to be placed at the starting bid price if no bids have been placed yet)
+            if (bid > LotController.selectedLot.getAskingPrice() || (bid == LotController.selectedLot.getStartPrice() && LotController.selectedLot.getListOfBids().getListLength() == 0)){
                 int option = JOptionPane.showConfirmDialog(frame, "Are you sure you want to place this bid?\n\nBid amount: "+ String.format("%.2f",bid), "Bid Confirmation", JOptionPane.YES_NO_OPTION);
                 if (option == JOptionPane.YES_OPTION) {
                     JOptionPane.showMessageDialog(frame, "Bid placed!", "Bid Success!", JOptionPane.INFORMATION_MESSAGE);
-                    DRIVER.lotList.getElementByInt(LotIndex).getContents().getListOfBids().addElementToTop(new Bid(bid, LocalDate.now(), LocalTime.now(), AuctionApp.loggedInBidder));
-                    DRIVER.lotList.getElementByInt(LotIndex).getContents().setAskingPrice(bid);
+                    LotController.selectedLot.getListOfBids().addElementToTop(new Bid(bid, LocalDate.now(), LocalTime.now(), AuctionApp.loggedInBidder));
+                    LotController.selectedLot.setAskingPrice(bid);
 
                     //clear list to ensure bids do not display in wrong order
                     bidTV.getItems().clear();   //populating bid list
-                    for (Bid b : DRIVER.lotList.getElementByInt(LotIndex).getContents().getListOfBids()){
+                    for (Bid b : LotController.selectedLot.getListOfBids()){
                         bidTV.getItems().add(b);
                     }
-                    currentBidLabel.setText("Current Bid: " + String.format("%.2f",DRIVER.lotList.getElementByInt(LotIndex).getContents().getAskingPrice()));
+                    currentBidLabel.setText("Current Bid: " + String.format("%.2f",LotController.selectedLot.getAskingPrice()));
 
                 }
             }else {
-                JOptionPane.showMessageDialog(frame, "Placed bid must be greater than current highest bid.\n\n Current highest bid: " + String.format("%.2f",DRIVER.lotList.getElementByInt(LotIndex).getContents().getAskingPrice()), "Bid Error!", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(frame, "Placed bid must be greater than current highest bid.\n\n Current highest bid: " + String.format("%.2f",LotController.selectedLot.getAskingPrice()), "Bid Error!", JOptionPane.ERROR_MESSAGE);
             }
         }else{
             JOptionPane.showMessageDialog(frame, "Please enter a valid bid.\n\nFormat: Any number of digits, followed by a decimal point and two digits.\nE.g.: 10.00, 150.25, 1298.04\nPlaced bid must be higher than current top bid.", "Bid Error!", JOptionPane.ERROR_MESSAGE);
@@ -133,7 +133,7 @@ public class LotDetailsController {
 
     @FXML
     protected void openImageLink(ActionEvent actionEvent) throws URISyntaxException, IOException {
-        Desktop.getDesktop().browse(new URI(DRIVER.lotList.getElementByInt(LotIndex).getContents().getImageLink()));    //https://www.youtube.com/watch?v=SlE0dCuO5yc
+        Desktop.getDesktop().browse(new URI(LotController.selectedLot.getImageLink()));    //https://www.youtube.com/watch?v=SlE0dCuO5yc
     }
 
     private void backToLotMenu(ActionEvent actionEvent) throws IOException {
@@ -151,7 +151,7 @@ public class LotDetailsController {
         int option = JOptionPane.showConfirmDialog(frame, "Are you sure you want to withdraw this lot? The lot \nlisting and all bids will be deleted.", "Withdraw Confirmation", JOptionPane.YES_NO_OPTION);
         if (option == JOptionPane.YES_OPTION) {
             JOptionPane.showMessageDialog(frame, "Lot withdrawn.", "Withdraw Complete", JOptionPane.INFORMATION_MESSAGE);
-            DRIVER.lotList.removeElement(LotIndex);
+            DRIVER.lotHashTable.removeElement(LotController.selectedLot);
             backToLotMenu(actionEvent);
         }
     }
@@ -171,12 +171,12 @@ public class LotDetailsController {
 
     @FXML
     protected void sellLotButton(ActionEvent actionEvent){
-        if (DRIVER.lotList.getElementByInt(LotIndex).getContents().getListOfBids().getListLength() > 0) {
-            int option = JOptionPane.showConfirmDialog(frame, "Are you sure you want to sell this lot? The current top bid will\nbe accepted and the lot will be closed.\n\nCurrent highest bid: " + String.format("%.2f",DRIVER.lotList.getElementByInt(LotIndex).getContents().getAskingPrice()), "Sell Confirmation", JOptionPane.YES_NO_OPTION);
+        if (LotController.selectedLot.getListOfBids().getListLength() > 0) {
+            int option = JOptionPane.showConfirmDialog(frame, "Are you sure you want to sell this lot? The current top bid will\nbe accepted and the lot will be closed.\n\nCurrent highest bid: " + String.format("%.2f",LotController.selectedLot.getAskingPrice()), "Sell Confirmation", JOptionPane.YES_NO_OPTION);
             if (option == JOptionPane.YES_OPTION) {
                 JOptionPane.showMessageDialog(frame, "Lot Sold!", "Sell Complete!", JOptionPane.INFORMATION_MESSAGE);
 
-                sellLot(DRIVER.lotList.getElementByInt(LotIndex).getContents());
+                sellLot(LotController.selectedLot);
                 initialize();
             }
         }else{
@@ -189,29 +189,29 @@ public class LotDetailsController {
     @FXML
     protected void withdrawBidButton(ActionEvent actionEvent){
         //todo: withdraw bids, regardless if they are top bid or not?
-        if (DRIVER.lotList.getElementByInt(LotIndex).getContents().getListOfBids().getListLength() > 0) {
+        if (LotController.selectedLot.getListOfBids().getListLength() > 0) {
             //if user that placed the current top bid is the same as the logged in user
-            if(DRIVER.lotList.getElementByInt(LotIndex).getContents().getListOfBids().head.getContents().getBidder() == AuctionApp.loggedInBidder){
-                int option = JOptionPane.showConfirmDialog(frame, "Are you sure you want to withdraw this bid?\n\nBid amount: " + String.format("%.2f",DRIVER.lotList.getElementByInt(LotIndex).getContents().getAskingPrice()), "Withdraw Confirmation", JOptionPane.YES_NO_OPTION);
+            if(LotController.selectedLot.getListOfBids().head.getContents().getBidder() == AuctionApp.loggedInBidder){
+                int option = JOptionPane.showConfirmDialog(frame, "Are you sure you want to withdraw this bid?\n\nBid amount: " + String.format("%.2f",LotController.selectedLot.getAskingPrice()), "Withdraw Confirmation", JOptionPane.YES_NO_OPTION);
                 if (option == JOptionPane.YES_OPTION) {
                     JOptionPane.showMessageDialog(frame, "Bid withdrawn.", "Withdraw Complete", JOptionPane.INFORMATION_MESSAGE);
-                    DRIVER.lotList.getElementByInt(LotIndex).getContents().getListOfBids().removeElement(0);    //0 = head
+                    LotController.selectedLot.getListOfBids().removeElement(0);    //0 = head
 
                     //if head was only bid (i.e., head is now null)
-                    if (DRIVER.lotList.getElementByInt(LotIndex).getContents().getListOfBids().getListLength() == 0)
+                    if (LotController.selectedLot.getListOfBids().getListLength() == 0)
                         //set asking price back to starting price
-                        DRIVER.lotList.getElementByInt(LotIndex).getContents().setAskingPrice( DRIVER.lotList.getElementByInt(LotIndex).getContents().getStartPrice() );
+                        LotController.selectedLot.setAskingPrice( LotController.selectedLot.getStartPrice() );
                     //if there is at least 1 bid remaining (i.e., head is not null)
                     else
                         //rollback lot askingPrice (current highest bid) to new head
-                        DRIVER.lotList.getElementByInt(LotIndex).getContents().setAskingPrice( DRIVER.lotList.getElementByInt(LotIndex).getContents().getListOfBids().head.getContents().getBidAmount() );
+                        LotController.selectedLot.setAskingPrice( LotController.selectedLot.getListOfBids().head.getContents().getBidAmount() );
 
                     //updating UI elements
                     bidTV.getItems().clear();
-                    for (Bid b : DRIVER.lotList.getElementByInt(LotIndex).getContents().getListOfBids()){
+                    for (Bid b : LotController.selectedLot.getListOfBids()){
                         bidTV.getItems().add(b);
                     }
-                    currentBidLabel.setText("Current Bid: " + String.format("%.2f",DRIVER.lotList.getElementByInt(LotIndex).getContents().getAskingPrice()));
+                    currentBidLabel.setText("Current Bid: " + String.format("%.2f",LotController.selectedLot.getAskingPrice()));
                 }
             }else{
                 JOptionPane.showMessageDialog(frame, "The current top bid was not placed by you.\nOnly the top bid may be withdrawn.", "Withdraw Error!", JOptionPane.ERROR_MESSAGE);
