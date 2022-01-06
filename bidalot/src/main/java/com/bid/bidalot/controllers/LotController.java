@@ -95,6 +95,16 @@ public class LotController {
     }
 
     @FXML
+    protected void changeToSearchMenu(ActionEvent actionEvent) throws IOException{
+        Parent searchView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("search-lot-view.fxml")));
+        Scene searchScene = new Scene(searchView);
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.setScene(searchScene);
+        stage.setTitle("Bid-A-Lot: Search Lots");
+        stage.show();
+    }
+
+    @FXML
     protected void showSoldLots(ActionEvent actionEvent){
         soldLotsTV.setVisible(true);
         activeLotsTV.setVisible(false);
