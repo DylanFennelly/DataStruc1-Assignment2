@@ -77,7 +77,6 @@ public class LotController {
 
     @FXML
     protected void changeToLotDetails(ActionEvent actionEvent) throws IOException{
-        System.out.println(activeLots);
         if (activeLots) {
             selectedLot = DRIVER.lotHashTable.findPosition(activeLotsTV.getSelectionModel().getSelectedItem());
         } else {
@@ -92,6 +91,16 @@ public class LotController {
             stage.setScene(lotDetailsScene);
             stage.setTitle("Bid-A-Lot: " + selectedLot.getTitle());
         }
+    }
+
+    @FXML
+    protected void changeToSearchMenu(ActionEvent actionEvent) throws IOException{
+        Parent searchView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("search-lot-view.fxml")));
+        Scene searchScene = new Scene(searchView);
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.setScene(searchScene);
+        stage.setTitle("Bid-A-Lot: Search Lots");
+        stage.show();
     }
 
     @FXML

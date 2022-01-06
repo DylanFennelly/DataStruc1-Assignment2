@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: linear-gradient(to bottom, #383a3d, grey);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bid.bidalot.controllers.BidderController">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: linear-gradient(to bottom, #383a3d, grey);" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bid.bidalot.controllers.BidderController">
     <children>
         <Label layoutX="22.0" layoutY="14.0" text="Bidders" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="10.0">
             <font>
@@ -18,7 +18,7 @@
         <Button layoutX="22.0" layoutY="55.0" mnemonicParsing="false" onAction="#changeToStartMenu" prefHeight="25.0" prefWidth="82.0" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #828aff); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Return" AnchorPane.leftAnchor="10.0" />
         <Button fx:id="myProfileButton" layoutX="118.0" layoutY="55.0" mnemonicParsing="false" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="View My Profile" visible="false" />
         <Button layoutX="700.0" layoutY="55.0" mnemonicParsing="false" onAction="#changeToBidderDetails" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="View Selected Bidder" />
-        <Button layoutX="824.0" layoutY="55.0" mnemonicParsing="false" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Search" AnchorPane.rightAnchor="10.0" />
+        <Button layoutX="824.0" layoutY="55.0" mnemonicParsing="false" onAction="#changeToSearchMenu" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Search" AnchorPane.rightAnchor="10.0" />
         <TableView fx:id="biddersTV" layoutX="22.0" layoutY="125.0" prefHeight="499.0" prefWidth="880.0" style="-fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5; -fx-background-color: #a3a3a3;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
             <columns>
                 <TableColumn prefWidth="162.0" reorderable="false" resizable="false" sortable="false" text="Name">
@@ -26,17 +26,17 @@
                         <PropertyValueFactory property="name" />
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn prefWidth="358.0" reorderable="false" resizable="false" sortable="false" text="Address">
+                <TableColumn prefWidth="368.0" reorderable="false" resizable="false" sortable="false" text="Address">
                     <cellValueFactory>
                         <PropertyValueFactory property="address" />
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn minWidth="0.0" prefWidth="163.0" reorderable="false" resizable="false" sortable="false" text="Phone">
+                <TableColumn minWidth="0.0" prefWidth="168.0" reorderable="false" resizable="false" sortable="false" text="Phone">
                     <cellValueFactory>
                         <PropertyValueFactory property="phone" />
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn prefWidth="172.0" reorderable="false" resizable="false" sortable="false" text="Email">
+                <TableColumn prefWidth="179.0" reorderable="false" resizable="false" sortable="false" text="Email">
                     <cellValueFactory>
                         <PropertyValueFactory property="email" />
                     </cellValueFactory>
