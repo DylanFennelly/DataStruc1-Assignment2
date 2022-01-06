@@ -37,14 +37,14 @@ public class LotController {
 
     @FXML
     protected void initialize() {
-        if(AuctionApp.loggedInBidder != null){
+        if (AuctionApp.loggedInBidder != null) {
             addLotButton.setDisable(false);
             loginLabel.setText("Logged in as: " + AuctionApp.loggedInBidder.getName());
         }
         activeLotsTV.getItems().clear();
-        for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
-            for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)){
-                if(!temp.isSold())  //only displaying lots that have not been sold
+        for (int i = 0; i < DRIVER.lotHashTable.hashTableLength(); i++) {
+            for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
+                if (!temp.isSold())  //only displaying lots that have not been sold
                     activeLotsTV.getItems().add(temp);
                 else
                     soldLotsTV.getItems().add(temp);
@@ -75,7 +75,7 @@ public class LotController {
     }
 
     @FXML
-    protected void changeToLotDetails(ActionEvent actionEvent) throws IOException{
+    protected void changeToLotDetails(ActionEvent actionEvent) throws IOException {
         if (activeLots) {
             selectedLot = DRIVER.lotHashTable.findPosition(activeLotsTV.getSelectionModel().getSelectedItem());
         } else {
@@ -83,7 +83,7 @@ public class LotController {
         }
         if (selectedLot == null) {
             JOptionPane.showMessageDialog(frame, "Please select a lot to view the details of.", "Selection Error!", JOptionPane.ERROR_MESSAGE);
-        }else {
+        } else {
             Parent detailsView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("lot-details-view.fxml")));
             lotDetailsScene = new Scene(detailsView);
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
@@ -93,7 +93,7 @@ public class LotController {
     }
 
     @FXML
-    protected void changeToSearchMenu(ActionEvent actionEvent) throws IOException{
+    protected void changeToSearchMenu(ActionEvent actionEvent) throws IOException {
         Parent searchView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("search-lot-view.fxml")));
         Scene searchScene = new Scene(searchView);
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
@@ -103,22 +103,22 @@ public class LotController {
     }
 
     @FXML
-    protected void showSoldLots(){
+    protected void showSoldLots() {
         soldLotsTV.setVisible(true);
         activeLotsTV.setVisible(false);
         activeLotsButton.setVisible(true);
         soldLotsButton.setVisible(false);
         lotsLabel.setText("Sold Lots");
-        activeLots=false;
+        activeLots = false;
     }
 
     @FXML
-    protected void showActiveLots(){
+    protected void showActiveLots() {
         soldLotsTV.setVisible(false);
         activeLotsTV.setVisible(true);
         activeLotsButton.setVisible(false);
         soldLotsButton.setVisible(true);
         lotsLabel.setText("Active Lots");
-        activeLots=true;
+        activeLots = true;
     }
 }

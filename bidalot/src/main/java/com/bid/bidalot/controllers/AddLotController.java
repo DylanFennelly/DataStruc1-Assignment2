@@ -2,7 +2,6 @@ package com.bid.bidalot.controllers;
 
 import com.bid.bidalot.AuctionApp;
 import com.bid.bidalot.objects.Lot;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,7 +10,6 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import javax.swing.*;
-import java.io.IOException;
 import java.util.Objects;
 
 import static com.bid.bidalot.AuctionApp.DRIVER;
@@ -35,13 +33,13 @@ public class AddLotController {
     private ChoiceBox<String> lotType;
 
     @FXML
-    protected void closeWindow(){    //https://stackoverflow.com/questions/25037724/how-to-close-a-java-window-with-a-button-click-javafx-project/41838183
+    protected void closeWindow() {    //https://stackoverflow.com/questions/25037724/how-to-close-a-java-window-with-a-button-click-javafx-project/41838183
         Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
     }
 
     @FXML
-    protected void closeWindowButton(){
+    protected void closeWindowButton() {
         closeWindow();
     }
 
@@ -65,19 +63,19 @@ public class AddLotController {
                             stage.setTitle("Bid-A-Lot: Lots");
                             stage.show();
 
-                        }else {
+                        } else {
                             JOptionPane.showMessageDialog(frame, "Please select a valid price.\n\nFormat: Any number of digits, followed by a decimal point and two digits.\nE.g.: 10.00, 150.25, 1298.04", "Add Error!", JOptionPane.ERROR_MESSAGE);
                         }
-                    }else {
+                    } else {
                         JOptionPane.showMessageDialog(frame, "Please select an estimated year of origin.", "Add Error!", JOptionPane.ERROR_MESSAGE);
                     }
-                }else {
+                } else {
                     JOptionPane.showMessageDialog(frame, "Please select a lot type.", "Add Error!", JOptionPane.ERROR_MESSAGE);
                 }
-            }else {
+            } else {
                 JOptionPane.showMessageDialog(frame, "Please enter a description.", "Add Error!", JOptionPane.ERROR_MESSAGE);
             }
-        }else {
+        } else {
             JOptionPane.showMessageDialog(frame, "Please enter a title.", "Add Error!", JOptionPane.ERROR_MESSAGE);
         }
     }

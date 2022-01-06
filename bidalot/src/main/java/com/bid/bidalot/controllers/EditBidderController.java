@@ -2,7 +2,6 @@ package com.bid.bidalot.controllers;
 
 import com.bid.bidalot.AuctionApp;
 import com.bid.bidalot.objects.Bidder;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,7 +12,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import javax.swing.*;
-import java.io.IOException;
 import java.util.Objects;
 
 import static com.bid.bidalot.controllers.BidderController.bidderDetailsScene;
@@ -37,28 +35,28 @@ public class EditBidderController {
 
     //password change unlocked after entering password
     @FXML
-    protected void unlockPasswordButton(){
+    protected void unlockPasswordButton() {
         String password = JOptionPane.showInputDialog(frame, "Enter password to unlock change password settings:");
-        if (password.matches(BidderController.selectedBidder.getPassword())){
+        if (password.matches(BidderController.selectedBidder.getPassword())) {
             BNewPass.setDisable(false);
             BNewPassConfirm.setDisable(false);
-        }else{
+        } else {
             JOptionPane.showMessageDialog(frame, "Incorrect password entered.", "Password Error!", JOptionPane.ERROR_MESSAGE);
         }
     }
 
-    private void updateBidder(Bidder bidder, String name, String address, String phone, String password){
-        if(!name.equals("") && !name.equals(bidder.getName()))  //i.e. if name is to be changed
+    private void updateBidder(Bidder bidder, String name, String address, String phone, String password) {
+        if (!name.equals("") && !name.equals(bidder.getName()))  //i.e. if name is to be changed
             if (name.length() <= 40)
                 bidder.setName(name);
             else
-                bidder.setName(name.substring(0,40));
+                bidder.setName(name.substring(0, 40));
 
         if (!address.equals("") && !address.equals(bidder.getAddress()))
-            if(address.length() <= 100)
+            if (address.length() <= 100)
                 bidder.setAddress(address);
             else
-                bidder.setAddress(address.substring(0,100));
+                bidder.setAddress(address.substring(0, 100));
 
         if (!phone.equals("") && !phone.equals(bidder.getPhone()))
             if (phone.length() != 12) {                                        //adding in spaces between digits if not included
@@ -80,10 +78,10 @@ public class EditBidderController {
         String password = BNewPass.getText().trim();
 
         //error checking for phone no. and correct formatting passwords matching
-        if (phone.equals("") || phone.matches("^[\\d]{3}[\\s]?[\\d]{3}[\\s]?[\\d]{4}$")){
+        if (phone.equals("") || phone.matches("^[\\d]{3}[\\s]?[\\d]{3}[\\s]?[\\d]{4}$")) {
             if (password.equals("") || password.length() >= 8) {
-                if (password.equals(BNewPassConfirm.getText().trim())){
-                    if(!password.matches(BidderController.selectedBidder.getPassword())) {
+                if (password.equals(BNewPassConfirm.getText().trim())) {
+                    if (!password.matches(BidderController.selectedBidder.getPassword())) {
 
                         //setting up pop up to display only info that will be changed
                         String jOptionConfirmText = "The following details will be updated:\n";
@@ -114,11 +112,11 @@ public class EditBidderController {
                             changeMade = true;
                         }
 
-                        if(changeMade){
+                        if (changeMade) {
                             int option = JOptionPane.showConfirmDialog(frame, jOptionConfirmText + "\n\nDo you want to proceed with these changes?", "Edit Confirmation", JOptionPane.YES_NO_OPTION);
                             if (option == JOptionPane.YES_OPTION) {
                                 JOptionPane.showMessageDialog(frame, "Bidder details have been updated", "Edit Success!", JOptionPane.INFORMATION_MESSAGE);
-                                updateBidder(BidderController.selectedBidder,name,address,phone,password);
+                                updateBidder(BidderController.selectedBidder, name, address, phone, password);
                                 AuctionApp.save();  //autosave when bidder updates
                                 closeWindow();
 
@@ -132,32 +130,32 @@ public class EditBidderController {
                                 stage.setTitle("Bid-A-Lot: " + BidderController.selectedBidder.getName());
                             }
 
-                        }else{
+                        } else {
                             JOptionPane.showMessageDialog(frame, "No changes to the bidder details have been made.", "Edit Error!", JOptionPane.ERROR_MESSAGE);
                         }
-                    }else{
+                    } else {
                         JOptionPane.showMessageDialog(frame, "New password is the same as the current password.", "Edit Error!", JOptionPane.ERROR_MESSAGE);
                     }
-                }else{
+                } else {
                     JOptionPane.showMessageDialog(frame, "Passwords do not match.", "Edit Error!", JOptionPane.ERROR_MESSAGE);
                 }
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(frame, "Password must be at least 8 characters.", "Edit Error!", JOptionPane.ERROR_MESSAGE);
             }
-        }else{
+        } else {
             JOptionPane.showMessageDialog(frame, "Please enter a valid phone number.\n\nFormat: 10 numbers with optional spaces\nE.g. 123 456 7890\n        8647125647", "Edit Error!", JOptionPane.ERROR_MESSAGE);
         }
 
     }
 
 
-    protected void closeWindow(){    //https://stackoverflow.com/questions/25037724/how-to-close-a-java-window-with-a-button-click-javafx-project/41838183
+    protected void closeWindow() {    //https://stackoverflow.com/questions/25037724/how-to-close-a-java-window-with-a-button-click-javafx-project/41838183
         Stage stage = (Stage) closeButton.getScene().getWindow();   //gets scene from button node, then window from scene and closes the window
         stage.close();
     }
 
     @FXML
-    protected void closeWindowButton(){
+    protected void closeWindowButton() {
         closeWindow();
     }
 }

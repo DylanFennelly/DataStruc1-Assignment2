@@ -10,7 +10,6 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import javax.swing.*;
-import java.io.IOException;
 import java.util.Objects;
 
 import static com.bid.bidalot.controllers.LotController.lotDetailsScene;
@@ -43,30 +42,30 @@ public class EditLotController {
     }
 
     @FXML
-    protected void closeWindow(){    //https://stackoverflow.com/questions/25037724/how-to-close-a-java-window-with-a-button-click-javafx-project/41838183
+    protected void closeWindow() {    //https://stackoverflow.com/questions/25037724/how-to-close-a-java-window-with-a-button-click-javafx-project/41838183
         Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
     }
 
     @FXML
-    protected void closeWindowButton(){
+    protected void closeWindowButton() {
         closeWindow();
     }
 
-    private void updateLot(Lot lot, String title, String description, String type, String imageLink, int originDate){
+    private void updateLot(Lot lot, String title, String description, String type, String imageLink, int originDate) {
         if (!title.equals("") && !title.equals(lot.getTitle())) //i.e. if title is to be changed
             if (title.length() <= 50)
                 lot.setTitle(title);
             else
-                lot.setTitle(title.substring(0,50));
+                lot.setTitle(title.substring(0, 50));
 
-        if(!description.equals("") && !description.equals(lot.getDescription()))
+        if (!description.equals("") && !description.equals(lot.getDescription()))
             if (description.length() <= 500)
                 lot.setDescription(description);
             else
-                lot.setDescription(description.substring(0,500));
+                lot.setDescription(description.substring(0, 500));
 
-        if(!lot.getType().equals(type))
+        if (!lot.getType().equals(type))
             lot.setType(type);
 
         if (imageLink.equals(""))
@@ -95,37 +94,37 @@ public class EditLotController {
             if (title.length() <= 25)
                 jOptionConfirmText = jOptionConfirmText + "\nTitle: " + title;
             else
-                jOptionConfirmText = jOptionConfirmText + "\nTitle: " + title.substring(0,25) + "...";
+                jOptionConfirmText = jOptionConfirmText + "\nTitle: " + title.substring(0, 25) + "...";
             changeMade = true;
         }
-        if (!description.equals("") && !description.equals(LotController.selectedLot.getDescription())){
+        if (!description.equals("") && !description.equals(LotController.selectedLot.getDescription())) {
             if (description.length() <= 25)
                 jOptionConfirmText = jOptionConfirmText + "\nDescription: " + description;
             else
-                jOptionConfirmText = jOptionConfirmText + "\nDescription: " + description.substring(0,25) + "...";
+                jOptionConfirmText = jOptionConfirmText + "\nDescription: " + description.substring(0, 25) + "...";
             changeMade = true;
         }
-        if(!type.equals(LotController.selectedLot.getType())){
+        if (!type.equals(LotController.selectedLot.getType())) {
             jOptionConfirmText = jOptionConfirmText + "\nLot Type: " + type;
             changeMade = true;
         }
-        if (!imageLink.equals("") && !imageLink.equals(LotController.selectedLot.getImageLink())){
+        if (!imageLink.equals("") && !imageLink.equals(LotController.selectedLot.getImageLink())) {
             if (imageLink.length() <= 25)
                 jOptionConfirmText = jOptionConfirmText + "\nImage Link: " + imageLink;
             else
-                jOptionConfirmText = jOptionConfirmText + "\nImage Link: " + imageLink.substring(0,25) + "...";
+                jOptionConfirmText = jOptionConfirmText + "\nImage Link: " + imageLink.substring(0, 25) + "...";
             changeMade = true;
         }
-        if (originDate!=LotController.selectedLot.getOriginDate()){
+        if (originDate != LotController.selectedLot.getOriginDate()) {
             jOptionConfirmText = jOptionConfirmText + "\nOrigin Date: " + originDate;
             changeMade = true;
         }
 
-        if (changeMade){
+        if (changeMade) {
             int option = JOptionPane.showConfirmDialog(frame, jOptionConfirmText + "\n\nDo you want to proceed with these changes?", "Edit Confirmation", JOptionPane.YES_NO_OPTION);
-            if (option == JOptionPane.YES_OPTION){
+            if (option == JOptionPane.YES_OPTION) {
                 JOptionPane.showMessageDialog(frame, "Lot details have been updated", "Edit Success!", JOptionPane.INFORMATION_MESSAGE);
-                updateLot(LotController.selectedLot,title,description,type,imageLink,originDate);
+                updateLot(LotController.selectedLot, title, description, type, imageLink, originDate);
                 AuctionApp.save();
                 closeWindow();
 
@@ -139,7 +138,7 @@ public class EditLotController {
                 stage.setScene(lotDetailsScene);
                 stage.setTitle("Bid-A-Lot: " + LotController.selectedLot.getTitle());
             }
-        }else{
+        } else {
             JOptionPane.showMessageDialog(frame, "No changes to the lot details have been made.", "Edit Error!", JOptionPane.ERROR_MESSAGE);
         }
     }

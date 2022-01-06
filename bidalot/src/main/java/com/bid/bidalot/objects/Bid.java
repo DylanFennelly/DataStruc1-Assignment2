@@ -14,7 +14,7 @@ public class Bid {
     private Lot parentLot;  //used to allow a lot to be navigated to from the bidders-details-view bids tableview
 
     //constructor
-    public Bid(double bidAmount, LocalDate bidDate, LocalTime bidTime, Bidder bidder, Lot parentLot){
+    public Bid(double bidAmount, LocalDate bidDate, LocalTime bidTime, Bidder bidder, Lot parentLot) {
         this.bidAmount = Double.parseDouble(AuctionApp.DF.format(bidAmount)); //validated in controller
         this.bidDate = bidDate.format(DateTimeFormatter.ofPattern("dd/MM/yy"));
         this.bidTime = bidTime.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
@@ -24,7 +24,7 @@ public class Bid {
 
     //methods
     @Override
-    public String toString(){
+    public String toString() {
         return "Bid Amount: " + bidAmount + " | Date: " + bidDate + " | Time: " + bidTime + " | Bidder: " + bidder.getName();
     }
 

@@ -21,14 +21,14 @@ import java.util.Objects;
 
 import static com.bid.bidalot.AuctionApp.DRIVER;
 import static com.bid.bidalot.controllers.BidderController.selectedBidder;
+import static com.bid.bidalot.controllers.LotController.lotDetailsScene;
 import static com.bid.bidalot.controllers.LotController.selectedLot;
 import static com.bid.bidalot.controllers.StartController.bidScene;
-import static com.bid.bidalot.controllers.LotController.lotDetailsScene;
 
 public class BidderDetailsController {
     private JFrame frame; //used for popup windows
     @FXML
-    private Label loginLabel , nameLabel, addressLabel, phoneLabel, emailLabel;
+    private Label loginLabel, nameLabel, addressLabel, phoneLabel, emailLabel;
     @FXML
     private Button editButton;
     @FXML
@@ -38,7 +38,7 @@ public class BidderDetailsController {
     protected void initialize() {
         if (AuctionApp.loggedInBidder != null) {
             loginLabel.setText("Logged in as: " + AuctionApp.loggedInBidder.getName());
-            if (AuctionApp.loggedInBidder.getEmail().equals(selectedBidder.getEmail()) )  //if logged-in user is same as selected user profile, enable editing
+            if (AuctionApp.loggedInBidder.getEmail().equals(selectedBidder.getEmail()))  //if logged-in user is same as selected user profile, enable editing
                 editButton.setDisable(false);
         }
 
@@ -50,10 +50,10 @@ public class BidderDetailsController {
         bidsTV.getItems().clear();
         //populating bidsTV with all bids bidder has placed
         //linear search
-        for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
+        for (int i = 0; i < DRIVER.lotHashTable.hashTableLength(); i++) {
             for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
-                for(Bid bid : temp.getListOfBids()){
-                    if (bid.getBidder() == selectedBidder){
+                for (Bid bid : temp.getListOfBids()) {
+                    if (bid.getBidder() == selectedBidder) {
                         bidsTV.getItems().add(bid);
                     }
                 }
@@ -75,7 +75,7 @@ public class BidderDetailsController {
     }
 
     @FXML
-    protected void backToBidderMenu(ActionEvent actionEvent) throws IOException{
+    protected void backToBidderMenu(ActionEvent actionEvent) throws IOException {
         //reload bidder-view to refresh lots TableView to reflect any changes made
         Parent bidView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("bidder-view.fxml")));
         bidScene = new Scene(bidView);

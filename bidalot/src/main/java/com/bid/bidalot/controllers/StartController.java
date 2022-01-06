@@ -27,8 +27,8 @@ public class StartController {
     private Label usernameLabel;
 
     @FXML
-    protected void initialize(){
-        if (AuctionApp.loggedInBidder != null){
+    protected void initialize() {
+        if (AuctionApp.loggedInBidder != null) {
             registerButton.setVisible(false);
             logoutButton.setVisible(true);
             usernameLabel.setVisible(true);
@@ -85,9 +85,9 @@ public class StartController {
     }
 
     @FXML
-    protected void logoutButton(ActionEvent actionEvent){
+    protected void logoutButton(ActionEvent actionEvent) {
         int option = JOptionPane.showConfirmDialog(frame, "Are you sure you want to logout?", "Logout Confirmation", JOptionPane.YES_NO_OPTION);
-        if (option == JOptionPane.YES_OPTION){
+        if (option == JOptionPane.YES_OPTION) {
             //reset back to default
             AuctionApp.loggedInBidder = null;
             registerButton.setVisible(true);

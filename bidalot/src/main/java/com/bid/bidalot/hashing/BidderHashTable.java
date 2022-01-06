@@ -48,16 +48,16 @@ public class BidderHashTable {
     }
 
     //remove all elements from all linkedLists in hashTable
-    public void clearAllElements(){
+    public void clearAllElements() {
         for (MyLinkedList<Bidder> bidders : bidderHashTable)
             bidders.removeAllElements();
     }
 
-    public MyLinkedList<Bidder> getLinkedList(int i){
+    public MyLinkedList<Bidder> getLinkedList(int i) {
         return bidderHashTable[i];
     }
 
-    public int hashTableLength(){
+    public int hashTableLength() {
         return bidderHashTable.length;
     }
 }

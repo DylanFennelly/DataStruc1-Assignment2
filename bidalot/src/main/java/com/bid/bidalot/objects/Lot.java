@@ -18,16 +18,16 @@ public class Lot {
     private MyLinkedList<Bid> listOfBids;
 
     //constructor
-    public Lot (String title, String description, String type, String imageLink, int originDate, double askingPrice, Bidder lotOwner){
+    public Lot(String title, String description, String type, String imageLink, int originDate, double askingPrice, Bidder lotOwner) {
         if (title.length() <= 50)
             this.title = title;
         else
-            this.title = title.substring(0,50);
+            this.title = title.substring(0, 50);
 
         if (description.length() <= 500)
             this.description = description;
         else
-            this.description = description.substring(0,500);
+            this.description = description.substring(0, 500);
 
         this.type = type;   //dropdown of pre-selected categories
         if (!imageLink.equals(""))

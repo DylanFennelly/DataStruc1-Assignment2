@@ -38,13 +38,13 @@ public class SearchBidderController {
 
     @FXML
     protected void initialize() {
-        if(AuctionApp.loggedInBidder != null){
+        if (AuctionApp.loggedInBidder != null) {
             loginLabel.setText("Logged in as: " + AuctionApp.loggedInBidder.getName());
         }
     }
 
     @FXML
-    private void searchButton(ActionEvent actionEvent){
+    private void searchButton(ActionEvent actionEvent) {
         //LinkedList for sorting options
         bidderList = new MyLinkedList<>();
         //clearing tableViews between searches
@@ -56,45 +56,45 @@ public class SearchBidderController {
         if (!bidderAddressField.getText().equals(""))
             addressSearch = true;
 
-        if(nameSearch && !addressSearch){   //name search only
-            for (int i=0; i<DRIVER.bidderHashTable.hashTableLength() ;i++){
-                for (Bidder temp : DRIVER.bidderHashTable.getLinkedList(i)){
+        if (nameSearch && !addressSearch) {   //name search only
+            for (int i = 0; i < DRIVER.bidderHashTable.hashTableLength(); i++) {
+                for (Bidder temp : DRIVER.bidderHashTable.getLinkedList(i)) {
                     if (temp.getName().toLowerCase().contains(bidderNameField.getText().toLowerCase().trim()))
                         bidderList.addElementToEnd(temp);
                 }
             }
-        }else if(!nameSearch && addressSearch) {  //address search only
-            for (int i=0; i<DRIVER.bidderHashTable.hashTableLength() ;i++){
-                for (Bidder temp : DRIVER.bidderHashTable.getLinkedList(i)){
+        } else if (!nameSearch && addressSearch) {  //address search only
+            for (int i = 0; i < DRIVER.bidderHashTable.hashTableLength(); i++) {
+                for (Bidder temp : DRIVER.bidderHashTable.getLinkedList(i)) {
                     if (temp.getAddress().toLowerCase().contains(bidderAddressField.getText().toLowerCase().trim()))
                         bidderList.addElementToEnd(temp);
                 }
             }
 
-        }else if (nameSearch && addressSearch){ //both
-            for (int i=0; i<DRIVER.bidderHashTable.hashTableLength() ;i++){
-                for (Bidder temp : DRIVER.bidderHashTable.getLinkedList(i)){
+        } else if (nameSearch && addressSearch) { //both
+            for (int i = 0; i < DRIVER.bidderHashTable.hashTableLength(); i++) {
+                for (Bidder temp : DRIVER.bidderHashTable.getLinkedList(i)) {
                     if (temp.getName().toLowerCase().contains(bidderNameField.getText().toLowerCase().trim()) && temp.getAddress().toLowerCase().contains(bidderAddressField.getText().toLowerCase().trim()))
                         bidderList.addElementToEnd(temp);
                 }
             }
 
-        }else{ //none (display all bidders)
-            for (int i=0; i<DRIVER.bidderHashTable.hashTableLength() ;i++){
-                for (Bidder temp : DRIVER.bidderHashTable.getLinkedList(i)){
+        } else { //none (display all bidders)
+            for (int i = 0; i < DRIVER.bidderHashTable.hashTableLength(); i++) {
+                for (Bidder temp : DRIVER.bidderHashTable.getLinkedList(i)) {
                     bidderList.addElementToEnd(temp);
                 }
             }
         }
         //sorting list by selected parameters
-        if (sortGroup.getSelectedToggle() == nameRadio){
+        if (sortGroup.getSelectedToggle() == nameRadio) {
             selectionSortByNameAscending(bidderList.head);
-        }else if (sortGroup.getSelectedToggle() == addressRadio){
+        } else if (sortGroup.getSelectedToggle() == addressRadio) {
             selectionSortByAddress(bidderList.head);
         }
-        for (Bidder b : bidderList){
+        for (Bidder b : bidderList) {
             if (!b.getEmail().equals("ADMIN@ADMIN.COM"))    //preventing ADMIN account from being listed
-            biddersTV.getItems().add(b);
+                biddersTV.getItems().add(b);
         }
 
         JOptionPane.showMessageDialog(frame, "Search Complete!", "Search Complete!", JOptionPane.INFORMATION_MESSAGE);
@@ -103,9 +103,9 @@ public class SearchBidderController {
 
     public void selectionSortByNameAscending(com.bid.bidalot.lists.Node<Bidder> head) {
         //selection sort, from: https://stackoverflow.com/questions/29808971/selection-sorting-a-linked-list
-                                                                                                                                //starting from head and going until end of linkedList is reached,
+        //starting from head and going until end of linkedList is reached,
         for (com.bid.bidalot.lists.Node<Bidder> sortingNode = head; sortingNode != null; sortingNode = sortingNode.next) {    //iterating up to the next node in the list each loop (i.e. once head is sorted, head.next is sorted,
-                                                                                                                            //then head.next.next and so on until next of last element is reached and is equal to null)
+            //then head.next.next and so on until next of last element is reached and is equal to null)
             com.bid.bidalot.lists.Node<Bidder> min = sortingNode;                 //node with lowest value of all nodes compared in loop so far
             for (com.bid.bidalot.lists.Node<Bidder> workingNode = sortingNode; workingNode != null; workingNode = workingNode.next) {   //looping through each node in the list and comparing to the working node.
                 if (min.getContents().getName().toLowerCase().compareTo(workingNode.getContents().getName().toLowerCase()) > 0) { //comparing bidderNames alphabetically. If workingNode comes first alphabetically, the compareTo returns
@@ -116,7 +116,7 @@ public class SearchBidderController {
             temp.setContents(sortingNode.getContents());
             sortingNode.setContents(min.getContents()); //The node with the lowest value (alphabetically comes first) is set to the sortingNode (head)
             min.setContents(temp.getContents());        //the sortingNode (head) is inserted where the lowest value node was
-                                                        //The loop repeats, starting next from head.next. The head has been sorted and therefore does not need to be considered for sorting
+            //The loop repeats, starting next from head.next. The head has been sorted and therefore does not need to be considered for sorting
         }
     }
 
@@ -140,7 +140,7 @@ public class SearchBidderController {
         selectedBidder = DRIVER.bidderHashTable.findPositionByEmail(biddersTV.getSelectionModel().getSelectedItem().getEmail());
         if (selectedBidder == null) {
             JOptionPane.showMessageDialog(frame, "Please select a bidder to view the details of.", "Selection Error!", JOptionPane.ERROR_MESSAGE);
-        }else {
+        } else {
             Parent detailsView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("bidder-details-view.fxml")));
             bidderDetailsScene = new Scene(detailsView);
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();

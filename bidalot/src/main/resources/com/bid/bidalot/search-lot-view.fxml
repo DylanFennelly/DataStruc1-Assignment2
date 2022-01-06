@@ -1,144 +1,175 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import javafx.collections.FXCollections?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.Spinner?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToggleButton?>
-<?import javafx.scene.control.ToggleGroup?>
-<?import javafx.scene.control.cell.PropertyValueFactory?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="677.0" prefWidth="900.0" style="-fx-background-color: linear-gradient(to bottom, #383a3d, grey);" xmlns="http://javafx.com/javafx/15" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bid.bidalot.controllers.SearchLotController">
+<?import java.lang.*?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="677.0"
+            prefWidth="900.0" style="-fx-background-color: linear-gradient(to bottom, #383a3d, grey);"
+            xmlns="http://javafx.com/javafx/15" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.bid.bidalot.controllers.SearchLotController">
     <children>
-        <Label layoutX="22.0" layoutY="14.0" text="Search View" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="10.0">
+        <Label layoutX="22.0" layoutY="14.0" text="Search View" textAlignment="CENTER" textFill="WHITE"
+               AnchorPane.leftAnchor="10.0">
             <font>
-                <Font name="System Bold" size="20.0" />
+                <Font name="System Bold" size="20.0"/>
             </font>
         </Label>
-        <Label fx:id="lotsLabel" alignment="CENTER" layoutX="395.0" layoutY="136.0" prefHeight="20.0" prefWidth="130.0" text="Active Lots" textFill="WHITE">
+        <Label fx:id="lotsLabel" alignment="CENTER" layoutX="395.0" layoutY="136.0" prefHeight="20.0" prefWidth="130.0"
+               text="Active Lots" textFill="WHITE">
             <font>
-                <Font name="System Bold" size="14.0" />
+                <Font name="System Bold" size="14.0"/>
             </font>
         </Label>
-        <Label fx:id="loginLabel" alignment="TOP_CENTER" layoutX="376.0" layoutY="3.0" prefHeight="52.0" prefWidth="149.0" text="Not logged in" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
-      <TextField fx:id="titleField" layoutX="18.0" layoutY="69.0" prefHeight="25.0" prefWidth="150.0" promptText="Enter title..." />
-      <ChoiceBox fx:id="typeChoiceBox" layoutX="210.0" layoutY="69.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" value="Any">
-          <items>
-              <FXCollections fx:factory="observableArrayList">
-                  <String fx:value="Any" />
-                  <String fx:value="Antiques" />
-                  <String fx:value="Audio Devices" />
-                  <String fx:value="Books, Comics and Magazines" />
-                  <String fx:value="Cameras and Photography" />
-                  <String fx:value="Cars, Parts and Car Accessories" />
-                  <String fx:value="Computers and Tablets" />
-                  <String fx:value="DVDs, Films and TV" />
-                  <String fx:value="Furniture" />
-                  <String fx:value="Health and Beauty" />
-                  <String fx:value="Home Decor" />
-                  <String fx:value="Jewellery" />
-                  <String fx:value="Men's Clothing" />
-                  <String fx:value="Music" />
-                  <String fx:value="Musical Instruments" />
-                  <String fx:value="Mobile Phones" />
-                  <String fx:value="Sporting Goods" />
-                  <String fx:value="Toys and Games" />
-                  <String fx:value="Video Games and Consoles" />
-                  <String fx:value="Women's Clothing" />
-                  <String fx:value="Other" />
-              </FXCollections>
-          </items>
-      </ChoiceBox>
-      <ToggleButton fx:id="yearToggleButton" layoutX="429.0" layoutY="98.0" mnemonicParsing="false" onAction="#enableDisableYearSpinner" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="On/Off" />
-      <Spinner fx:id="yearSpinner" disable="true" initialValue="2000" layoutX="402.0" layoutY="69.0" max="2022" min="0" prefHeight="25.0" prefWidth="150.0" />
-      <TextField fx:id="descField" layoutX="594.0" layoutY="69.0" prefHeight="25.0" prefWidth="150.0" promptText="Enter keyword..." />
-      <RadioButton fx:id="activeLotsRadio" layoutX="779.0" layoutY="52.0" mnemonicParsing="false" selected="true" text="Active Lots" textFill="WHITE">
-         <toggleGroup>
-            <ToggleGroup fx:id="soldActive" />
-         </toggleGroup>
-      </RadioButton>
-      <RadioButton fx:id="soldLotsRadio" layoutX="779.0" layoutY="73.0" mnemonicParsing="false" text="Sold Lots" textFill="WHITE" toggleGroup="$soldActive" />
-      <RadioButton fx:id="activeSoldRadio" layoutX="779.0" layoutY="94.0" mnemonicParsing="false" text="Active &amp; Sold" textFill="WHITE" toggleGroup="$soldActive" />
-      <Label layoutX="18.0" layoutY="52.0" text="Title" textFill="WHITE" />
-      <Label layoutX="210.0" layoutY="52.0" text="Lot Type" textFill="WHITE" />
-      <Label layoutX="402.0" layoutY="52.0" text="Estimated Origin Year" textFill="WHITE" />
-      <Label layoutX="594.0" layoutY="52.0" text="Description Keyword" textFill="WHITE" />
-        <Button layoutX="10.0" layoutY="132.0" mnemonicParsing="false" onAction="#changeToLotMenu" prefHeight="25.0" prefWidth="82.0" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #828aff); -fx-background-insets: 0; -fx-border-color: black; -fx-border-image-width: 0.5;" text="Return" AnchorPane.leftAnchor="10.0" />
-        <Button layoutX="112.0" layoutY="132.0" mnemonicParsing="false" onAction="#changeToLotDetails" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="View Selected Lot" />
-      <Button layoutX="808.0" layoutY="132.0" mnemonicParsing="false" onAction="#searchButton" prefHeight="25.0" prefWidth="82.0" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #828aff); -fx-background-insets: 0; -fx-border-color: black; -fx-border-image-width: 0.5;" text="Search" />
-        <TableView fx:id="activeLotsTV" layoutX="22.0" layoutY="125.0" prefHeight="506.0" prefWidth="880.0" style="-fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5; -fx-background-color: #a3a3a3;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+        <Label fx:id="loginLabel" alignment="TOP_CENTER" layoutX="376.0" layoutY="3.0" prefHeight="52.0"
+               prefWidth="149.0" text="Not logged in" textAlignment="CENTER" textFill="WHITE" wrapText="true"/>
+        <TextField fx:id="titleField" layoutX="18.0" layoutY="69.0" prefHeight="25.0" prefWidth="150.0"
+                   promptText="Enter title..."/>
+        <ChoiceBox fx:id="typeChoiceBox" layoutX="210.0" layoutY="69.0" prefWidth="150.0"
+                   style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;"
+                   value="Any">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Any"/>
+                    <String fx:value="Antiques"/>
+                    <String fx:value="Audio Devices"/>
+                    <String fx:value="Books, Comics and Magazines"/>
+                    <String fx:value="Cameras and Photography"/>
+                    <String fx:value="Cars, Parts and Car Accessories"/>
+                    <String fx:value="Computers and Tablets"/>
+                    <String fx:value="DVDs, Films and TV"/>
+                    <String fx:value="Furniture"/>
+                    <String fx:value="Health and Beauty"/>
+                    <String fx:value="Home Decor"/>
+                    <String fx:value="Jewellery"/>
+                    <String fx:value="Men's Clothing"/>
+                    <String fx:value="Music"/>
+                    <String fx:value="Musical Instruments"/>
+                    <String fx:value="Mobile Phones"/>
+                    <String fx:value="Sporting Goods"/>
+                    <String fx:value="Toys and Games"/>
+                    <String fx:value="Video Games and Consoles"/>
+                    <String fx:value="Women's Clothing"/>
+                    <String fx:value="Other"/>
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+        <ToggleButton fx:id="yearToggleButton" layoutX="429.0" layoutY="98.0" mnemonicParsing="false"
+                      onAction="#enableDisableYearSpinner"
+                      style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;"
+                      text="On/Off"/>
+        <Spinner fx:id="yearSpinner" disable="true" initialValue="2000" layoutX="402.0" layoutY="69.0" max="2022"
+                 min="0" prefHeight="25.0" prefWidth="150.0"/>
+        <TextField fx:id="descField" layoutX="594.0" layoutY="69.0" prefHeight="25.0" prefWidth="150.0"
+                   promptText="Enter keyword..."/>
+        <RadioButton fx:id="activeLotsRadio" layoutX="779.0" layoutY="52.0" mnemonicParsing="false" selected="true"
+                     text="Active Lots" textFill="WHITE">
+            <toggleGroup>
+                <ToggleGroup fx:id="soldActive"/>
+            </toggleGroup>
+        </RadioButton>
+        <RadioButton fx:id="soldLotsRadio" layoutX="779.0" layoutY="73.0" mnemonicParsing="false" text="Sold Lots"
+                     textFill="WHITE" toggleGroup="$soldActive"/>
+        <RadioButton fx:id="activeSoldRadio" layoutX="779.0" layoutY="94.0" mnemonicParsing="false"
+                     text="Active &amp; Sold" textFill="WHITE" toggleGroup="$soldActive"/>
+        <Label layoutX="18.0" layoutY="52.0" text="Title" textFill="WHITE"/>
+        <Label layoutX="210.0" layoutY="52.0" text="Lot Type" textFill="WHITE"/>
+        <Label layoutX="402.0" layoutY="52.0" text="Estimated Origin Year" textFill="WHITE"/>
+        <Label layoutX="594.0" layoutY="52.0" text="Description Keyword" textFill="WHITE"/>
+        <Button layoutX="10.0" layoutY="132.0" mnemonicParsing="false" onAction="#changeToLotMenu" prefHeight="25.0"
+                prefWidth="82.0"
+                style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #828aff); -fx-background-insets: 0; -fx-border-color: black; -fx-border-image-width: 0.5;"
+                text="Return" AnchorPane.leftAnchor="10.0"/>
+        <Button layoutX="112.0" layoutY="132.0" mnemonicParsing="false" onAction="#changeToLotDetails"
+                style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;"
+                text="View Selected Lot"/>
+        <Button layoutX="808.0" layoutY="132.0" mnemonicParsing="false" onAction="#searchButton" prefHeight="25.0"
+                prefWidth="82.0"
+                style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #828aff); -fx-background-insets: 0; -fx-border-color: black; -fx-border-image-width: 0.5;"
+                text="Search"/>
+        <TableView fx:id="activeLotsTV" layoutX="22.0" layoutY="125.0" prefHeight="506.0" prefWidth="880.0"
+                   style="-fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5; -fx-background-color: #a3a3a3;"
+                   AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
             <columns>
                 <TableColumn prefWidth="129.0" reorderable="false" resizable="false" sortable="false" text="Title">
                     <cellValueFactory>
-                        <PropertyValueFactory property="title" />
+                        <PropertyValueFactory property="title"/>
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn minWidth="7.0" prefWidth="129.0" reorderable="false" resizable="false" sortable="false" text="Type">
+                <TableColumn minWidth="7.0" prefWidth="129.0" reorderable="false" resizable="false" sortable="false"
+                             text="Type">
                     <cellValueFactory>
-                        <PropertyValueFactory property="type" />
+                        <PropertyValueFactory property="type"/>
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn prefWidth="399.0" reorderable="false" resizable="false" sortable="false" text="Description">
+                <TableColumn prefWidth="399.0" reorderable="false" resizable="false" sortable="false"
+                             text="Description">
                     <cellValueFactory>
-                        <PropertyValueFactory property="description" />
+                        <PropertyValueFactory property="description"/>
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn minWidth="0.0" prefWidth="104.0" reorderable="false" resizable="false" sortable="false" text="Start Date">
+                <TableColumn minWidth="0.0" prefWidth="104.0" reorderable="false" resizable="false" sortable="false"
+                             text="Start Date">
                     <cellValueFactory>
-                        <PropertyValueFactory property="startDate" />
+                        <PropertyValueFactory property="startDate"/>
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn prefWidth="117.0" reorderable="false" resizable="false" sortable="false" text="Current Bid (€)">
+                <TableColumn prefWidth="117.0" reorderable="false" resizable="false" sortable="false"
+                             text="Current Bid (€)">
                     <cellValueFactory>
-                        <PropertyValueFactory property="askingPrice" />
+                        <PropertyValueFactory property="askingPrice"/>
                     </cellValueFactory>
                 </TableColumn>
             </columns>
         </TableView>
-        <TableView fx:id="soldLotsTV" layoutX="22.0" layoutY="125.0" prefHeight="506.0" prefWidth="880.0" style="-fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5; -fx-background-color: #a3a3a3;" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+        <TableView fx:id="soldLotsTV" layoutX="22.0" layoutY="125.0" prefHeight="506.0" prefWidth="880.0"
+                   style="-fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5; -fx-background-color: #a3a3a3;"
+                   visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0"
+                   AnchorPane.rightAnchor="10.0">
             <columns>
                 <TableColumn prefWidth="129.0" reorderable="false" resizable="false" sortable="false" text="Title">
                     <cellValueFactory>
-                        <PropertyValueFactory property="title" />
+                        <PropertyValueFactory property="title"/>
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn minWidth="7.0" prefWidth="129.0" reorderable="false" resizable="false" sortable="false" text="Type">
+                <TableColumn minWidth="7.0" prefWidth="129.0" reorderable="false" resizable="false" sortable="false"
+                             text="Type">
                     <cellValueFactory>
-                        <PropertyValueFactory property="type" />
+                        <PropertyValueFactory property="type"/>
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn prefWidth="399.0" reorderable="false" resizable="false" sortable="false" text="Description">
+                <TableColumn prefWidth="399.0" reorderable="false" resizable="false" sortable="false"
+                             text="Description">
                     <cellValueFactory>
-                        <PropertyValueFactory property="description" />
+                        <PropertyValueFactory property="description"/>
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn minWidth="0.0" prefWidth="104.0" reorderable="false" resizable="false" sortable="false" text="Sale Date">
+                <TableColumn minWidth="0.0" prefWidth="104.0" reorderable="false" resizable="false" sortable="false"
+                             text="Sale Date">
                     <cellValueFactory>
-                        <PropertyValueFactory property="finalSaleDate" />
+                        <PropertyValueFactory property="finalSaleDate"/>
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn prefWidth="117.0" reorderable="false" resizable="false" sortable="false" text="Winning Bid (€)">
+                <TableColumn prefWidth="117.0" reorderable="false" resizable="false" sortable="false"
+                             text="Winning Bid (€)">
                     <cellValueFactory>
-                        <PropertyValueFactory property="finalSalePrice" />
+                        <PropertyValueFactory property="finalSalePrice"/>
                     </cellValueFactory>
                 </TableColumn>
             </columns>
         </TableView>
-      <Label layoutX="533.0" layoutY="138.0" text="Sort By" textFill="WHITE" />
-      <RadioButton fx:id="titleRadio" layoutX="583.0" layoutY="138.0" mnemonicParsing="false" text="Title" textFill="WHITE">
-         <toggleGroup>
-            <ToggleGroup fx:id="sortGroup" />
-         </toggleGroup>
-      </RadioButton>
-      <RadioButton fx:id="typeRadio" layoutX="633.0" layoutY="138.0" mnemonicParsing="false" text="Type" textFill="WHITE" toggleGroup="$sortGroup" />
-      <RadioButton layoutX="686.0" layoutY="138.0" mnemonicParsing="false" selected="true" text="None" textFill="WHITE" toggleGroup="$sortGroup" />
+        <Label layoutX="533.0" layoutY="138.0" text="Sort By" textFill="WHITE"/>
+        <RadioButton fx:id="titleRadio" layoutX="583.0" layoutY="138.0" mnemonicParsing="false" text="Title"
+                     textFill="WHITE">
+            <toggleGroup>
+                <ToggleGroup fx:id="sortGroup"/>
+            </toggleGroup>
+        </RadioButton>
+        <RadioButton fx:id="typeRadio" layoutX="633.0" layoutY="138.0" mnemonicParsing="false" text="Type"
+                     textFill="WHITE" toggleGroup="$sortGroup"/>
+        <RadioButton layoutX="686.0" layoutY="138.0" mnemonicParsing="false" selected="true" text="None"
+                     textFill="WHITE" toggleGroup="$sortGroup"/>
     </children>
 </AnchorPane>

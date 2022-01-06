@@ -32,14 +32,14 @@ public class BidderController {
 
     @FXML
     protected void initialize() {
-        if(AuctionApp.loggedInBidder != null){
+        if (AuctionApp.loggedInBidder != null) {
             myProfileButton.setVisible(true);
             loginLabel.setText("Logged in as: " + AuctionApp.loggedInBidder.getName());
         }
 
         biddersTV.getItems().clear();
-        for (int i=0; i<DRIVER.bidderHashTable.hashTableLength() ;i++){
-            for (Bidder temp : DRIVER.bidderHashTable.getLinkedList(i)){
+        for (int i = 0; i < DRIVER.bidderHashTable.hashTableLength(); i++) {
+            for (Bidder temp : DRIVER.bidderHashTable.getLinkedList(i)) {
                 if (!temp.getEmail().equals("ADMIN@ADMIN.COM"))  //preventing ADMIN account from being listed
                     biddersTV.getItems().add(temp);
             }
@@ -59,7 +59,7 @@ public class BidderController {
         selectedBidder = DRIVER.bidderHashTable.findPositionByEmail(biddersTV.getSelectionModel().getSelectedItem().getEmail());
         if (selectedBidder == null) {
             JOptionPane.showMessageDialog(frame, "Please select a bidder to view the details of.", "Selection Error!", JOptionPane.ERROR_MESSAGE);
-        }else {
+        } else {
             Parent detailsView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("bidder-details-view.fxml")));
             bidderDetailsScene = new Scene(detailsView);
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
@@ -69,7 +69,7 @@ public class BidderController {
     }
 
     @FXML
-    protected void changeToSearchMenu(ActionEvent actionEvent) throws IOException{
+    protected void changeToSearchMenu(ActionEvent actionEvent) throws IOException {
         Parent searchView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("search-bidder-view.fxml")));
         Scene searchScene = new Scene(searchView);
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
@@ -79,11 +79,11 @@ public class BidderController {
     }
 
     @FXML
-    protected void changeToMyBidderDetails(ActionEvent actionEvent) throws IOException{
+    protected void changeToMyBidderDetails(ActionEvent actionEvent) throws IOException {
         selectedBidder = DRIVER.bidderHashTable.findPositionByEmail(AuctionApp.loggedInBidder.getEmail());
         if (selectedBidder == null) {
             JOptionPane.showMessageDialog(frame, "Please select a bidder to view the details of.", "Selection Error!", JOptionPane.ERROR_MESSAGE);
-        }else {
+        } else {
             Parent detailsView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("bidder-details-view.fxml")));
             bidderDetailsScene = new Scene(detailsView);
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();

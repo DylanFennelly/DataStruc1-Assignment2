@@ -47,7 +47,7 @@ public class AuctionApp extends Application {
         load();
     }
 
-    public static void save() throws Exception{
+    public static void save() throws Exception {
         XStream xStream = new XStream((new DomDriver()));
         ObjectOutputStream out = xStream.createObjectOutputStream(new FileWriter("auctionApp.xml"));
         out.writeObject(AuctionApp.DRIVER);

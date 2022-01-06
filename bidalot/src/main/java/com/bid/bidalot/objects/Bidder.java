@@ -5,16 +5,16 @@ public class Bidder {
     private String name, address, phone, email, password;
 
     //constructor
-    public Bidder (String name, String address, String phone, String email, String password){
+    public Bidder(String name, String address, String phone, String email, String password) {
         if (name.length() <= 40)
             this.name = name;
         else
-            this.name = name.substring(0,40);
+            this.name = name.substring(0, 40);
 
         if (address.length() <= 100)
             this.address = address;
         else
-            this.address = address.substring(0,100);
+            this.address = address.substring(0, 100);
 
         if (phone.matches("^[\\d]{3}[\\s]?[\\d]{3}[\\s]?[\\d]{4}$"))    //allows for any 3 digits, an optional space, 3 digits, optional space, and any 4 digits
             if (phone.length() != 12) {                                        //adding in spaces between digits if not included
@@ -41,7 +41,7 @@ public class Bidder {
 
     //methods
     @Override
-    public String toString(){   //only return's name: in bids tableview, it was displaying all details instead of just the name.
+    public String toString() {   //only return's name: in bids tableview, it was displaying all details instead of just the name.
         return name;            //setting up the columns to do otherwise was quite complicated so with the time available, this is the best solution
     }
 
@@ -83,7 +83,7 @@ public class Bidder {
                 String temp = phone.replaceAll("[^\\d]", "");
                 temp = temp.substring(0, 3) + " " + temp.substring(3, 6) + " " + temp.substring(6);
                 this.phone = temp;
-            }else
+            } else
                 this.phone = phone;
     }
 
