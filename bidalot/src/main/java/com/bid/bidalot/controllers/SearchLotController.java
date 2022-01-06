@@ -1,6 +1,8 @@
 package com.bid.bidalot.controllers;
 
 import com.bid.bidalot.AuctionApp;
+import com.bid.bidalot.lists.MyLinkedList;
+import com.bid.bidalot.objects.Bidder;
 import com.bid.bidalot.objects.Lot;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,6 +24,7 @@ import static com.bid.bidalot.controllers.LotController.selectedLot;
 import static com.bid.bidalot.controllers.StartController.lotScene;
 
 public class SearchLotController {
+    private MyLinkedList<Lot> lotList;
     private JFrame frame;
     boolean yearSpinnerActive = false;
     @FXML
@@ -35,9 +38,9 @@ public class SearchLotController {
     @FXML
     private ToggleButton yearToggleButton;
     @FXML
-    private ToggleGroup soldActive;
+    private ToggleGroup soldActive, sortGroup;
     @FXML
-    private RadioButton activeLotsRadio, soldLotsRadio, activeSoldRadio;
+    private RadioButton activeLotsRadio, soldLotsRadio, activeSoldRadio, titleRadio, typeRadio;
     @FXML
     private TableView<Lot> activeLotsTV, soldLotsTV;
 
@@ -63,6 +66,8 @@ public class SearchLotController {
 
     @FXML
     private void searchButton(ActionEvent actionEvent){
+        //LinkedList for sorting options
+        lotList = new MyLinkedList<>();
         //clearing both TVs between searches
         activeLotsTV.getItems().clear();
         soldLotsTV.getItems().clear();
@@ -96,21 +101,21 @@ public class SearchLotController {
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(!temp.isSold() && temp.getTitle().toLowerCase().contains(titleField.getText().toLowerCase().trim()))
-                            activeLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }else if (soldActive.getSelectedToggle() == soldLotsRadio){ //sold lots only
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(temp.isSold() && temp.getTitle().toLowerCase().contains(titleField.getText().toLowerCase().trim()))
-                            soldLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }else{  //both
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(temp.getTitle().toLowerCase().contains(titleField.getText().toLowerCase().trim()))
-                            activeLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }
@@ -120,21 +125,21 @@ public class SearchLotController {
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(!temp.isSold() && temp.getType().matches(typeChoiceBox.getValue()))
-                            activeLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }else if (soldActive.getSelectedToggle() == soldLotsRadio){ //sold lots only
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(temp.isSold() && temp.getType().matches(typeChoiceBox.getValue()))
-                            soldLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }else{  //both
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(temp.getType().matches(typeChoiceBox.getValue()))
-                            activeLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }
@@ -144,21 +149,21 @@ public class SearchLotController {
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(!temp.isSold() && temp.getOriginDate() == yearSpinner.getValue())
-                            activeLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }else if (soldActive.getSelectedToggle() == soldLotsRadio){ //sold lots only
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(temp.isSold() && temp.getOriginDate() == yearSpinner.getValue())
-                            soldLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }else{  //both
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(temp.getOriginDate() == yearSpinner.getValue())
-                            activeLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }
@@ -168,21 +173,21 @@ public class SearchLotController {
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(!temp.isSold() && temp.getDescription().toLowerCase().contains(descField.getText().toLowerCase().trim()))
-                            activeLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }else if (soldActive.getSelectedToggle() == soldLotsRadio){ //sold lots only
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(temp.isSold() && temp.getDescription().toLowerCase().contains(descField.getText().toLowerCase().trim()))
-                            soldLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }else{  //both
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(temp.getDescription().toLowerCase().contains(descField.getText().toLowerCase().trim()))
-                            activeLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }
@@ -192,21 +197,21 @@ public class SearchLotController {
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(!temp.isSold() && temp.getTitle().toLowerCase().contains(titleField.getText().toLowerCase().trim()) && temp.getType().matches(typeChoiceBox.getValue()))
-                            activeLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }else if (soldActive.getSelectedToggle() == soldLotsRadio){ //sold lots only
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(temp.isSold() && temp.getTitle().toLowerCase().contains(titleField.getText().toLowerCase().trim()) && temp.getType().matches(typeChoiceBox.getValue()))
-                            soldLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }else{  //both
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(temp.getTitle().toLowerCase().contains(titleField.getText().toLowerCase().trim()) && temp.getType().matches(typeChoiceBox.getValue()))
-                            activeLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }
@@ -216,21 +221,21 @@ public class SearchLotController {
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(!temp.isSold() && temp.getTitle().toLowerCase().contains(titleField.getText().toLowerCase().trim()) && temp.getOriginDate() == yearSpinner.getValue())
-                            activeLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }else if (soldActive.getSelectedToggle() == soldLotsRadio){ //sold lots only
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(temp.isSold() && temp.getTitle().toLowerCase().contains(titleField.getText().toLowerCase().trim()) && temp.getOriginDate() == yearSpinner.getValue())
-                            soldLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }else{  //both
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(temp.getTitle().toLowerCase().contains(titleField.getText().toLowerCase().trim()) && temp.getOriginDate() == yearSpinner.getValue())
-                            activeLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }
@@ -240,21 +245,21 @@ public class SearchLotController {
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(!temp.isSold() && temp.getTitle().toLowerCase().contains(titleField.getText().toLowerCase().trim()) && temp.getDescription().toLowerCase().contains(descField.getText().toLowerCase().trim()))
-                            activeLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }else if (soldActive.getSelectedToggle() == soldLotsRadio){ //sold lots only
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(temp.isSold() && temp.getTitle().toLowerCase().contains(titleField.getText().toLowerCase().trim()) && temp.getDescription().toLowerCase().contains(descField.getText().toLowerCase().trim()))
-                            soldLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }else{  //both
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(temp.getTitle().toLowerCase().contains(titleField.getText().toLowerCase().trim()) && temp.getDescription().toLowerCase().contains(descField.getText().toLowerCase().trim()))
-                            activeLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }
@@ -264,21 +269,21 @@ public class SearchLotController {
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(!temp.isSold() && temp.getType().matches(typeChoiceBox.getValue()) && temp.getOriginDate() == yearSpinner.getValue())
-                            activeLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }else if (soldActive.getSelectedToggle() == soldLotsRadio){ //sold lots only
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(temp.isSold() && temp.getType().matches(typeChoiceBox.getValue()) && temp.getOriginDate() == yearSpinner.getValue())
-                            soldLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }else{  //both
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(temp.getType().matches(typeChoiceBox.getValue()) && temp.getOriginDate() == yearSpinner.getValue())
-                            activeLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }
@@ -288,21 +293,21 @@ public class SearchLotController {
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(!temp.isSold() && temp.getType().matches(typeChoiceBox.getValue()) && temp.getDescription().toLowerCase().contains(descField.getText().toLowerCase().trim()))
-                            activeLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }else if (soldActive.getSelectedToggle() == soldLotsRadio){ //sold lots only
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(temp.isSold() && temp.getType().matches(typeChoiceBox.getValue()) && temp.getDescription().toLowerCase().contains(descField.getText().toLowerCase().trim()))
-                            soldLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }else{  //both
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(temp.getType().matches(typeChoiceBox.getValue()) && temp.getDescription().toLowerCase().contains(descField.getText().toLowerCase().trim()))
-                            activeLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }
@@ -312,21 +317,21 @@ public class SearchLotController {
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(!temp.isSold() && temp.getOriginDate() == yearSpinner.getValue() && temp.getDescription().toLowerCase().contains(descField.getText().toLowerCase().trim()))
-                            activeLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }else if (soldActive.getSelectedToggle() == soldLotsRadio){ //sold lots only
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(temp.isSold() && temp.getOriginDate() == yearSpinner.getValue() && temp.getDescription().toLowerCase().contains(descField.getText().toLowerCase().trim()))
-                            soldLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }else{  //both
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(temp.getOriginDate() == yearSpinner.getValue() && temp.getDescription().toLowerCase().contains(descField.getText().toLowerCase().trim()))
-                            activeLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }
@@ -336,21 +341,21 @@ public class SearchLotController {
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(!temp.isSold() && temp.getTitle().toLowerCase().contains(titleField.getText().toLowerCase().trim()) && temp.getType().matches(typeChoiceBox.getValue()) && temp.getOriginDate() == yearSpinner.getValue())
-                            activeLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }else if (soldActive.getSelectedToggle() == soldLotsRadio){ //sold lots only
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(temp.isSold() && temp.getTitle().toLowerCase().contains(titleField.getText().toLowerCase().trim()) && temp.getType().matches(typeChoiceBox.getValue()) && temp.getOriginDate() == yearSpinner.getValue())
-                            soldLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }else{  //both
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(temp.getTitle().toLowerCase().contains(titleField.getText().toLowerCase().trim()) && temp.getType().matches(typeChoiceBox.getValue()) && temp.getOriginDate() == yearSpinner.getValue())
-                            activeLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }
@@ -360,21 +365,21 @@ public class SearchLotController {
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(!temp.isSold() && temp.getTitle().toLowerCase().contains(titleField.getText().toLowerCase().trim()) && temp.getType().matches(typeChoiceBox.getValue()) && temp.getDescription().toLowerCase().contains(descField.getText().toLowerCase().trim()))
-                            activeLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }else if (soldActive.getSelectedToggle() == soldLotsRadio){ //sold lots only
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(temp.isSold() && temp.getTitle().toLowerCase().contains(titleField.getText().toLowerCase().trim()) && temp.getType().matches(typeChoiceBox.getValue()) && temp.getDescription().toLowerCase().contains(descField.getText().toLowerCase().trim()))
-                            soldLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }else{  //both
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(temp.getTitle().toLowerCase().contains(titleField.getText().toLowerCase().trim()) && temp.getType().matches(typeChoiceBox.getValue()) && temp.getDescription().toLowerCase().contains(descField.getText().toLowerCase().trim()))
-                            activeLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }
@@ -384,21 +389,21 @@ public class SearchLotController {
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(!temp.isSold() && temp.getTitle().toLowerCase().contains(titleField.getText().toLowerCase().trim()) && temp.getOriginDate() == yearSpinner.getValue() && temp.getDescription().toLowerCase().contains(descField.getText().toLowerCase().trim()))
-                            activeLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }else if (soldActive.getSelectedToggle() == soldLotsRadio){ //sold lots only
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(temp.isSold() && temp.getTitle().toLowerCase().contains(titleField.getText().toLowerCase().trim()) && temp.getOriginDate() == yearSpinner.getValue() && temp.getDescription().toLowerCase().contains(descField.getText().toLowerCase().trim()))
-                            soldLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }else{  //both
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(temp.getTitle().toLowerCase().contains(titleField.getText().toLowerCase().trim()) && temp.getOriginDate() == yearSpinner.getValue() && temp.getDescription().toLowerCase().contains(descField.getText().toLowerCase().trim()))
-                            activeLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }
@@ -408,21 +413,21 @@ public class SearchLotController {
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(!temp.isSold() && temp.getType().matches(typeChoiceBox.getValue()) && temp.getOriginDate() == yearSpinner.getValue() && temp.getDescription().toLowerCase().contains(descField.getText().toLowerCase().trim()))
-                            activeLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }else if (soldActive.getSelectedToggle() == soldLotsRadio){ //sold lots only
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(temp.isSold() && temp.getType().matches(typeChoiceBox.getValue()) && temp.getOriginDate() == yearSpinner.getValue() && temp.getDescription().toLowerCase().contains(descField.getText().toLowerCase().trim()))
-                            soldLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }else{  //both
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(temp.getType().matches(typeChoiceBox.getValue()) && temp.getOriginDate() == yearSpinner.getValue() && temp.getDescription().toLowerCase().contains(descField.getText().toLowerCase().trim()))
-                            activeLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }
@@ -432,21 +437,21 @@ public class SearchLotController {
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(!temp.isSold() && temp.getTitle().toLowerCase().contains(titleField.getText().toLowerCase().trim()) && temp.getType().matches(typeChoiceBox.getValue()) && temp.getOriginDate() == yearSpinner.getValue() && temp.getDescription().toLowerCase().contains(descField.getText().toLowerCase().trim()))
-                            activeLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }else if (soldActive.getSelectedToggle() == soldLotsRadio){ //sold lots only
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(temp.isSold() && temp.getTitle().toLowerCase().contains(titleField.getText().toLowerCase().trim()) && temp.getType().matches(typeChoiceBox.getValue()) && temp.getOriginDate() == yearSpinner.getValue() && temp.getDescription().toLowerCase().contains(descField.getText().toLowerCase().trim()))
-                            soldLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }else{  //both
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(temp.getTitle().toLowerCase().contains(titleField.getText().toLowerCase().trim()) && temp.getType().matches(typeChoiceBox.getValue()) && temp.getOriginDate() == yearSpinner.getValue() && temp.getDescription().toLowerCase().contains(descField.getText().toLowerCase().trim()))
-                            activeLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }
@@ -456,25 +461,70 @@ public class SearchLotController {
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(!temp.isSold())
-                            activeLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }else if (soldActive.getSelectedToggle() == soldLotsRadio){ //sold lots only
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
                         if(temp.isSold())
-                            soldLotsTV.getItems().add(temp);
+                            lotList.addElementToEnd(temp);
                     }
                 }
             }else{  //both
                 for (int i=0; i<DRIVER.lotHashTable.hashTableLength(); i++){
                     for (Lot temp : DRIVER.lotHashTable.getLinkedList(i)) {
-                        activeLotsTV.getItems().add(temp);
+                        lotList.addElementToEnd(temp);
                     }
                 }
             }
         }
+        if (sortGroup.getSelectedToggle() == titleRadio){
+            selectionSortByTitle(lotList.head);
+        }else if (sortGroup.getSelectedToggle() == typeRadio){
+            selectionSortByType(lotList.head);
+        }
+        if (soldActive.getSelectedToggle() == soldLotsRadio){   //if soldList visible
+            for (Lot l : lotList)
+                soldLotsTV.getItems().add(l);
+        }else{
+            for (Lot l : lotList)
+                activeLotsTV.getItems().add(l);
+        }
+
         JOptionPane.showMessageDialog(frame, "Search Complete!", "Search Complete!", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    public void selectionSortByTitle(com.bid.bidalot.lists.Node<Lot> head) {
+        //selection sort, from: https://stackoverflow.com/questions/29808971/selection-sorting-a-linked-list
+        //see SearchBidderController for explanation
+        for (com.bid.bidalot.lists.Node<Lot> sortingNode = head; sortingNode != null; sortingNode = sortingNode.next) {
+            com.bid.bidalot.lists.Node<Lot> min = sortingNode;
+            for (com.bid.bidalot.lists.Node<Lot> workingNode = sortingNode; workingNode != null; workingNode = workingNode.next) {
+                if (min.getContents().getTitle().toLowerCase().compareTo(workingNode.getContents().getTitle().toLowerCase()) > 0) {
+                    min = workingNode;
+                }
+            }
+            com.bid.bidalot.lists.Node<Lot> temp = new com.bid.bidalot.lists.Node<>();
+            temp.setContents(sortingNode.getContents());
+            sortingNode.setContents(min.getContents());
+            min.setContents(temp.getContents());
+        }
+    }
+
+    public void selectionSortByType(com.bid.bidalot.lists.Node<Lot> head) {
+        for (com.bid.bidalot.lists.Node<Lot> sortingNode = head; sortingNode != null; sortingNode = sortingNode.next) {
+            com.bid.bidalot.lists.Node<Lot> min = sortingNode;
+            for (com.bid.bidalot.lists.Node<Lot> workingNode = sortingNode; workingNode != null; workingNode = workingNode.next) {
+                if (min.getContents().getType().compareTo(workingNode.getContents().getType()) > 0) {
+                    min = workingNode;
+                }
+            }
+            com.bid.bidalot.lists.Node<Lot> temp = new com.bid.bidalot.lists.Node<>();
+            temp.setContents(sortingNode.getContents());
+            sortingNode.setContents(min.getContents());
+            min.setContents(temp.getContents());
+        }
     }
 
     @FXML

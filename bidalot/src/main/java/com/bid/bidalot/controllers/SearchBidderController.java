@@ -107,7 +107,7 @@ public class SearchBidderController {
                                                                                                                             //then head.next.next and so on until next of last element is reached and is equal to null)
             com.bid.bidalot.lists.Node<Bidder> min = sortingNode;                 //node with lowest value of all nodes compared in loop so far
             for (com.bid.bidalot.lists.Node<Bidder> workingNode = sortingNode; workingNode != null; workingNode = workingNode.next) {   //looping through each node in the list and comparing to the working node.
-                if (min.getContents().getName().compareTo(workingNode.getContents().getName()) > 0) { //comparing bidderNames alphabetically. If workingNode comes first alphabetically, the compareTo returns
+                if (min.getContents().getName().toLowerCase().compareTo(workingNode.getContents().getName().toLowerCase()) > 0) { //comparing bidderNames alphabetically. If workingNode comes first alphabetically, the compareTo returns
                     min = workingNode;                                                                //positive and min (the lowest value) is set to be workingNode
                 }
             }
@@ -121,16 +121,16 @@ public class SearchBidderController {
 
     public void selectionSortByAddress(com.bid.bidalot.lists.Node<Bidder> head) {
         for (com.bid.bidalot.lists.Node<Bidder> sortingNode = head; sortingNode != null; sortingNode = sortingNode.next) {
-            com.bid.bidalot.lists.Node<Bidder> max = sortingNode;
+            com.bid.bidalot.lists.Node<Bidder> min = sortingNode;
             for (com.bid.bidalot.lists.Node<Bidder> workingNode = sortingNode; workingNode != null; workingNode = workingNode.next) {
-                if (max.getContents().getAddress().compareTo(workingNode.getContents().getAddress()) < 0) {
-                    max = workingNode;
+                if (min.getContents().getAddress().toLowerCase().compareTo(workingNode.getContents().getAddress().toLowerCase()) > 0) {
+                    min = workingNode;
                 }
             }
             com.bid.bidalot.lists.Node<Bidder> temp = new com.bid.bidalot.lists.Node<>();
             temp.setContents(sortingNode.getContents());
-            sortingNode.setContents(max.getContents());
-            max.setContents(temp.getContents());
+            sortingNode.setContents(min.getContents());
+            min.setContents(temp.getContents());
         }
     }
 

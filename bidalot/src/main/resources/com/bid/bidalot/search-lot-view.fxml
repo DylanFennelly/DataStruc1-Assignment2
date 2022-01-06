@@ -135,5 +135,13 @@
                 </TableColumn>
             </columns>
         </TableView>
+      <Label layoutX="533.0" layoutY="138.0" text="Sort By" textFill="WHITE" />
+      <RadioButton fx:id="titleRadio" layoutX="583.0" layoutY="138.0" mnemonicParsing="false" text="Title" textFill="WHITE">
+         <toggleGroup>
+            <ToggleGroup fx:id="sortGroup" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="typeRadio" layoutX="633.0" layoutY="138.0" mnemonicParsing="false" text="Type" textFill="WHITE" toggleGroup="$sortGroup" />
+      <RadioButton layoutX="686.0" layoutY="138.0" mnemonicParsing="false" selected="true" text="None" textFill="WHITE" toggleGroup="$sortGroup" />
     </children>
 </AnchorPane>

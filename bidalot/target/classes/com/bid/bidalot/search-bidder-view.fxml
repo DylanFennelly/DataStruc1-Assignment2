@@ -55,14 +55,13 @@
         <Label fx:id="loginLabel" alignment="TOP_CENTER" layoutX="376.0" layoutY="3.0" prefHeight="52.0" prefWidth="149.0" text="Not logged in" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
       <Label layoutX="145.0" layoutY="53.0" text="Bidder Name" textFill="WHITE" />
       <Label layoutX="376.0" layoutY="53.0" text="Bidder Address" textFill="WHITE" />
-      <RadioButton fx:id="nameDescendingRadio" layoutX="636.0" layoutY="87.0" mnemonicParsing="false" text="Name (Descending)" textFill="WHITE">
+      <RadioButton fx:id="nameRadio" layoutX="636.0" layoutY="47.0" mnemonicParsing="false" text="Name" textFill="WHITE">
          <toggleGroup>
             <ToggleGroup fx:id="sortGroup" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="nameAscendingRadio" layoutX="636.0" layoutY="66.0" mnemonicParsing="false" text="Name (Ascending)" textFill="WHITE" toggleGroup="$sortGroup" />
-      <RadioButton fx:id="noneRadio" layoutX="776.0" layoutY="87.0" mnemonicParsing="false" selected="true" text="None" textFill="WHITE" toggleGroup="$sortGroup" />
-      <RadioButton fx:id="addressRadio" layoutX="776.0" layoutY="66.0" mnemonicParsing="false" text="Address" textFill="WHITE" toggleGroup="$sortGroup" />
-      <Label layoutX="636.0" layoutY="47.0" text="Sort by" textFill="WHITE" />
+      <RadioButton fx:id="noneRadio" layoutX="636.0" layoutY="103.0" mnemonicParsing="false" selected="true" text="None" textFill="WHITE" toggleGroup="$sortGroup" />
+      <RadioButton fx:id="addressRadio" layoutX="636.0" layoutY="74.0" mnemonicParsing="false" text="Address" textFill="WHITE" toggleGroup="$sortGroup" />
+      <Label layoutX="636.0" layoutY="27.0" text="Sort by" textFill="WHITE" />
     </children>
 </AnchorPane>
