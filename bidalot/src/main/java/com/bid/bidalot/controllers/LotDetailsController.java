@@ -104,7 +104,7 @@ public class LotDetailsController {
     }
 
     @FXML
-    protected void addBidButton(){
+    protected void addBidButton() throws Exception {
         if (bidField.getText().matches("[\\d]+[.]+[\\d]{2}")){
             double bid = Double.parseDouble(bidField.getText());
                 //if bid is greater than current highest bid (asking price)   OR   if bid is equal to the start price and no bids have been placed yet (allowing a bid to be placed at the starting bid price if no bids have been placed yet)
@@ -114,6 +114,7 @@ public class LotDetailsController {
                     JOptionPane.showMessageDialog(frame, "Bid placed!", "Bid Success!", JOptionPane.INFORMATION_MESSAGE);
                     LotController.selectedLot.getListOfBids().addElementToTop(new Bid(bid, LocalDate.now(), LocalTime.now(), AuctionApp.loggedInBidder, selectedLot));
                     LotController.selectedLot.setAskingPrice(bid);
+                    AuctionApp.save();
 
                     //clear list to ensure bids do not display in wrong order
                     bidTV.getItems().clear();   //populating bid list
@@ -147,11 +148,12 @@ public class LotDetailsController {
     }
 
     @FXML
-    private void withdrawLot(ActionEvent actionEvent) throws IOException {
+    private void withdrawLot(ActionEvent actionEvent) throws Exception {
         int option = JOptionPane.showConfirmDialog(frame, "Are you sure you want to withdraw this lot? The lot \nlisting and all bids will be deleted.", "Withdraw Confirmation", JOptionPane.YES_NO_OPTION);
         if (option == JOptionPane.YES_OPTION) {
             JOptionPane.showMessageDialog(frame, "Lot withdrawn.", "Withdraw Complete", JOptionPane.INFORMATION_MESSAGE);
             DRIVER.lotHashTable.removeElement(LotController.selectedLot);
+            AuctionApp.save();
             backToLotMenu(actionEvent);
         }
     }
@@ -161,22 +163,23 @@ public class LotDetailsController {
         backToLotMenu(actionEvent);
     }
 
-    @FXML
     private void sellLot(Lot lot){
         lot.setSold(true);
         lot.setFinalSaleDate(LocalDate.now());
         lot.setFinalSaleTime(LocalTime.now());
         lot.setFinalSalePrice();
+
     }
 
     @FXML
-    protected void sellLotButton(){
+    protected void sellLotButton() throws Exception {
         if (LotController.selectedLot.getListOfBids().getListLength() > 0) {
             int option = JOptionPane.showConfirmDialog(frame, "Are you sure you want to sell this lot? The current top bid will\nbe accepted and the lot will be closed.\n\nCurrent highest bid: " + String.format("%.2f",LotController.selectedLot.getAskingPrice()), "Sell Confirmation", JOptionPane.YES_NO_OPTION);
             if (option == JOptionPane.YES_OPTION) {
                 JOptionPane.showMessageDialog(frame, "Lot Sold!", "Sell Complete!", JOptionPane.INFORMATION_MESSAGE);
 
                 sellLot(LotController.selectedLot);
+                AuctionApp.save();
                 initialize();
             }
         }else{
@@ -185,7 +188,7 @@ public class LotDetailsController {
     }
 
     @FXML
-    protected void withdrawBidButton(){
+    protected void withdrawBidButton() throws Exception {
         if (LotController.selectedLot.getListOfBids().getListLength() > 0) {
             //if user that placed the current top bid is the same as the logged in user
             if(LotController.selectedLot.getListOfBids().head.getContents().getBidder() == AuctionApp.loggedInBidder){
@@ -203,6 +206,7 @@ public class LotDetailsController {
                         //rollback lot askingPrice (current highest bid) to new head
                         LotController.selectedLot.setAskingPrice( LotController.selectedLot.getListOfBids().head.getContents().getBidAmount() );
 
+                    AuctionApp.save();
                     //updating UI elements
                     bidTV.getItems().clear();
                     for (Bid b : LotController.selectedLot.getListOfBids()){

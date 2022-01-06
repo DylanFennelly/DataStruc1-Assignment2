@@ -79,7 +79,7 @@ public class EditLotController {
     }
 
     @FXML
-    protected void updateLotButton() throws IOException {
+    protected void updateLotButton() throws Exception {
         String title = lotTitle.getText().trim();   //removing leading/trailing whitespace
         String description = lotDesc.getText().trim();
         String type = lotType.getValue();
@@ -126,6 +126,7 @@ public class EditLotController {
             if (option == JOptionPane.YES_OPTION){
                 JOptionPane.showMessageDialog(frame, "Lot details have been updated", "Edit Success!", JOptionPane.INFORMATION_MESSAGE);
                 updateLot(LotController.selectedLot,title,description,type,imageLink,originDate);
+                AuctionApp.save();
                 closeWindow();
 
                 //resetting temp values back to null

@@ -86,26 +86,35 @@
                 <startDate>2022-01-05</startDate>
                 <startTime>22:23:43.7073065</startTime>
                 <startPrice>46.0</startPrice>
-                <askingPrice>50.0</askingPrice>
+                <askingPrice>51.0</askingPrice>
                 <finalSalePrice>0.0</finalSalePrice>
                 <sold>false</sold>
                 <lotOwner reference="../../../../../../../bidderHashTable/bidderHashTable/com.bid.bidalot.lists.MyLinkedList[13]/head/contents"/>
                 <listOfBids>
                   <head>
                     <next>
+                      <next>
+                        <contents class="com.bid.bidalot.objects.Bid">
+                          <bidAmount>46.0</bidAmount>
+                          <bidDate>05/01/22</bidDate>
+                          <bidTime>22:54:40</bidTime>
+                          <bidder reference="../../../../../../../../../../../../bidderHashTable/bidderHashTable/com.bid.bidalot.lists.MyLinkedList[10]/head/contents"/>
+                          <parentLot reference="../../../../../.."/>
+                        </contents>
+                      </next>
                       <contents class="com.bid.bidalot.objects.Bid">
-                        <bidAmount>46.0</bidAmount>
+                        <bidAmount>50.0</bidAmount>
                         <bidDate>05/01/22</bidDate>
-                        <bidTime>22:54:40</bidTime>
-                        <bidder reference="../../../../../../../../../../../bidderHashTable/bidderHashTable/com.bid.bidalot.lists.MyLinkedList[10]/head/contents"/>
+                        <bidTime>22:56:10</bidTime>
+                        <bidder reference="../../../../../../../../../../../bidderHashTable/bidderHashTable/com.bid.bidalot.lists.MyLinkedList/head/contents"/>
                         <parentLot reference="../../../../.."/>
                       </contents>
                     </next>
                     <contents class="com.bid.bidalot.objects.Bid">
-                      <bidAmount>50.0</bidAmount>
-                      <bidDate>05/01/22</bidDate>
-                      <bidTime>22:56:10</bidTime>
-                      <bidder reference="../../../../../../../../../../bidderHashTable/bidderHashTable/com.bid.bidalot.lists.MyLinkedList/head/contents"/>
+                      <bidAmount>51.0</bidAmount>
+                      <bidDate>06/01/22</bidDate>
+                      <bidTime>05:55:53</bidTime>
+                      <bidder reference="../../../../../../../../../../bidderHashTable/bidderHashTable/com.bid.bidalot.lists.MyLinkedList[4]/head/contents"/>
                       <parentLot reference="../../../.."/>
                     </contents>
                   </head>
@@ -171,7 +180,25 @@
         <com.bid.bidalot.lists.MyLinkedList/>
         <com.bid.bidalot.lists.MyLinkedList/>
         <com.bid.bidalot.lists.MyLinkedList/>
-        <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList>
+          <head>
+            <contents class="com.bid.bidalot.objects.Lot">
+              <title>New Lot</title>
+              <description>new</description>
+              <type>Audio Devices</type>
+              <imageLink>N/A</imageLink>
+              <originDate>2000</originDate>
+              <startDate>2022-01-06</startDate>
+              <startTime>05:50:58.7353314</startTime>
+              <startPrice>15.0</startPrice>
+              <askingPrice>15.0</askingPrice>
+              <finalSalePrice>0.0</finalSalePrice>
+              <sold>false</sold>
+              <lotOwner reference="../../../../../../bidderHashTable/bidderHashTable/com.bid.bidalot.lists.MyLinkedList[4]/head/contents"/>
+              <listOfBids/>
+            </contents>
+          </head>
+        </com.bid.bidalot.lists.MyLinkedList>
         <com.bid.bidalot.lists.MyLinkedList/>
         <com.bid.bidalot.lists.MyLinkedList/>
         <com.bid.bidalot.lists.MyLinkedList/>

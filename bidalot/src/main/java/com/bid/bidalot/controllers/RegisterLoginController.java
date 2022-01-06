@@ -73,11 +73,12 @@ public class RegisterLoginController {
     }
 
     @FXML
-    private void addBidderButton() throws IOException {
+    private void addBidderButton() throws Exception {
         Bidder newBidder = addBidder(BName.getText(), BAddress.getText(), BPhone.getText(), BEmail.getText(), BPass.getText(), BPassConfirm.getText());
         if (newBidder != null){
             DRIVER.bidderHashTable.add(newBidder);
             JOptionPane.showMessageDialog(frame, "Bidder successfully registered!", "Register Success!", JOptionPane.INFORMATION_MESSAGE);
+            AuctionApp.save();
 
             //setting login fields for quicker login after bidder creation
             LoginEmail.setText(BEmail.getText());

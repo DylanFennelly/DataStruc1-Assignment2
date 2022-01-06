@@ -73,7 +73,7 @@ public class EditBidderController {
     }
 
     @FXML
-    protected void updateBidderButton() throws IOException {
+    protected void updateBidderButton() throws Exception {
         String name = BName.getText().trim();   //removing leading/trailing whitespace
         String address = BAddress.getText().trim();
         String phone = BPhone.getText();
@@ -119,6 +119,7 @@ public class EditBidderController {
                             if (option == JOptionPane.YES_OPTION) {
                                 JOptionPane.showMessageDialog(frame, "Bidder details have been updated", "Edit Success!", JOptionPane.INFORMATION_MESSAGE);
                                 updateBidder(BidderController.selectedBidder,name,address,phone,password);
+                                AuctionApp.save();  //autosave when bidder updates
                                 closeWindow();
 
                                 //resetting temp values back to null

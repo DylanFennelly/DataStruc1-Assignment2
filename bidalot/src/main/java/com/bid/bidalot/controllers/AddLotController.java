@@ -46,7 +46,7 @@ public class AddLotController {
     }
 
     @FXML
-    protected void addLotButton() throws IOException {
+    protected void addLotButton() throws Exception {
         if (!lotTitle.getText().equals("")) {
             if (!lotDesc.getText().equals("")) {
                 if (lotType.getValue() != null) {
@@ -54,6 +54,7 @@ public class AddLotController {
                         if (lotStarting.getText().matches("[\\d]+[.]+[\\d]{2}")) {    //any number of digits, followed by a decimal point and two digits
                             double askingPrice = Double.parseDouble(lotStarting.getText());
                             DRIVER.lotHashTable.add(new Lot(lotTitle.getText(), lotDesc.getText(), lotType.getValue(), lotImage.getText(), lotOrigin.getValue(), askingPrice, AuctionApp.loggedInBidder));
+                            AuctionApp.save();  //autosave whenever lot is created
                             JOptionPane.showMessageDialog(frame, "Lot successfully added!", "Add Success!", JOptionPane.INFORMATION_MESSAGE);
                             closeWindow();
 
