@@ -12,10 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.text.DecimalFormat;
 import java.util.Objects;
 
@@ -43,6 +40,10 @@ public class AuctionApp extends Application {
         stage.setResizable(false);
         stage.show();
         //todo: check if auctionApp.xml exists + create new file if it doesnt
+
+        boolean xmlExists = new File("auctionApp.xml").isFile();
+        if (!xmlExists)
+            save(); //creates an fxml file if it doesnt exit yet
         load();
     }
 
