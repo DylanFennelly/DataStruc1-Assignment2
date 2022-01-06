@@ -2,10 +2,7 @@ package com.bid.bidalot;
 
 import com.bid.bidalot.hashing.BidderHashTable;
 import com.bid.bidalot.hashing.LotHashTable;
-import com.bid.bidalot.lists.MyLinkedList;
-import com.bid.bidalot.lists.Node;
 import com.bid.bidalot.objects.Bidder;
-import com.bid.bidalot.objects.Lot;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 import com.thoughtworks.xstream.security.AnyTypePermission;
@@ -15,7 +12,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.*;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.text.DecimalFormat;
 import java.util.Objects;
 

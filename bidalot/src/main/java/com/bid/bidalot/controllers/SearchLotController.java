@@ -2,7 +2,6 @@ package com.bid.bidalot.controllers;
 
 import com.bid.bidalot.AuctionApp;
 import com.bid.bidalot.lists.MyLinkedList;
-import com.bid.bidalot.objects.Bidder;
 import com.bid.bidalot.objects.Lot;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,7 +14,6 @@ import javafx.stage.Stage;
 
 import javax.swing.*;
 import java.io.IOException;
-import java.util.Locale;
 import java.util.Objects;
 
 import static com.bid.bidalot.AuctionApp.DRIVER;

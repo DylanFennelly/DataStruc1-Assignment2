@@ -1,7 +1,6 @@
 package com.bid.bidalot.controllers;
 
 import com.bid.bidalot.AuctionApp;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
@@ -14,32 +13,31 @@ public class AdminViewController {
     private JFrame frame;
 
     @FXML
-    private Button save, load, clearAll, closeButton;
+    private Button closeButton;
 
     @FXML
-    protected void closeWindow(ActionEvent actionEvent) {
+    protected void closeWindow() {
         Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();
     }
 
     //temporary save and load buttons for testing
     @FXML
-    protected void saveButton(ActionEvent actionEvent) throws Exception {
+    protected void saveButton() throws Exception {
         AuctionApp.save();
         JOptionPane.showMessageDialog(frame, "Save complete!", "Save Status", JOptionPane.INFORMATION_MESSAGE);
     }
 
     @FXML
-    protected void loadButton(ActionEvent actionEvent) throws Exception {
+    protected void loadButton() throws Exception {
         AuctionApp.load();
         JOptionPane.showMessageDialog(frame, "Load complete!", "Load Status", JOptionPane.INFORMATION_MESSAGE);
     }
 
     @FXML
-    protected void clearAll(ActionEvent event) {
+    protected void clearAll() {
         int option = JOptionPane.showConfirmDialog(frame, "Are you sure you want to clear all data in the system?", "Data Deletion Confirmation", JOptionPane.YES_NO_OPTION);
         if (option == JOptionPane.YES_OPTION) {
-            //todo: logout Admin when clearing all
             DRIVER.bidderHashTable.clearAllElements();
             DRIVER.lotHashTable.clearAllElements();
         }

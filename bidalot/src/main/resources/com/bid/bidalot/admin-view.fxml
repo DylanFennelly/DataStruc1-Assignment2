@@ -12,8 +12,8 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Button fx:id="save" layoutX="54.0" layoutY="75.0" mnemonicParsing="false" onAction="#saveButton" prefHeight="25.0" prefWidth="115.0" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Save" />
-      <Button fx:id="load" layoutX="225.0" layoutY="75.0" mnemonicParsing="false" onAction="#loadButton" prefHeight="25.0" prefWidth="128.0" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Load" />
+      <Button layoutX="54.0" layoutY="75.0" mnemonicParsing="false" onAction="#saveButton" prefHeight="25.0" prefWidth="115.0" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Save" />
+      <Button layoutX="225.0" layoutY="75.0" mnemonicParsing="false" onAction="#loadButton" prefHeight="25.0" prefWidth="128.0" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Load" />
       <Button fx:id="clearAll" layoutX="225.0" layoutY="126.0" mnemonicParsing="false" onAction="#clearAll" prefHeight="25.0" prefWidth="128.0" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Clear All" />
       <Button fx:id="closeButton" layoutX="54.0" layoutY="126.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="25.0" prefWidth="115.0" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="Return" />
    </children>

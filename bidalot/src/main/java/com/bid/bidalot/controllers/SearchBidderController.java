@@ -34,7 +34,7 @@ public class SearchBidderController {
     @FXML
     private ToggleGroup sortGroup;
     @FXML
-    private RadioButton nameRadio, noneRadio, addressRadio;
+    private RadioButton nameRadio, addressRadio;
 
     @FXML
     protected void initialize() {
@@ -93,6 +93,7 @@ public class SearchBidderController {
             selectionSortByAddress(bidderList.head);
         }
         for (Bidder b : bidderList){
+            if (!b.getEmail().equals("ADMIN@ADMIN.COM"))    //preventing ADMIN account from being listed
             biddersTV.getItems().add(b);
         }
 

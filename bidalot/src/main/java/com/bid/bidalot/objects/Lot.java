@@ -3,10 +3,8 @@ package com.bid.bidalot.objects;
 import com.bid.bidalot.AuctionApp;
 import com.bid.bidalot.lists.MyLinkedList;
 
-import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.LinkedList;
 
 public class Lot {
     //fields

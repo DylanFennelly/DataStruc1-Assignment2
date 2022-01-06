@@ -16,7 +16,6 @@ import javafx.stage.Stage;
 
 import javax.swing.*;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.Objects;
 
 import static com.bid.bidalot.AuctionApp.DRIVER;
@@ -63,7 +62,7 @@ public class LotController {
     }
 
     @FXML
-    protected void changeToAddMenu(ActionEvent actionEvent) throws IOException {    //pops up in new window
+    protected void changeToAddMenu() throws IOException {    //pops up in new window
         Parent addView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("add-lot-view.fxml")));
         Scene addScene = new Scene(addView);
         Stage stage = new Stage();
@@ -104,7 +103,7 @@ public class LotController {
     }
 
     @FXML
-    protected void showSoldLots(ActionEvent actionEvent){
+    protected void showSoldLots(){
         soldLotsTV.setVisible(true);
         activeLotsTV.setVisible(false);
         activeLotsButton.setVisible(true);
@@ -114,7 +113,7 @@ public class LotController {
     }
 
     @FXML
-    protected void showActiveLots(ActionEvent actionEvent){
+    protected void showActiveLots(){
         soldLotsTV.setVisible(false);
         activeLotsTV.setVisible(true);
         activeLotsButton.setVisible(false);

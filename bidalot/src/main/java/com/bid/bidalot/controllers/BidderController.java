@@ -1,9 +1,7 @@
 package com.bid.bidalot.controllers;
 
 import com.bid.bidalot.AuctionApp;
-import com.bid.bidalot.lists.MyLinkedList;
 import com.bid.bidalot.objects.Bidder;
-import com.bid.bidalot.objects.Lot;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,7 +11,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import javax.swing.*;
@@ -43,7 +40,8 @@ public class BidderController {
         biddersTV.getItems().clear();
         for (int i=0; i<DRIVER.bidderHashTable.hashTableLength() ;i++){
             for (Bidder temp : DRIVER.bidderHashTable.getLinkedList(i)){
-                biddersTV.getItems().add(temp);
+                if (!temp.getEmail().equals("ADMIN@ADMIN.COM"))  //preventing ADMIN account from being listed
+                    biddersTV.getItems().add(temp);
             }
         }
     }
@@ -80,6 +78,18 @@ public class BidderController {
         stage.show();
     }
 
+    @FXML
+    protected void changeToMyBidderDetails(ActionEvent actionEvent) throws IOException{
+        selectedBidder = DRIVER.bidderHashTable.findPositionByEmail(AuctionApp.loggedInBidder.getEmail());
+        if (selectedBidder == null) {
+            JOptionPane.showMessageDialog(frame, "Please select a bidder to view the details of.", "Selection Error!", JOptionPane.ERROR_MESSAGE);
+        }else {
+            Parent detailsView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("bidder-details-view.fxml")));
+            bidderDetailsScene = new Scene(detailsView);
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            stage.setScene(bidderDetailsScene);
+            stage.setTitle("Bid-A-Lot: " + selectedBidder.getName());
+        }
+    }
 
-    //todo: myProfile Button
 }

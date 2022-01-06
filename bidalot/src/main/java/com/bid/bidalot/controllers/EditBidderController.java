@@ -5,7 +5,6 @@ import com.bid.bidalot.objects.Bidder;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -14,11 +13,9 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import javax.swing.*;
-
 import java.io.IOException;
 import java.util.Objects;
 
-import static com.bid.bidalot.AuctionApp.DRIVER;
 import static com.bid.bidalot.controllers.BidderController.bidderDetailsScene;
 
 public class EditBidderController {
@@ -40,7 +37,7 @@ public class EditBidderController {
 
     //password change unlocked after entering password
     @FXML
-    protected void unlockPasswordButton(ActionEvent actionEvent){
+    protected void unlockPasswordButton(){
         String password = JOptionPane.showInputDialog(frame, "Enter password to unlock change password settings:");
         if (password.matches(BidderController.selectedBidder.getPassword())){
             BNewPass.setDisable(false);
@@ -76,7 +73,7 @@ public class EditBidderController {
     }
 
     @FXML
-    protected void updateBidderButton(ActionEvent actionEvent) throws IOException {
+    protected void updateBidderButton() throws IOException {
         String name = BName.getText().trim();   //removing leading/trailing whitespace
         String address = BAddress.getText().trim();
         String phone = BPhone.getText();
@@ -159,7 +156,7 @@ public class EditBidderController {
     }
 
     @FXML
-    protected void closeWindowButton(ActionEvent actionEvent){
+    protected void closeWindowButton(){
         closeWindow();
     }
 }

@@ -59,7 +59,7 @@ public class StartController {
     }
 
     @FXML
-    protected void changeToRegisterLoginMenu(ActionEvent actionEvent) throws IOException { //pops up in new window
+    protected void changeToRegisterLoginMenu() throws IOException { //pops up in new window
         Parent addView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("register-login-view.fxml")));
         Scene addScene = new Scene(addView);
         Stage stage = new Stage();
@@ -72,7 +72,7 @@ public class StartController {
     }
 
     @FXML
-    protected void changeToAdminMenu(ActionEvent actionEvent) throws IOException {
+    protected void changeToAdminMenu() throws IOException {
         Parent adminView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("admin-view.fxml")));
         Scene addScene = new Scene(adminView);
         Stage stage = new Stage();
@@ -101,13 +101,13 @@ public class StartController {
 
     //temporary save and load buttons for testing
     @FXML
-    protected void saveButton(ActionEvent actionEvent) throws Exception {
+    protected void saveButton() throws Exception {
         AuctionApp.save();
         JOptionPane.showMessageDialog(frame, "Save complete!", "Save Status", JOptionPane.INFORMATION_MESSAGE);
     }
 
     @FXML
-    protected void loadButton(ActionEvent actionEvent) throws Exception {
+    protected void loadButton() throws Exception {
         AuctionApp.load();
         JOptionPane.showMessageDialog(frame, "Load complete!", "Load Status", JOptionPane.INFORMATION_MESSAGE);
     }

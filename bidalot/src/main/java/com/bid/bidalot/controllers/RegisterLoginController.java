@@ -2,10 +2,8 @@ package com.bid.bidalot.controllers;
 
 import com.bid.bidalot.AuctionApp;
 import com.bid.bidalot.objects.Bidder;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -14,9 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import javax.swing.*;
-
 import java.io.IOException;
-import java.util.Locale;
 import java.util.Objects;
 
 import static com.bid.bidalot.AuctionApp.DRIVER;
@@ -37,19 +33,16 @@ public class RegisterLoginController {
     }
 
     @FXML
-    protected void closeWindowButton(ActionEvent actionEvent){
+    protected void closeWindowButton(){
         closeWindow();
     }
 
     protected Bidder addBidder(String name, String address, String phone, String email, String password, String passwordConfirm){
-        //todo: move JOptionPane popups to button method
-        //todo: trim leading/trailing whitespace
         if (!name.equals("")){
             if(!address.equals("")){
                 if(phone.matches("^[\\d]{3}[\\s]?[\\d]{3}[\\s]?[\\d]{4}$")){
                     if(email.matches("^[\\w-.]+@([\\w-]+.)+[\\w-]{2,4}$")){
                         //preventing duplicate email addresses
-                        //todo: test
                         Bidder temp = DRIVER.bidderHashTable.findPositionByEmail(email);    //returns null if email is not found
                         if (temp==null) {
                             if (password.length() >= 8) {
@@ -80,7 +73,7 @@ public class RegisterLoginController {
     }
 
     @FXML
-    private void addBidderButton(ActionEvent actionEvent) throws IOException {
+    private void addBidderButton() throws IOException {
         Bidder newBidder = addBidder(BName.getText(), BAddress.getText(), BPhone.getText(), BEmail.getText(), BPass.getText(), BPassConfirm.getText());
         if (newBidder != null){
             DRIVER.bidderHashTable.add(newBidder);
@@ -111,13 +104,12 @@ public class RegisterLoginController {
    }
 
    @FXML
-    private void loginBidderButton(ActionEvent actionEvent) throws IOException {
+    private void loginBidderButton() throws IOException {
         Bidder login = loginBidder(LoginEmail.getText(), LoginPassword.getText());
         if (login != null){
             AuctionApp.loggedInBidder = login;
             closeWindow();
 
-            //todo: find better way to refresh window
             //reloads the startScene to update buttons/label
             Parent startView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("start-view.fxml")));
             Stage stage = (Stage) startScene.getWindow();

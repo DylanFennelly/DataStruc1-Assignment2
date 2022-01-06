@@ -2,21 +2,17 @@ package com.bid.bidalot.controllers;
 
 import com.bid.bidalot.AuctionApp;
 import com.bid.bidalot.objects.Lot;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import javax.swing.*;
-
 import java.io.IOException;
 import java.util.Objects;
 
-import static com.bid.bidalot.AuctionApp.DRIVER;
 import static com.bid.bidalot.controllers.LotController.lotDetailsScene;
 
 public class EditLotController {
@@ -53,7 +49,7 @@ public class EditLotController {
     }
 
     @FXML
-    protected void closeWindowButton(ActionEvent actionEvent){
+    protected void closeWindowButton(){
         closeWindow();
     }
 
@@ -83,7 +79,7 @@ public class EditLotController {
     }
 
     @FXML
-    protected void updateLotButton(ActionEvent actionEvent) throws IOException {
+    protected void updateLotButton() throws IOException {
         String title = lotTitle.getText().trim();   //removing leading/trailing whitespace
         String description = lotDesc.getText().trim();
         String type = lotType.getValue();

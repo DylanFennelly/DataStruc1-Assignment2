@@ -2,7 +2,6 @@ package com.bid.bidalot.controllers;
 
 import com.bid.bidalot.AuctionApp;
 import com.bid.bidalot.objects.Bid;
-import com.bid.bidalot.objects.Bidder;
 import com.bid.bidalot.objects.Lot;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,17 +9,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.*;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import javax.swing.*;
-
 import java.awt.*;
 import java.io.IOException;
 import java.net.URI;
@@ -31,11 +28,10 @@ import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 import static com.bid.bidalot.AuctionApp.DRIVER;
+import static com.bid.bidalot.controllers.BidderController.bidderDetailsScene;
 import static com.bid.bidalot.controllers.BidderController.selectedBidder;
-import static com.bid.bidalot.controllers.LotController.LotIndex;
 import static com.bid.bidalot.controllers.LotController.selectedLot;
 import static com.bid.bidalot.controllers.StartController.lotScene;
-import static com.bid.bidalot.controllers.BidderController.bidderDetailsScene;
 
 public class LotDetailsController {
     private JFrame frame;
@@ -108,7 +104,7 @@ public class LotDetailsController {
     }
 
     @FXML
-    protected void addBidButton(ActionEvent actionEvent){
+    protected void addBidButton(){
         if (bidField.getText().matches("[\\d]+[.]+[\\d]{2}")){
             double bid = Double.parseDouble(bidField.getText());
                 //if bid is greater than current highest bid (asking price)   OR   if bid is equal to the start price and no bids have been placed yet (allowing a bid to be placed at the starting bid price if no bids have been placed yet)
@@ -136,7 +132,7 @@ public class LotDetailsController {
     }
 
     @FXML
-    protected void openImageLink(ActionEvent actionEvent) throws URISyntaxException, IOException {
+    protected void openImageLink() throws URISyntaxException, IOException {
         Desktop.getDesktop().browse(new URI(LotController.selectedLot.getImageLink()));    //https://www.youtube.com/watch?v=SlE0dCuO5yc
     }
 
@@ -174,7 +170,7 @@ public class LotDetailsController {
     }
 
     @FXML
-    protected void sellLotButton(ActionEvent actionEvent){
+    protected void sellLotButton(){
         if (LotController.selectedLot.getListOfBids().getListLength() > 0) {
             int option = JOptionPane.showConfirmDialog(frame, "Are you sure you want to sell this lot? The current top bid will\nbe accepted and the lot will be closed.\n\nCurrent highest bid: " + String.format("%.2f",LotController.selectedLot.getAskingPrice()), "Sell Confirmation", JOptionPane.YES_NO_OPTION);
             if (option == JOptionPane.YES_OPTION) {
@@ -189,8 +185,7 @@ public class LotDetailsController {
     }
 
     @FXML
-    protected void withdrawBidButton(ActionEvent actionEvent){
-        //todo: withdraw bids, regardless if they are top bid or not?
+    protected void withdrawBidButton(){
         if (LotController.selectedLot.getListOfBids().getListLength() > 0) {
             //if user that placed the current top bid is the same as the logged in user
             if(LotController.selectedLot.getListOfBids().head.getContents().getBidder() == AuctionApp.loggedInBidder){
@@ -224,7 +219,7 @@ public class LotDetailsController {
     }
 
     @FXML
-    protected void changeToEditMenu(ActionEvent actionEvent) throws IOException {    //pops up in new window
+    protected void changeToEditMenu() throws IOException {    //pops up in new window
         Parent editView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("edit-lot-view.fxml")));
         Scene editScene = new Scene(editView);
         Stage stage = new Stage();

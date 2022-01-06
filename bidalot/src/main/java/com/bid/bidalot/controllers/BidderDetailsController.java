@@ -62,7 +62,7 @@ public class BidderDetailsController {
     }
 
     @FXML
-    protected void changeToEditMenu(ActionEvent actionEvent) throws IOException {
+    protected void changeToEditMenu() throws IOException {
         Parent editView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("edit-bidder-view.fxml")));
         Scene editScene = new Scene(editView);
         Stage stage = new Stage();
@@ -98,6 +98,4 @@ public class BidderDetailsController {
             stage.setTitle("Bid-A-Lot: " + selectedLot.getTitle());
         }
     }
-
-    //todo: delete account
 }

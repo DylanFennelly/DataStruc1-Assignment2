@@ -60,7 +60,7 @@
             <ToggleGroup fx:id="sortGroup" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="noneRadio" layoutX="636.0" layoutY="103.0" mnemonicParsing="false" selected="true" text="None" textFill="WHITE" toggleGroup="$sortGroup" />
+      <RadioButton layoutX="636.0" layoutY="103.0" mnemonicParsing="false" selected="true" text="None" textFill="WHITE" toggleGroup="$sortGroup" />
       <RadioButton fx:id="addressRadio" layoutX="636.0" layoutY="74.0" mnemonicParsing="false" text="Address" textFill="WHITE" toggleGroup="$sortGroup" />
       <Label layoutX="636.0" layoutY="27.0" text="Sort by" textFill="WHITE" />
     </children>
