@@ -77,7 +77,6 @@ public class LotController {
 
     @FXML
     protected void changeToLotDetails(ActionEvent actionEvent) throws IOException{
-        System.out.println(activeLots);
         if (activeLots) {
             selectedLot = DRIVER.lotHashTable.findPosition(activeLotsTV.getSelectionModel().getSelectedItem());
         } else {

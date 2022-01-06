@@ -149,7 +149,25 @@
         <com.bid.bidalot.lists.MyLinkedList/>
         <com.bid.bidalot.lists.MyLinkedList/>
         <com.bid.bidalot.lists.MyLinkedList/>
-        <com.bid.bidalot.lists.MyLinkedList/>
+        <com.bid.bidalot.lists.MyLinkedList>
+          <head>
+            <contents class="com.bid.bidalot.objects.Lot">
+              <title>antique wow</title>
+              <description>a chair or some shit</description>
+              <type>Antiques</type>
+              <imageLink>N/A</imageLink>
+              <originDate>2001</originDate>
+              <startDate>2022-01-06</startDate>
+              <startTime>01:37:37.8101716</startTime>
+              <startPrice>63.0</startPrice>
+              <askingPrice>63.0</askingPrice>
+              <finalSalePrice>0.0</finalSalePrice>
+              <sold>false</sold>
+              <lotOwner reference="../../../../../../bidderHashTable/bidderHashTable/com.bid.bidalot.lists.MyLinkedList[4]/head/contents"/>
+              <listOfBids/>
+            </contents>
+          </head>
+        </com.bid.bidalot.lists.MyLinkedList>
         <com.bid.bidalot.lists.MyLinkedList/>
         <com.bid.bidalot.lists.MyLinkedList/>
         <com.bid.bidalot.lists.MyLinkedList/>
