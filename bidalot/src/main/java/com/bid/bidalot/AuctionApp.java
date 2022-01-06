@@ -39,8 +39,6 @@ public class AuctionApp extends Application {
         stage.setScene(startScene);
         stage.setResizable(false);
         stage.show();
-        //todo: check if auctionApp.xml exists + create new file if it doesnt
-
         boolean xmlExists = new File("auctionApp.xml").isFile();
         if (!xmlExists)
             save(); //creates an fxml file if it doesnt exit yet
