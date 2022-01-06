@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: linear-gradient(to bottom, #383a3d, grey);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bid.bidalot.controllers.BidderController">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: linear-gradient(to bottom, #383a3d, grey);" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bid.bidalot.controllers.BidderController">
     <children>
         <Label layoutX="22.0" layoutY="14.0" text="Bidders" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="10.0">
             <font>
@@ -26,17 +26,17 @@
                         <PropertyValueFactory property="name" />
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn prefWidth="358.0" reorderable="false" resizable="false" sortable="false" text="Address">
+                <TableColumn prefWidth="368.0" reorderable="false" resizable="false" sortable="false" text="Address">
                     <cellValueFactory>
                         <PropertyValueFactory property="address" />
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn minWidth="0.0" prefWidth="163.0" reorderable="false" resizable="false" sortable="false" text="Phone">
+                <TableColumn minWidth="0.0" prefWidth="168.0" reorderable="false" resizable="false" sortable="false" text="Phone">
                     <cellValueFactory>
                         <PropertyValueFactory property="phone" />
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn prefWidth="172.0" reorderable="false" resizable="false" sortable="false" text="Email">
+                <TableColumn prefWidth="179.0" reorderable="false" resizable="false" sortable="false" text="Email">
                     <cellValueFactory>
                         <PropertyValueFactory property="email" />
                     </cellValueFactory>
