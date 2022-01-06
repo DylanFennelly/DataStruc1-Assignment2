@@ -41,11 +41,9 @@ public class BidderHashTable {
 
         for (Bidder b : bidderHashTable[loc]) {     //iterate through list found by hashCode of temp
             if (b.getEmail().equals(temp.getEmail())) {     //if matching email is found
-                System.out.println("Bidder associated with email " + i + " found in chain " + loc);
                 return b;   //return bidder
             }
         }
-        System.out.println("Hashtable does not contain " + i);
         return null;    //if matching email is not found, return null;
     }
 

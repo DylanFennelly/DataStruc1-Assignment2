@@ -41,11 +41,10 @@ public class LotHashTable {
         for (Lot lot : lotHashTable[loc]) {     //iterate through list found by hashCode of temp
             String tempCombo = lot.getLotOwner() + lot.getStartTime().toString();
             if (tempCombo.equals(combination)) {     //if temp lot combo string is the same as input lot combo string, then lots are the same
-                System.out.println("Lot" + lot.getTitle() + " found in chain " + loc);
                 return lot;   //return bidder
             }
         }
-        System.out.println("Hashtable does not contain " + l.getTitle());
+
         return null;    //if matching email is not found, return null;
     }
 
@@ -55,7 +54,6 @@ public class LotHashTable {
 
         for (int i = 0; i<lotHashTable[loc].getListLength();i++){//iterate through list found by hashCode of temp
             if (hashFunction(lotHashTable[loc].getElementByInt(i).getContents()) == hashFunction(l)) {     //if matching lot hashcode is found
-                System.out.println("Lot" + lotHashTable[loc].getElementByInt(i).getContents().getTitle() + " found in chain " + loc + "\nRemoving...");
                 lotHashTable[loc].removeElement(i);
                 removed = true;
                 break;
