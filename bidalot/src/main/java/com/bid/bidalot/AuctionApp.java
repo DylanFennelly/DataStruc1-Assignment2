@@ -41,7 +41,7 @@ public class AuctionApp extends Application {
         stage.show();
         boolean xmlExists = new File("auctionApp.xml").isFile();
         if (!xmlExists)
-            save(); //creates an fxml file if it doesnt exit yet
+            save(); //creates an xml file if it doesnt exit yet
         load();
     }
 

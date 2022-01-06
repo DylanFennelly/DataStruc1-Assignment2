@@ -87,7 +87,7 @@ public class EditBidderController {
                         String jOptionConfirmText = "The following details will be updated:\n";
                         //confirming if any changes have been made
                         boolean changeMade = false;
-                        //if a title was entered and the entered title was not the same as the lot's title as is
+                        //if a name was entered and the entered name was not the same as the bidder's name as is
                         if (!name.equals("") && !name.equals(BidderController.selectedBidder.getName())) {
                             if (name.length() <= 25)
                                 jOptionConfirmText = jOptionConfirmText + "\nName: " + name;

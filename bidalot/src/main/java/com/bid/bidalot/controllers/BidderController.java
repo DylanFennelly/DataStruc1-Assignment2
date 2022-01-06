@@ -38,8 +38,8 @@ public class BidderController {
         }
 
         biddersTV.getItems().clear();
-        for (int i = 0; i < DRIVER.bidderHashTable.hashTableLength(); i++) {
-            for (Bidder temp : DRIVER.bidderHashTable.getLinkedList(i)) {
+        for (int i = 0; i < DRIVER.bidderHashTable.hashTableLength(); i++) {    //iterating on array of linkedlists
+            for (Bidder temp : DRIVER.bidderHashTable.getLinkedList(i)) {       //iterating through elements in linkedlist
                 if (!temp.getEmail().equals("ADMIN@ADMIN.COM"))  //preventing ADMIN account from being listed
                     biddersTV.getItems().add(temp);
             }

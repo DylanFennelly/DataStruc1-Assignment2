@@ -34,7 +34,7 @@ public class AddLotController {
 
     @FXML
     protected void closeWindow() {    //https://stackoverflow.com/questions/25037724/how-to-close-a-java-window-with-a-button-click-javafx-project/41838183
-        Stage stage = (Stage) closeButton.getScene().getWindow();
+        Stage stage = (Stage) closeButton.getScene().getWindow();   //get window containing button
         stage.close();
     }
 
