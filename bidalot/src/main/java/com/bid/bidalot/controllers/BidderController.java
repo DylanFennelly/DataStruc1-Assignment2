@@ -70,5 +70,16 @@ public class BidderController {
         }
     }
 
+    @FXML
+    protected void changeToSearchMenu(ActionEvent actionEvent) throws IOException{
+        Parent searchView = FXMLLoader.load(Objects.requireNonNull(AuctionApp.class.getResource("search-bidder-view.fxml")));
+        Scene searchScene = new Scene(searchView);
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.setScene(searchScene);
+        stage.setTitle("Bid-A-Lot: Search Bidders");
+        stage.show();
+    }
+
+
     //todo: myProfile Button
 }

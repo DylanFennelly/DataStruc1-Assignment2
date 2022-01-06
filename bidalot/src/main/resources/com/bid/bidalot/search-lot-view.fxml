@@ -62,7 +62,7 @@
       </ChoiceBox>
       <ToggleButton fx:id="yearToggleButton" layoutX="429.0" layoutY="98.0" mnemonicParsing="false" onAction="#enableDisableYearSpinner" style="-fx-background-color: linear-gradient(to bottom, #dbdbdb, #7d7d7d); -fx-background-insets: 0; -fx-border-color: black; -fx-border-width: 0.5;" text="On/Off" />
       <Spinner fx:id="yearSpinner" disable="true" initialValue="2000" layoutX="402.0" layoutY="69.0" max="2022" min="0" prefHeight="25.0" prefWidth="150.0" />
-      <TextField fx:id="descField" layoutX="594.0" layoutY="69.0" prefHeight="25.0" prefWidth="150.0" />
+      <TextField fx:id="descField" layoutX="594.0" layoutY="69.0" prefHeight="25.0" prefWidth="150.0" promptText="Enter keyword..." />
       <RadioButton fx:id="activeLotsRadio" layoutX="779.0" layoutY="52.0" mnemonicParsing="false" selected="true" text="Active Lots" textFill="WHITE">
          <toggleGroup>
             <ToggleGroup fx:id="soldActive" />
